@@ -14,6 +14,7 @@
  * @property Doctrine_Collection $OwnedProjects
  * @property Doctrine_Collection $Project
  * @property Doctrine_Collection $Setting
+ * @property Doctrine_Collection $Tokens
  * 
  * @method string              getFirstName()     Returns the current record's "first_name" value
  * @method string              getLastName()      Returns the current record's "last_name" value
@@ -24,6 +25,7 @@
  * @method Doctrine_Collection getOwnedProjects() Returns the current record's "OwnedProjects" collection
  * @method Doctrine_Collection getProject()       Returns the current record's "Project" collection
  * @method Doctrine_Collection getSetting()       Returns the current record's "Setting" collection
+ * @method Doctrine_Collection getTokens()        Returns the current record's "Tokens" collection
  * @method User                setFirstName()     Sets the current record's "first_name" value
  * @method User                setLastName()      Sets the current record's "last_name" value
  * @method User                setEmail()         Sets the current record's "email" value
@@ -33,6 +35,7 @@
  * @method User                setOwnedProjects() Sets the current record's "OwnedProjects" collection
  * @method User                setProject()       Sets the current record's "Project" collection
  * @method User                setSetting()       Sets the current record's "Setting" collection
+ * @method User                setTokens()        Sets the current record's "Tokens" collection
  * 
  * @package    timeboxx
  * @subpackage model
@@ -83,6 +86,10 @@ abstract class BaseUser extends sfDoctrineRecord
              'foreign' => 'project_id'));
 
         $this->hasMany('Setting', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Token as Tokens', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

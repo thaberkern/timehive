@@ -62,3 +62,16 @@ Setting:
     user_id: { type: integer(20) }
   relations:
     User: { class: User, local: user_id }
+
+Token:
+  tableName: tb_token
+  columns:
+    user_id: { type: integer(20) }
+    action:
+      type: enum
+      values: [autologin, recovery]
+    value: { type: string(255) }
+  relations:
+    User: { foreignAlias: Tokens, class: User, local: user_id }
+  actAs:
+    Timestampable: ~

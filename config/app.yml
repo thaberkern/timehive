@@ -1,2 +1,10 @@
 all:
   version: 0.1.0
+
+  autologin_expiration: 84600
+
+  notification:
+    missing_bookings: true
+
+  user:
+    cultures: [de,en]

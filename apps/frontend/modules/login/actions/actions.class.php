@@ -8,43 +8,45 @@
  * @author     Timo Haberkern <timo.haberkern@shift-up.de>
  * @version    SVN: $Id: actions.class.php 39 2009-09-03 07:47:30Z thaberkern $
  */
-class loginActions extends sfActions {
-/**
- * Executes index action
- *
- * @param sfRequest $request A request object
- */
-    public function executeIndex($request) {
+class loginActions extends sfActions
+{
+
+    /**
+     * Executes index action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeIndex($request)
+    {
+        $this->getUser()->setComeFromRoute($request);
     }
 
     /**
-     * TODO: Documentation
      * Action Login implementation
      *
      * @param sfWebRequest $request
      */
-    public function executeLogin($request) {
+    public function executeLogin($request)
+    {
         $username = $request->getParameter('username', '');
-        $password = md5($request->getParameter('pwd', ''));
+        $password = $request->getParameter('pwd', '');
 
-        $query = new Doctrine_Query();
-        $user = $query->from('User')
-            ->where('username=? AND password=?', array($username, $password))
-            ->fetchOne();
+        $user = UserTable::getInstance()->login($username, $password);
 
-        if ($user && $user->getUsername() == $username && $user->getPassword() == $password) {
+        if ($user) {
             $this->getUser()->signIn($user);
 
             if ($request->getParameter('autologin', 0) == 1) {
-                $token = new Token();
-                $token->setUserId($user->getId());
-                $token->setAction(Token::$ACTION_AUTOLOGIN);
+                $token = TokenTable::getInstance()->createAutologinToken($user->id);
                 $token->save();
 
-                $this->response->setCookie('autologin', $token->value, time()+sfConfig::get('app_autologin_expiration'));
+                $this->response->setCookie('autologin', 
+                                           $token->value,
+                                           time() + sfConfig::get('app_autologin_expiration'));
             }
-            
-            $this->redirect('dashboard/index');
+
+            $comes_from = $this->getUser()->getAndClearComesFromRoute();
+            $this->redirect($comes_from);
         }
         else {
             $this->getUser()->setAuthenticated(false);
@@ -54,22 +56,15 @@ class loginActions extends sfActions {
     }
 
     /**
-     * TODO: Documentation
      * Action Logout implementation
      *
      * @param sfWebRequest $request
      */
-    public function executeLogout($request) {
+    public function executeLogout($request)
+    {
         $this->getUser()->setAuthenticated(false);
 
-        // Delete all autologin-tokens at logout
-        Doctrine_Query::create()->delete('Token t')
-                                ->where('t.user_id=? AND t.action=?',
-                                      array($this->getUser()->getAttribute('uid'),
-                                            Token::$ACTION_AUTOLOGIN
-                                      )
-                                    )
-                                ->execute();
+        TokenTable::getInstance()->deleteAutologinTokens($this->getUser()->getAttribute('uid'));
 
         // Delete the autologin-cookie by setting the expiration date to the past
         $this->getResponse()->setCookie('autologin', 0, 0);
@@ -83,9 +78,9 @@ class loginActions extends sfActions {
      *
      * @param sfWebRequest $request
      */
-    public function executeCredential($request) {
-    // does nothing at the moment
+    public function executeCredential($request)
+    {
+        // does nothing at the moment
     }
 
-    
 }

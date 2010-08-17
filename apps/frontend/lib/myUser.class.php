@@ -1,5 +1,8 @@
 <?php
-class myUser extends sfBasicSecurityUser {
+
+class myUser extends sfBasicSecurityUser
+{
+
     /**
      * Checks if a user is allowed to access a given action
      *
@@ -7,19 +10,32 @@ class myUser extends sfBasicSecurityUser {
      * @return Boolean Returns true if the user is allowed to do the given
      *                  action
      */
-    public function isAllowedTo($action) {
+    public function isAllowedTo($action)
+    {
         return ($this->getAttribute('user_rights', 0) & $action) == $action;
     }
 
-    public function isAdministrator() {
+    /**
+     * @return boolean
+     */
+    public function isAdministrator()
+    {
         return $this->hasCredential('admin');
     }
 
-    public function isAnonymous() {
-        return !$this->isAuthenticated();
+    /**
+     * @return boolean
+     */
+    public function isAnonymous()
+    {
+        return!$this->isAuthenticated();
     }
 
-    public function isFirstRequest() {
+    /**
+     * @return boolean
+     */
+    public function isFirstRequest()
+    {
         if ($this->is_first_request) {
             $this->is_first_request = false;
             return true;
@@ -29,10 +45,10 @@ class myUser extends sfBasicSecurityUser {
     }
 
     /**
-     * TODO: Documentation
      * @param User $user
      */
-    public function signIn(User $user) {
+    public function signIn(User $user)
+    {
         $this->setAuthenticated(true);
 
         $this->setAttribute('uid', $user->getId());
@@ -45,5 +61,34 @@ class myUser extends sfBasicSecurityUser {
         }
     }
 
+    /**
+     * @param sfWebRequest $request
+     */
+    public function setComesFromRoute(sfWebRequest $request)
+    {
+        if ($this->getAttribute('comes_from', null) == null) {
+            $this->setAttribute('comes_from',
+                        array('action'=>$request->getParameter('action'),
+                              'module'=>$request->getParameter('module')));
+        }
+    }
+
+    /**
+     * @return String
+     */
+    public function getAndClearComesFromRoute()
+    {
+        $route_info = $this->getAttribute('comes_from',
+                                    array('action'=>'',
+                                          'module'=>''));
+
+        $route = $route_info['module'].'/'.$route_info['action'];
+
+        $this->getAttributeHolder()->remove('comes_from');
+
+        return $route;
+    }
+
     private $is_first_request = true;
+
 }
