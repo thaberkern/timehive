@@ -1,3 +1,4 @@
 cache/*
 log/*
 nbproject
+web/web.config

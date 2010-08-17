@@ -1,3 +1,7 @@
+<?php slot('sidebarclass'); ?>
+class="nosidebar"
+<?php end_slot();?>
+
 <?php slot('title'); ?><?php echo $title;?><?php end_slot();?>
 
 <?php if ($sf_user->getFlash('notice_message', false) != false): ?>
@@ -28,7 +32,7 @@
             <tr>
                 <td/>
                 <td align="left"><label for="autologin"><input id="autologin" type="checkbox" value="1" name="autologin"/>
-                        <?php echo __('Angemeldet bleiben');?></label></td>
+                        <?php echo __('Keep logged in');?></label></td>
             </tr>
             <tr>
 		<td align="left"><a href="<?php echo url_for('account/lostPassword');?>"><?php echo __('Lost password');?></a></td>

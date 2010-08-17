@@ -18,7 +18,9 @@ class loginActions extends sfActions
      */
     public function executeIndex($request)
     {
-        $this->getUser()->setComeFromRoute($request);
+        $this->title = "Dumdidum";
+        
+        $this->getUser()->setComesFromRoute($request);
     }
 
     /**
