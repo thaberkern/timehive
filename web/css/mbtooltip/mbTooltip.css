@@ -1,0 +1,50 @@
+body{
+    font-family:sans-serif;
+    font-size:13px;
+}
+
+#tooltip{
+    width:auto;
+    max-width:300px;
+    min-width:100px;
+    border:1px solid;
+    background:white;
+    padding:5px;
+    margin-top:4px;
+    font-size:12px;
+    color:dimgray;
+}
+
+#tooltip #ttimg.top{
+    margin-top:-17px;
+    margin-left:2px
+}
+#tooltip #ttimg.bottom{
+    bottom:0;
+    margin-bottom:-12px;
+    margin-left:2px
+}
+
+
+#tooltip.default{
+    border:3px solid white;
+    background:whitesmoke;
+    color:gray;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px; 
+    margin-top:2px;
+}
+
+
+#tooltip.default #ttimg.top{
+	position:absolute;
+		margin-top:-8px;
+    margin-left:-8px
+}
+#tooltip.default #ttimg.bottom{
+	position:absolute;
+    bottom:0;
+    margin-bottom:-3px;
+    margin-left:-8px
+}
