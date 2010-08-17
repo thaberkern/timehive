@@ -75,7 +75,7 @@ abstract class BaseUser extends sfDoctrineRecord
 
         $this->hasMany('Project as OwnedProjects', array(
              'local' => 'id',
-             'foreign' => 'user_id'));
+             'foreign' => 'owner_id'));
 
         $this->hasMany('Project', array(
              'refClass' => 'ProjectUser',

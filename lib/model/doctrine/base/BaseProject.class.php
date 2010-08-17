@@ -53,7 +53,7 @@ abstract class BaseProject extends sfDoctrineRecord
     {
         parent::setUp();
         $this->hasOne('User as Owner', array(
-             'local' => 'user_id',
+             'local' => 'owner_id',
              'foreign' => 'id'));
 
         $this->hasMany('User as AssignedUser', array(

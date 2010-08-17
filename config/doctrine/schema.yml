@@ -47,7 +47,7 @@ Project:
     number: { type: string(100) }
     owner_id: { type: integer(20) }
   relations:
-    Owner: { class: User, foreignAlias: OwnedProjects }
+    Owner: { class: User, foreignAlias: OwnedProjects, local: owner_id }
     AssignedUser: { class: User, refClass: ProjectUser }
     
 ProjectUser:
