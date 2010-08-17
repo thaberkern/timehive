@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * login actions.
+ *
+ * @package    taskboxx
+ * @subpackage login
+ * @author     Timo Haberkern <timo.haberkern@shift-up.de>
+ * @version    SVN: $Id$
+ */
+class loginActions extends GeneralActions {
+/**
+ * Executes index action
+ *
+ * @param sfRequest $request A request object
+ */
+    public function executeIndex($request) {
+    }
+
+    /**
+     * TODO: Documentation
+     * Action Login implementation
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeLogin($request) {
+        $username = $request->getParameter('username', '');
+        $password = md5($request->getParameter('pwd', ''));
+
+        $query = new Doctrine_Query();
+        $user = $query->from('User')
+            ->where('username=? AND password=?', array($username, $password))
+            ->fetchOne();
+
+        if ($user && $user->getUsername() == $username && $user->getPassword() == $password) {
+            $this->getUser()->signIn($user);
+
+            if ($request->getParameter('autologin', 0) == 1) {
+                $token = new Token();
+                $token->setUserId($user->getId());
+                $token->setAction(Token::$ACTION_AUTOLOGIN);
+                $token->save();
+
+                $this->response->setCookie('autologin', $token->value, time()+sfConfig::get('app_autologin_expiration'));
+            }
+            
+            $this->redirect('dashboard/index');
+        }
+        else {
+            $this->getUser()->setAuthenticated(false);
+            $this->getUser()->setFlash('login_failure', true);
+            $this->forward('login', 'index');
+        }
+    }
+
+    /**
+     * TODO: Documentation
+     * Action Logout implementation
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeLogout($request) {
+        $this->getUser()->setAuthenticated(false);
+
+        // Delete all autologin-tokens at logout
+        Doctrine_Query::create()->delete('Token t')
+                                ->where('t.user_id=? AND t.action=?',
+                                      array($this->getUser()->getAttribute('uid'),
+                                            Token::$ACTION_AUTOLOGIN
+                                      )
+                                    )
+                                ->execute();
+
+        // Delete the autologin-cookie by setting the expiration date to the past
+        $this->getResponse()->setCookie('autologin', 0, 0);
+
+        $this->redirect('login/index');
+    }
+
+    /**
+     * Action Credential implementation. Action is called if the user doesn't
+     * have the needed user rights to access a function
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeCredential($request) {
+    // does nothing at the moment
+    }
+
+    
+}

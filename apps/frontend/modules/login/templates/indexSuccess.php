@@ -1,0 +1,43 @@
+<?php slot('sidebarclass'); ?>
+class="nosidebar"
+<?php end_slot();?>
+
+<?php slot('title'); ?><?php echo $title;?><?php end_slot();?>
+
+<?php if ($sf_user->getFlash('notice_message', false) != false): ?>
+	<div class="flash notice">
+		<?php echo $sf_user->getFlash('notice_message'); ?>
+	</div>
+	<br/>
+<?php endif; ?>
+
+<?php if ($sf_user->getFlash('login_failure', false) == true): ?>
+	<div class="flash error">
+		<strong><?php echo __('Login failed!') ?></strong><br/>
+		<?php echo __('Either your password or username was wrong. Please try again!') ?>
+	</div>
+	<br/>
+<?php endif; ?>
+<div id="login-form">
+    <form action="<?php echo url_for('login/login'); ?>" method="POST">
+	<table>
+            <tr>
+		<td align="right"><label for="username"><?php echo __('Username') ?>:</label></td>
+		<td align="left"><p><input type="text" size="40" name="username"></p></td>
+            </tr>
+            <tr>
+		<td align="right"><label for="password"><?php echo __('Password') ?>:</label></td>
+		<td align="left"><p><input type="password" size="40" name="pwd"></p></td>
+            </tr>
+            <tr>
+                <td/>
+                <td align="left"><label for="autologin"><input id="autologin" type="checkbox" value="1" name="autologin"/>
+                        <?php echo __('Angemeldet bleiben');?></label></td>
+            </tr>
+            <tr>
+		<td align="left"><a href="<?php echo url_for('account/lostPassword');?>"><?php echo __('Lost password');?></a></td>
+		<td align="right"><input type="submit" value="<?php echo __('Login'); ?> »"></td>
+            </tr>
+	</table>
+    </form>
+</div>

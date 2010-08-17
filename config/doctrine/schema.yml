@@ -1,0 +1,64 @@
+---
+Account:
+  tableName: tb_account
+  columns:
+    type: { type: enum, values: [free, small, pro, unlimited] }
+  actAs:
+    Timestampable: ~
+    
+User:
+  tableName: tb_user
+  columns:
+    first_name: { type: string(255) }
+    last_name: { type: string(255) }
+    email: { type: string(255) }
+    account_id: { type: integer(20) }
+  relations:
+    Account: { class: Account, foreignAlias: users, local: account_id }
+  actAs:
+    Timestampable: ~
+    
+TimeLogItem:
+  tableName: tb_timelog_item
+  columns:
+    value: { type: double }
+    type_id: { type: integer(20) }
+    project_id: { type: integer(20) }
+    user_id: { type: integer(20) }
+  relations:
+    TimeItemType: { class: TimeItemType, local: type_id }
+    User: { class: User, local: user_id, foreignAlias: TimeLogItems }
+    Project: { class: Project, local: project_id, foreignAlias: TimeLogItems }
+  actAs:
+    Timestampable: ~
+
+TimeItemType:
+  tableName: tb_timeitem_type
+  columns:
+    name: { type: string(255) }
+    account_id: { type: integer(20) }
+  relations:
+    Account: { class: Account, foreignAlias: TimeItemTypes, local: account_id }    
+
+Project:
+  tableName: tb_project
+  columns:
+    name: { type: string(255) }
+    number: { type: string(100) }
+    owner_id: { type: integer(20) }
+  relations:
+    Owner: { class: User, foreignAlias: OwnedProjects }
+    AssignedUser: { class: User, refClass: ProjectUser }
+    
+ProjectUser:
+  tableName: tb_project_user
+  columns:
+    project_id: { type: integer(20) }
+    user_id: { type: integer(20) }
+
+Setting:
+  tableName: tb_settings
+  columns:
+    user_id: { type: integer(20) }
+  relations:
+    User: { class: User, local: user_id }

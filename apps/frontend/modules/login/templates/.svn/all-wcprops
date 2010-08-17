@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/taskboxx/!svn/ver/46/trunk/apps/frontend/modules/login/templates
+END
+indexSuccess.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/taskboxx/!svn/ver/39/trunk/apps/frontend/modules/login/templates/indexSuccess.php
+END
+credentialSuccess.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/taskboxx/!svn/ver/46/trunk/apps/frontend/modules/login/templates/credentialSuccess.php
+END
