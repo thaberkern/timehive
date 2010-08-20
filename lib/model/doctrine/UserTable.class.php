@@ -20,11 +20,11 @@ class UserTable extends Doctrine_Table
         $user = Doctrine_Query::create()
                         ->from('User')
                         ->where('username=? AND password=?',
-                                    array($username, $password))
+                                    array($username, $password_hash))
                         ->fetchOne();
 
         if ($user &&
-            $user->getUsername() == $username && $user->getPassword() == $password) {
+            $user->getUsername() == $username && $user->getPassword() == $password_hash) {
 
             return $user;
         }

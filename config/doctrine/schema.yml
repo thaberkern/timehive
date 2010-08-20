@@ -13,6 +13,10 @@ User:
     last_name: { type: string(255) }
     email: { type: string(255) }
     account_id: { type: integer(20) }
+    username: { type: string(255) }
+    password: { type: string(255) }
+    administrator: { type: boolean }
+    locked: { type: boolean }
   relations:
     Account: { class: Account, foreignAlias: users, local: account_id }
   actAs:
@@ -60,6 +64,9 @@ Setting:
   tableName: tb_settings
   columns:
     user_id: { type: integer(20) }
+    culture: { type: string(10) }
+    reminder: { type: boolean }
+    locked: { type: boolean }
   relations:
     User: { class: User, local: user_id }
 

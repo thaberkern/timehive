@@ -9,6 +9,10 @@
  * @property string $last_name
  * @property string $email
  * @property integer $account_id
+ * @property string $username
+ * @property string $password
+ * @property boolean $administrator
+ * @property boolean $locked
  * @property Account $Account
  * @property Doctrine_Collection $TimeLogItems
  * @property Doctrine_Collection $OwnedProjects
@@ -20,6 +24,10 @@
  * @method string              getLastName()      Returns the current record's "last_name" value
  * @method string              getEmail()         Returns the current record's "email" value
  * @method integer             getAccountId()     Returns the current record's "account_id" value
+ * @method string              getUsername()      Returns the current record's "username" value
+ * @method string              getPassword()      Returns the current record's "password" value
+ * @method boolean             getAdministrator() Returns the current record's "administrator" value
+ * @method boolean             getLocked()        Returns the current record's "locked" value
  * @method Account             getAccount()       Returns the current record's "Account" value
  * @method Doctrine_Collection getTimeLogItems()  Returns the current record's "TimeLogItems" collection
  * @method Doctrine_Collection getOwnedProjects() Returns the current record's "OwnedProjects" collection
@@ -30,6 +38,10 @@
  * @method User                setLastName()      Sets the current record's "last_name" value
  * @method User                setEmail()         Sets the current record's "email" value
  * @method User                setAccountId()     Sets the current record's "account_id" value
+ * @method User                setUsername()      Sets the current record's "username" value
+ * @method User                setPassword()      Sets the current record's "password" value
+ * @method User                setAdministrator() Sets the current record's "administrator" value
+ * @method User                setLocked()        Sets the current record's "locked" value
  * @method User                setAccount()       Sets the current record's "Account" value
  * @method User                setTimeLogItems()  Sets the current record's "TimeLogItems" collection
  * @method User                setOwnedProjects() Sets the current record's "OwnedProjects" collection
@@ -62,6 +74,20 @@ abstract class BaseUser extends sfDoctrineRecord
         $this->hasColumn('account_id', 'integer', 20, array(
              'type' => 'integer',
              'length' => 20,
+             ));
+        $this->hasColumn('username', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('password', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('administrator', 'boolean', null, array(
+             'type' => 'boolean',
+             ));
+        $this->hasColumn('locked', 'boolean', null, array(
+             'type' => 'boolean',
              ));
     }
 

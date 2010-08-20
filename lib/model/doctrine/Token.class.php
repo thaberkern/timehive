@@ -13,4 +13,39 @@
 class Token extends BaseToken
 {
 
+    public static $ACTION_AUTOLOGIN = 'autologin';
+    public static $ACTION_RECOVER = 'recovery';
+
+    public function preInsert($event)
+    {
+        $this->generateToken();
+    }
+
+    /**
+     * Returns true if the token has expired
+     */
+    public function isExpired()
+    {
+        return time() > strtotime($this->created_at) + $this->validity_time;
+    }
+
+    /**
+     * Deletes all expired tokens
+     */
+    public function destroyExpired()
+    {
+        Doctrine_Query::create()
+                ->delete()
+                ->from('Token t')
+                ->where('t.created_at < ?', array(time() - $this->validity_time))
+                ->execute();
+    }
+
+    private function generateToken()
+    {
+        $this->value = md5(uniqid(rand(), 1));
+    }
+
+    private $validity_time;
+
 }
