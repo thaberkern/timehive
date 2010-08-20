@@ -36,3 +36,7 @@ all:
 
     standard_helpers:       [Partial, Cache, I18N]
     i18n:                   true
+    
+  .actions:
+    login_module:           login   # To be called when a ntrue-authenticated user
+    login_action:           index     # Tries to access a secure page

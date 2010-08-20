@@ -66,7 +66,7 @@ class myUser extends sfBasicSecurityUser
      */
     public function setComesFromRoute(sfWebRequest $request)
     {
-        if ($this->getAttribute('comes_from', null) == null) {
+        if ($request->getParameter('module') != 'login') {
             $this->setAttribute('comes_from',
                         array('action'=>$request->getParameter('action'),
                               'module'=>$request->getParameter('module')));

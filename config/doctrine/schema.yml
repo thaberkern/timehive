@@ -66,9 +66,9 @@ Setting:
     user_id: { type: integer(20) }
     culture: { type: string(10) }
     reminder: { type: boolean }
-    locked: { type: boolean }
+    theme: { type: string(255), default: 'default' }
   relations:
-    User: { class: User, local: user_id }
+    User: { class: User, local: user_id, foreignType: one }
 
 Token:
   tableName: tb_token

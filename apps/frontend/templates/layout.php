@@ -30,17 +30,12 @@
             <?php endif; ?>
             <ul>
                 <li><a href="<?php echo url_for('dashboard/index'); ?>">Dashboard</a></li>
-                <li><a href="<?php echo url_for('project/list'); ?>">Projects</a></li>
-                <?php if(sfContext::getInstance()->getUser()->isAuthenticated()):?><li><a href="<?php echo url_for('time/index'); ?>">Timesheet</a></li><?php endif;?>
-                <?php if(sfContext::getInstance()->getUser()->isAuthenticated()):?><li><a href="<?php echo url_for('report/index'); ?>">Reports</a></li><?php endif;?>
                 <?php if($sf_user->isAdministrator()):?><li><a href="<?php echo url_for('admin/index'); ?>">Administration</a></li><?php endif;?>
             </ul>
         </div>
         <div id="header">
             <h1>TimeBoxx</h1>
-            <?php if (has_slot('main-menu')):?>
-                <?php include_slot('main-menu');?>
-            <?php endif; ?>
+            <?php include_partial('global/mainMenu', array('module'=>$sf_request->getParameter('module')));?>
         </div>
 
         <div id="main" <?php include_slot('sidebarclass');?>>

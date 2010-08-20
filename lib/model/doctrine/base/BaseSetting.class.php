@@ -8,18 +8,18 @@
  * @property integer $user_id
  * @property string $culture
  * @property boolean $reminder
- * @property boolean $locked
+ * @property string $theme
  * @property User $User
  * 
  * @method integer getUserId()   Returns the current record's "user_id" value
  * @method string  getCulture()  Returns the current record's "culture" value
  * @method boolean getReminder() Returns the current record's "reminder" value
- * @method boolean getLocked()   Returns the current record's "locked" value
+ * @method string  getTheme()    Returns the current record's "theme" value
  * @method User    getUser()     Returns the current record's "User" value
  * @method Setting setUserId()   Sets the current record's "user_id" value
  * @method Setting setCulture()  Sets the current record's "culture" value
  * @method Setting setReminder() Sets the current record's "reminder" value
- * @method Setting setLocked()   Sets the current record's "locked" value
+ * @method Setting setTheme()    Sets the current record's "theme" value
  * @method Setting setUser()     Sets the current record's "User" value
  * 
  * @package    timeboxx
@@ -43,8 +43,10 @@ abstract class BaseSetting extends sfDoctrineRecord
         $this->hasColumn('reminder', 'boolean', null, array(
              'type' => 'boolean',
              ));
-        $this->hasColumn('locked', 'boolean', null, array(
-             'type' => 'boolean',
+        $this->hasColumn('theme', 'string', 255, array(
+             'type' => 'string',
+             'default' => 'default',
+             'length' => 255,
              ));
     }
 

@@ -17,7 +17,7 @@
  * @property Doctrine_Collection $TimeLogItems
  * @property Doctrine_Collection $OwnedProjects
  * @property Doctrine_Collection $Project
- * @property Doctrine_Collection $Setting
+ * @property Setting $Setting
  * @property Doctrine_Collection $Tokens
  * 
  * @method string              getFirstName()     Returns the current record's "first_name" value
@@ -32,7 +32,7 @@
  * @method Doctrine_Collection getTimeLogItems()  Returns the current record's "TimeLogItems" collection
  * @method Doctrine_Collection getOwnedProjects() Returns the current record's "OwnedProjects" collection
  * @method Doctrine_Collection getProject()       Returns the current record's "Project" collection
- * @method Doctrine_Collection getSetting()       Returns the current record's "Setting" collection
+ * @method Setting             getSetting()       Returns the current record's "Setting" value
  * @method Doctrine_Collection getTokens()        Returns the current record's "Tokens" collection
  * @method User                setFirstName()     Sets the current record's "first_name" value
  * @method User                setLastName()      Sets the current record's "last_name" value
@@ -46,7 +46,7 @@
  * @method User                setTimeLogItems()  Sets the current record's "TimeLogItems" collection
  * @method User                setOwnedProjects() Sets the current record's "OwnedProjects" collection
  * @method User                setProject()       Sets the current record's "Project" collection
- * @method User                setSetting()       Sets the current record's "Setting" collection
+ * @method User                setSetting()       Sets the current record's "Setting" value
  * @method User                setTokens()        Sets the current record's "Tokens" collection
  * 
  * @package    timeboxx
@@ -111,7 +111,7 @@ abstract class BaseUser extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'project_id'));
 
-        $this->hasMany('Setting', array(
+        $this->hasOne('Setting', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 
