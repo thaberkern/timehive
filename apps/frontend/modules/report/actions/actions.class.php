@@ -16,9 +16,9 @@ class reportActions extends sfActions
      *
      * @param sfRequest $request A request object
      */
-    public function executeIndex(sfWebRequest $request)
+    public function executeShow(sfWebRequest $request)
     {
-        
+        $this->filter = $request->getParameter('filter', null);
     }
 
 }

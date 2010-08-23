@@ -14,12 +14,12 @@
             <div id="account">
                 <?php if(sfContext::getInstance()->getUser()->isAuthenticated()):?>
                     <ul>
-                        <li><a class="my-account" href="<?php echo url_for('account/show');?>">My account</a></li>
-                        <li><a class="logout" href="<?php echo url_for('login/logout');?>">Sign out</a></li>
+                        <li><a class="my-account" href="<?php echo url_for('account/show');?>"><?php echo __('My account');?></a></li>
+                        <li><a class="logout" href="<?php echo url_for('login/logout');?>"><?php echo __('Sign out');?></a></li>
                     </ul>
                 <?php else: ?>
                     <ul>
-                        <li><a class="login" href="<?php echo url_for('login/index');?>">Sign-In</a></li>
+                        <li><a class="login" href="<?php echo url_for('login/index');?>"><?php echo __('Sign-In');?></a></li>
                     </ul>
                 <?php endif;?>
             </div>
@@ -29,8 +29,8 @@
             </div>
             <?php endif; ?>
             <ul>
-                <li><a href="<?php echo url_for('dashboard/index'); ?>">Dashboard</a></li>
-                <?php if($sf_user->isAdministrator()):?><li><a href="<?php echo url_for('admin/index'); ?>">Administration</a></li><?php endif;?>
+                <li><a href="<?php echo url_for('dashboard/index'); ?>"><?php echo __('Dashboard');?></a></li>
+                <?php if($sf_user->isAdministrator()):?><li><a href="<?php echo url_for('admin/index'); ?>"><?php echo __('Administration');?></a></li><?php endif;?>
             </ul>
         </div>
         <div id="header">
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div id="footer">
-         Powered by <a href="http://www.sourceforge.net/projects/taskboxx/" target="_blank">TimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
+         Powered by <a href="http://github.com/thaberkern/timeboxx" target="_blank">TimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
     </div>
 </div>
 </body>

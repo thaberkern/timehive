@@ -59,6 +59,10 @@ class myUser extends sfBasicSecurityUser
         if ($user->administrator == true) {
             $this->addCredential('admin');
         }
+
+        if ($user->Setting->culture != "") {
+            $this->setCulture($user->Setting->culture);
+        }
     }
 
     /**

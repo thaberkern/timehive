@@ -2,8 +2,6 @@
 class="nosidebar"
 <?php end_slot();?>
 
-<?php slot('title'); ?><?php echo $title;?><?php end_slot();?>
-
 <?php if ($sf_user->getFlash('notice_message', false) != false): ?>
 	<div class="flash notice">
 		<?php echo $sf_user->getFlash('notice_message'); ?>

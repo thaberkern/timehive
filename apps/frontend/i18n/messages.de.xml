@@ -1,12 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xliff PUBLIC '-//XLIFF//DTD XLIFF//EN' 'http://www.oasis-open.org/committees/xliff/documents/xliff.dtd'>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-    <file source-language="en" target-language="de" datatype="plain">
-        <body>
-            <trans-unit id="1">
-                <source>Home</source>
-                <target>Start</target>
-            </trans-unit>
-        </body>
-    </file>
+  <file source-language="en" target-language="de" datatype="plain" date="2010-08-23T15:05:18Z">
+    <body>
+      <trans-unit id="1">
+        <source>My account</source>
+        <target>Mein Konto</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Sign out</source>
+        <target>Abmelden</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Sign-In</source>
+        <target>Anmelden</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Dashboard</source>
+        <target>Startseite</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Administration</source>
+        <target>Administration</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Timesheet</source>
+        <target>Zeiterfassung</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Reports</source>
+        <target>Auswertungen</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Settings</source>
+        <target>Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Credentials missing!</source>
+        <target>Fehlende Berechtigung(en)!</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>You doesn't have the needed user rights to access this function!</source>
+        <target>Sie verfügen nicht über die notwendigen Berechtigungen, um mit dieser Funktion zu arbeiten!</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Login failed!</source>
+        <target>Anmeldung fehlgeschlagen!</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Either your password or username was wrong. Please try again!</source>
+        <target>Ihr Passwort oder Benutzername war falsch. Bitte versuchen Sie es erneut!</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Username</source>
+        <target>Benutzername</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Password</source>
+        <target>Passwort</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Keep logged in</source>
+        <target>Angemeldet bleiben</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Lost password</source>
+        <target>Passwort vergessen</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Login</source>
+        <target>Anmelden</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Filter</source>
+        <target>Filter</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Number</source>
+        <target>Nummer</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Group</source>
+        <target>Gruppe</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>All</source>
+        <target>Alle</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>User</source>
+        <target>Benutzer</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>Archived</source>
+        <target>Archiviert</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>OK</source>
+        <target>OK</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>Projects</source>
+        <target>Projekte</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>Users</source>
+        <target>Benutzer</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Timeitem types</source>
+        <target>Arbeitszeittypen</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>

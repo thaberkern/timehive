@@ -3,6 +3,8 @@ Account:
   tableName: tb_account
   columns:
     type: { type: enum, values: [free, small, pro, unlimited] }
+    valid_until: { type: date }
+    name: { type: string(100) }
   actAs:
     Timestampable: ~
     

@@ -1,6 +1,10 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+timesheet:
+  url: /timesheet/:week
+  param: { module: timesheet, action: index }
+
 logout:
   url: /logout
   param: { module: login, action: logout }
@@ -8,7 +12,7 @@ logout:
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: dashboard, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules

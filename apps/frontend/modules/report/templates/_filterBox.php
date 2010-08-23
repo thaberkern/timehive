@@ -22,7 +22,7 @@
             <td><input type="checkbox" name="filter[archived]" value="1" <?php echo isset($filter)&&array_key_exists('archived', $filter) ? 'checked' : '';?> /></td>
         </tr>
         <tr>
-            <td colspan="2" align="right"><input type="submit" value="<?php echo __('Filter');?>"></td>
+            <td colspan="2" align="right"><input type="submit" value="<?php echo __('OK');?>"></td>
         </tr>
     </table>
 </form>
