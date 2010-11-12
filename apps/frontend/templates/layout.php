@@ -5,54 +5,60 @@
     <?php include_metas() ?>
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
+
     <?php include_stylesheets() ?>
+    <link rel="stylesheet" type="text/css" href="/css/themes/<?php echo $sf_user->getAttribute('theme', 'green');?>.css" media="screen, projection, tv" />
+    <!--[if lte IE 7.0]><link rel="stylesheet" type="text/css" href="/css/themes/ie.css" media="screen, projection, tv" /><![endif]-->
+    <!--[if IE 8.0]>
+        <style type="text/css">
+            form.fields fieldset {margin-top: -10px;}
+        </style>
+    <![endif]-->
+
     <?php include_javascripts() ?>
+    <!-- Adding support for transparent PNGs in IE6: -->
+    <!--[if lte IE 6]>
+        <script type="text/javascript" src="js/ddpng.js"></script>
+        <script type="text/javascript">
+            DD_belatedPNG.fix('#nav #h-wrap .h-ico');
+            DD_belatedPNG.fix('.ico img');
+            DD_belatedPNG.fix('.msg p');
+            DD_belatedPNG.fix('table.calendar thead th.month a img');
+            DD_belatedPNG.fix('table.calendar tbody img');
+        </script>
+    <![endif]-->
+    <script type="text/javascript" src="/js/tb_init.js"></script>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="top-menu">
-            <div id="account">
-                <?php if(sfContext::getInstance()->getUser()->isAuthenticated()):?>
-                    <ul>
-                        <li><a class="my-account" href="<?php echo url_for('account/show');?>"><?php echo __('My account');?></a></li>
-                        <li><a class="logout" href="<?php echo url_for('login/logout');?>"><?php echo __('Sign out');?></a></li>
+    <div id="header">
+        <div class="inner-container clearfix">
+            <h1 id="logo">
+                <img src="<?php echo image_path('tb_logo.png');?>" alt="TimeBoxx" />
+            </h1>
+            <div id="userbox">
+                <div class="inner">
+                    <strong><?php echo sfContext::getInstance()->getUser()->getAttribute('username');?></strong>
+                    <ul class="clearfix">
+                        <li><a href="<?php echo url_for('account/index');?>"><?php echo __('My account');?></a></li>
+                        <li><a href="<?php echo url_for('login/logout');?>"><?php echo __('Sign out');?></a></li>
                     </ul>
-                <?php else: ?>
-                    <ul>
-                        <li><a class="login" href="<?php echo url_for('login/index');?>"><?php echo __('Sign-In');?></a></li>
-                    </ul>
-                <?php endif;?>
-            </div>
-            <?php if(sfContext::getInstance()->getUser()->isAuthenticated()):?>
-            <div id="loggedas">
-                Logged in as <a href=""><?php echo sfContext::getInstance()->getUser()->getAttribute('username');?></a>
-            </div>
-            <?php endif; ?>
-            <ul>
-                <li><a href="<?php echo url_for('dashboard/index'); ?>"><?php echo __('Dashboard');?></a></li>
-                <?php if($sf_user->isAdministrator()):?><li><a href="<?php echo url_for('admin/index'); ?>"><?php echo __('Administration');?></a></li><?php endif;?>
-            </ul>
-        </div>
-        <div id="header">
-            <h1>TimeBoxx</h1>
-            <?php include_partial('global/mainMenu', array('module'=>$sf_request->getParameter('module')));?>
-        </div>
-
-        <div id="main" <?php include_slot('sidebarclass');?>>
-        <div id="sidebar"><?php include_slot('sidebar');?></div>
-        <div id="content">
-        	<?php if (has_slot('contextual')):?>
-            	<div class="contextual">
-                	<?php include_slot('contextual');?>
                 </div>
-            <?php endif; ?>
+            </div><!-- #userbox -->
+        </div><!-- .inner-container -->
+    </div><!-- #header -->
+    <div id="nav">
+        <div class="inner-container clearfix">
+            <?php include_partial('global/mainMenu');?>
+        </div>
+    </div>
+    <div id="container">
+        <div class="inner-container">
             <?php echo $sf_data->getRaw('sf_content') ?>
         </div>
     </div>
     <div id="footer">
          Powered by <a href="http://github.com/thaberkern/timeboxx" target="_blank">TimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
     </div>
-</div>
 </body>
 </html>
 

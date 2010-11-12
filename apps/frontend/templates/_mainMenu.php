@@ -1,7 +1,25 @@
-<div id="main-menu">
-    <ul>
-        <li><a class="timesheet <?php echo $module=='timesheet'?'selected':'';?>" href="<?php echo url_for('timesheet/index');?>"><?php echo __('Timesheet');?></a></li>
-        <li><a class="reports <?php echo $module=='report'?'selected':'';?>" href="<?php echo url_for('report/show');?>"><?php echo __('Reports');?></a></li>
-        <li><a class="settings <?php echo $module=='setting'?'selected':'';?>" href="<?php echo url_for('setting/index');?>"><?php echo __('Settings');?></a></li>
-    </ul>
+<div id="h-wrap">
+    <div class="inner">
+        <h2>
+            <span class="h-ico ico-<?php echo $sf_request->getParameter('module');?>">
+                <span>
+                    <?php
+                        switch($sf_request->getParameter('module')) {
+                            case 'dashboard': echo __('Dashboard'); break;
+                            case 'timesheet': echo __('Timesheet'); break;
+                            case 'report': echo __('Reports'); break;
+                            case 'admin': echo __('Administration'); break;
+                        }
+                    ?>
+                </span>
+            </span>
+            <span class="h-arrow"></span>
+        </h2>
+        <ul class="clearfix">
+            <?php if ($sf_request->getParameter('module') != 'dashboard'):?><li><a class="h-ico ico-dashboard" href="<?php echo url_for('dashboard/index');?>"><span><?php echo __('Dashboard');?></span></a></li><?php endif;?>
+            <?php if ($sf_request->getParameter('module') != 'timesheet'):?><li><a class="h-ico ico-timesheet" href="<?php echo url_for('timesheet/index');?>"><span><?php echo __('Timesheet');?></span></a></li><?php endif;?>
+            <?php if ($sf_request->getParameter('module') != 'report'):?><li><a class="h-ico ico-report" href="<?php echo url_for('report/index');?>"><span><?php echo __('Reports');?></span></a></li><?php endif;?>
+            <?php if ($sf_request->getParameter('module') != 'admin'):?><li><a class="h-ico ico-admin" href="<?php echo url_for('admin/index');?>"><span><?php echo __('Administration');?></span></a></li><?php endif;?>
+        </ul>
+    </div>
 </div>

@@ -3,7 +3,7 @@
 /**
  * login actions.
  *
- * @package    taskboxx
+ * @package    timeboxx
  * @subpackage login
  * @author     Timo Haberkern <timo.haberkern@shift-up.de>
  * @version    SVN: $Id: actions.class.php 39 2009-09-03 07:47:30Z thaberkern $
@@ -19,6 +19,7 @@ class loginActions extends sfActions
     public function executeIndex($request)
     {
         $this->getUser()->setComesFromRoute($request);
+        $this->setLayout('login');
     }
 
     /**
@@ -29,7 +30,7 @@ class loginActions extends sfActions
     public function executeLogin($request)
     {
         $username = $request->getParameter('username', '');
-        $password = $request->getParameter('pwd', '');
+        $password = $request->getParameter('password', '');
 
         $user = UserTable::getInstance()->login($username, $password);
 

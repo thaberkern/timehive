@@ -6,15 +6,15 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
+    title:        TimeBoxx
+    description:  Open source project timetracking software
     #keywords:     symfony, project
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    []
 
-  javascripts:    []
+  javascripts:    [jquery.min.js]
 
   has_layout:     true
   layout:         layout

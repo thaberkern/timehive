@@ -10,6 +10,10 @@
  */
 class reportActions extends sfActions
 {
+    public function executeIndex(sfWebRequest $request)
+    {
+        $this->filter = $request->getParameter('filter', null);
+    }
 
     /**
      * Executes index action

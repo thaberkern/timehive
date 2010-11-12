@@ -55,6 +55,7 @@ class myUser extends sfBasicSecurityUser
         $this->setAttribute('username', $user->getUsername());
         $this->setAttribute('firstname', $user->getFirstName());
         $this->setAttribute('lastname', $user->getLastName());
+        $this->setAttribute('theme', $user->Setting->theme);
 
         if ($user->administrator == true) {
             $this->addCredential('admin');
