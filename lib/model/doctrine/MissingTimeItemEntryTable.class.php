@@ -11,6 +11,7 @@ class MissingTimeItemEntryTable extends Doctrine_Table
     {
         return Doctrine_Query::create()
                         ->from('MissingTimeItemEntry e')
-                        ->where('e.user_id=? AND e.ignored_at IS NULL', array($user_id));
+                        ->where('e.user_id=? AND e.ignored_at IS NULL', array($user_id))
+                        ->orderBy('e.day DESC');
     }
 }

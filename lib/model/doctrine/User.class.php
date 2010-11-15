@@ -12,4 +12,30 @@
  */
 class User extends BaseUser
 {
+
+    /**
+     * Returns all Time-Entries of the user for a given date
+     *
+     * @param TimeStamp $date The date as a unix timestamp
+     * @return DoctrineCollection
+     */
+    public function getTimeEntriesByDay($date)
+    {
+        $read_date = date('Y-m-d H:i:s',
+                        mktime(0, 0, 0,
+                                date('n', $date),
+                                date('j', $date),
+                                date('Y', $date)
+                        )
+        );
+
+        $result = Doctrine_Query::create()->from('TimeLogItem ti')
+                        ->where('ti.user_id=? AND ti.itemdate=?',
+                                array($this->getId(), $read_date)
+                        )
+                        ->execute();
+
+        return $result;
+    }
+
 }

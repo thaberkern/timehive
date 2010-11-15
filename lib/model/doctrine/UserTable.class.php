@@ -32,4 +32,12 @@ class UserTable extends Doctrine_Table
         return null;
     }
 
+    public function findAllUnlocked()
+    {
+        return Doctrine_Query::create()
+                            ->from('User u')
+                            ->where('u.locked <> ?', true)
+                            ->execute();
+    }
+
 }

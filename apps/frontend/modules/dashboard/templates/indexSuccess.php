@@ -48,33 +48,48 @@
             </table>
         </div>
     </div>
-</div>
-
-<div class="box box-50"><!-- box 50% width -->
+    <br/>
     <div class="boxin">
         <div class="header">
             <h3><?php echo __('My total time per project');?></h3>
         </div>
         <div class="content">
             <ul class="simple">
-                <li>
-                    <strong>SmartDispatch</strong>
-                    <span>20 <?php echo ('hour(s)');?></span>
-                </li>
-                <li>
-                    <strong>SmartDispatch</strong>
-                    <span>20 <?php echo ('hour(s)');?></span>
-                </li>
-                <li>
-                    <strong>SmartDispatch</strong>
-                    <span>20 <?php echo ('hour(s)');?></span>
-                </li>
+                <?php foreach ($project_totals as $project): ?>
+                    <li>
+                        <strong><?php echo $project->name;?></strong>
+                        <span><?php echo $project->total;?> <?php echo ('hour(s)');?></span>
+                    </li>
+                <?php endforeach;?>
             </ul>
+        </div>
+        <div class="content">
+            <table cellspacing="0">
+                <tfoot>
+                    <tr>
+                        <td>
+                            <form class="plain" action="<?php echo url_for('dashboard/index');?>" method="post">
+                                <label>
+                                    <?php echo __('Show for');?>
+                                    <select name="total_filter_by">
+                                        <option value="overall" <?php echo $sf_request->getParameter('total_filter_by', 'this_month') == 'overall' ? 'selected' : '';?>><?php echo __('overall');?></option>
+                                        <option value="this_week" <?php echo $sf_request->getParameter('total_filter_by', 'this_month') == 'this_week' ? 'selected' : '';?>><?php echo __('this week');?></option>
+                                        <option value="last_week" <?php echo $sf_request->getParameter('total_filter_by', 'this_month') == 'last_week' ? 'selected' : '';?>><?php echo __('last week');?></option>
+                                        <option value="this_month" <?php echo $sf_request->getParameter('total_filter_by', 'this_month') == 'this_month' ? 'selected' : '';?>><?php echo __('this month');?></option>
+                                        <option value="last_month" <?php echo $sf_request->getParameter('total_filter_by', 'this_month') == 'last_month' ? 'selected' : '';?>><?php echo __('last month');?></option>
+                                    </select>
+                                </label>
+                                <input class="button altbutton" type="submit" value="<?php echo __('OK');?>" />
+                            </form>
+                        </td>
+                    </tr>
+
+                </tfoot>
+            </table>
         </div>
     </div>
 </div>
-<div class="clearfix"></div>
-<div class="box box-50 altbox"><!-- box 50% width -->
+<div class="box box-50"><!-- box 50% width -->
     <div class="boxin">
         <div class="header">
             <h3><?php echo __('Days without bookings');?></h3>
@@ -87,24 +102,12 @@
                     <?php foreach($no_bookings_pager->getResults() as $booking):?>
                         <li>
                             <a href="<?php echo url_for('timesheet/index?week='.week_number($booking->day));?>"><?php echo format_date($booking->day, 'P');?></a>
-                            <span><a href="<?php echo url_for('dashboard/ignoreMissingBooking?id='.$booking->id);?>">ignore</a></span>
+                            <span><a href="<?php echo url_for('dashboard/ignoreMissingBooking?id='.$booking->id.'&missing_page='.$sf_request->getParameter('missing_page'));?>">ignore</a></span>
                         </li>
                     <?php endforeach;?>
                 </ul>
-
-                <?php if ($no_bookings_pager->haveToPaginate()):?>
-                    <div class="pagination">
-                        <ul>
-                            <li><a href="#">previous</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><strong>3</strong></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">next</a></li>
-                        </ul>
-                    </div>
-                <?php endif; ?>
+                <?php $current = $sf_request->getParameter('missing_page', 1);?>
+                <?php include_partial('missingPager', array('current'=>$current, 'no_bookings_pager'=>$no_bookings_pager));?>
             <?php endif; ?>
         </div>
         
