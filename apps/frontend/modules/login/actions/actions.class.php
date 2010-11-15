@@ -18,7 +18,6 @@ class loginActions extends sfActions
      */
     public function executeIndex($request)
     {
-        $this->getUser()->setComesFromRoute($request);
         $this->setLayout('login');
     }
 
@@ -46,8 +45,7 @@ class loginActions extends sfActions
                                            time() + sfConfig::get('app_autologin_expiration'));
             }
 
-            $comes_from = $this->getUser()->getAndClearComesFromRoute();
-            $this->redirect($comes_from);
+            $this->redirect('dashboard/index');
         }
         else {
             $this->getUser()->setAuthenticated(false);

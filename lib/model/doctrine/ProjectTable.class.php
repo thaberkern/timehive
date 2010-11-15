@@ -8,4 +8,9 @@ class ProjectTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Project');
     }
+
+    public function getTimeTotals($user_id)
+    {
+        return array();
+    }
 }

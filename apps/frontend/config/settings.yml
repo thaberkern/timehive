@@ -34,7 +34,7 @@ all:
     # Enable the database manager
     use_database:           true
 
-    standard_helpers:       [Partial, Cache, I18N]
+    standard_helpers:       [Partial, Cache, I18N, Date]
     i18n:                   true
     
   .actions:

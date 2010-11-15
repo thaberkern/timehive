@@ -28,15 +28,26 @@ TimeLogItem:
   tableName: tb_timelog_item
   columns:
     value: { type: double }
+    itemdate: { type: date }
     type_id: { type: integer(20) }
     project_id: { type: integer(20) }
     user_id: { type: integer(20) }
+    note: { type: clob }
   relations:
     TimeItemType: { class: TimeItemType, local: type_id }
     User: { class: User, local: user_id, foreignAlias: TimeLogItems }
     Project: { class: Project, local: project_id, foreignAlias: TimeLogItems }
   actAs:
     Timestampable: ~
+
+MissingTimeItemEntry:
+  tableName: tb_missing_time_entries
+  columns:
+    day: { type: date }
+    user_id: { type: integer(20) }
+    ignored_at: { type: timestamp }
+  relations:
+    User: { class: User, foreignAlias: MissingTimeItemEntries, local: user_id }
 
 TimeItemType:
   tableName: tb_timeitem_type
@@ -52,9 +63,11 @@ Project:
     name: { type: string(255) }
     number: { type: string(100) }
     owner_id: { type: integer(20) }
+    account_id: { type: integer(20) }
   relations:
     Owner: { class: User, foreignAlias: OwnedProjects, local: owner_id }
     AssignedUser: { class: User, refClass: ProjectUser }
+    Account: { class: Account, foreignAlias: Projects, local: account_id }
     
 ProjectUser:
   tableName: tb_project_user

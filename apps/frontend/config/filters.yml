@@ -2,6 +2,10 @@
 # http://www.symfony-project.org/reference/1_4/en/12-Filters
 
 rendering: ~
+
+remember_me:
+  class: RememberMeFilter
+  
 security:  ~
 
 # insert your own filters here

@@ -15,39 +15,42 @@
  * @property boolean $locked
  * @property Account $Account
  * @property Doctrine_Collection $TimeLogItems
+ * @property Doctrine_Collection $MissingTimeItemEntries
  * @property Doctrine_Collection $OwnedProjects
  * @property Doctrine_Collection $Project
  * @property Setting $Setting
  * @property Doctrine_Collection $Tokens
  * 
- * @method string              getFirstName()     Returns the current record's "first_name" value
- * @method string              getLastName()      Returns the current record's "last_name" value
- * @method string              getEmail()         Returns the current record's "email" value
- * @method integer             getAccountId()     Returns the current record's "account_id" value
- * @method string              getUsername()      Returns the current record's "username" value
- * @method string              getPassword()      Returns the current record's "password" value
- * @method boolean             getAdministrator() Returns the current record's "administrator" value
- * @method boolean             getLocked()        Returns the current record's "locked" value
- * @method Account             getAccount()       Returns the current record's "Account" value
- * @method Doctrine_Collection getTimeLogItems()  Returns the current record's "TimeLogItems" collection
- * @method Doctrine_Collection getOwnedProjects() Returns the current record's "OwnedProjects" collection
- * @method Doctrine_Collection getProject()       Returns the current record's "Project" collection
- * @method Setting             getSetting()       Returns the current record's "Setting" value
- * @method Doctrine_Collection getTokens()        Returns the current record's "Tokens" collection
- * @method User                setFirstName()     Sets the current record's "first_name" value
- * @method User                setLastName()      Sets the current record's "last_name" value
- * @method User                setEmail()         Sets the current record's "email" value
- * @method User                setAccountId()     Sets the current record's "account_id" value
- * @method User                setUsername()      Sets the current record's "username" value
- * @method User                setPassword()      Sets the current record's "password" value
- * @method User                setAdministrator() Sets the current record's "administrator" value
- * @method User                setLocked()        Sets the current record's "locked" value
- * @method User                setAccount()       Sets the current record's "Account" value
- * @method User                setTimeLogItems()  Sets the current record's "TimeLogItems" collection
- * @method User                setOwnedProjects() Sets the current record's "OwnedProjects" collection
- * @method User                setProject()       Sets the current record's "Project" collection
- * @method User                setSetting()       Sets the current record's "Setting" value
- * @method User                setTokens()        Sets the current record's "Tokens" collection
+ * @method string              getFirstName()              Returns the current record's "first_name" value
+ * @method string              getLastName()               Returns the current record's "last_name" value
+ * @method string              getEmail()                  Returns the current record's "email" value
+ * @method integer             getAccountId()              Returns the current record's "account_id" value
+ * @method string              getUsername()               Returns the current record's "username" value
+ * @method string              getPassword()               Returns the current record's "password" value
+ * @method boolean             getAdministrator()          Returns the current record's "administrator" value
+ * @method boolean             getLocked()                 Returns the current record's "locked" value
+ * @method Account             getAccount()                Returns the current record's "Account" value
+ * @method Doctrine_Collection getTimeLogItems()           Returns the current record's "TimeLogItems" collection
+ * @method Doctrine_Collection getMissingTimeItemEntries() Returns the current record's "MissingTimeItemEntries" collection
+ * @method Doctrine_Collection getOwnedProjects()          Returns the current record's "OwnedProjects" collection
+ * @method Doctrine_Collection getProject()                Returns the current record's "Project" collection
+ * @method Setting             getSetting()                Returns the current record's "Setting" value
+ * @method Doctrine_Collection getTokens()                 Returns the current record's "Tokens" collection
+ * @method User                setFirstName()              Sets the current record's "first_name" value
+ * @method User                setLastName()               Sets the current record's "last_name" value
+ * @method User                setEmail()                  Sets the current record's "email" value
+ * @method User                setAccountId()              Sets the current record's "account_id" value
+ * @method User                setUsername()               Sets the current record's "username" value
+ * @method User                setPassword()               Sets the current record's "password" value
+ * @method User                setAdministrator()          Sets the current record's "administrator" value
+ * @method User                setLocked()                 Sets the current record's "locked" value
+ * @method User                setAccount()                Sets the current record's "Account" value
+ * @method User                setTimeLogItems()           Sets the current record's "TimeLogItems" collection
+ * @method User                setMissingTimeItemEntries() Sets the current record's "MissingTimeItemEntries" collection
+ * @method User                setOwnedProjects()          Sets the current record's "OwnedProjects" collection
+ * @method User                setProject()                Sets the current record's "Project" collection
+ * @method User                setSetting()                Sets the current record's "Setting" value
+ * @method User                setTokens()                 Sets the current record's "Tokens" collection
  * 
  * @package    timeboxx
  * @subpackage model
@@ -99,6 +102,10 @@ abstract class BaseUser extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $this->hasMany('TimeLogItem as TimeLogItems', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('MissingTimeItemEntry as MissingTimeItemEntries', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

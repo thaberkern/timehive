@@ -44,6 +44,11 @@ class myUser extends sfBasicSecurityUser
         return $this->is_first_request;
     }
 
+    public function getId()
+    {
+        return $this->getAttribute('uid', -1);
+    }
+
     /**
      * @param User $user
      */
@@ -64,34 +69,6 @@ class myUser extends sfBasicSecurityUser
         if ($user->Setting->culture != "") {
             $this->setCulture($user->Setting->culture);
         }
-    }
-
-    /**
-     * @param sfWebRequest $request
-     */
-    public function setComesFromRoute(sfWebRequest $request)
-    {
-        if ($request->getParameter('module') != 'login') {
-            $this->setAttribute('comes_from',
-                        array('action'=>$request->getParameter('action'),
-                              'module'=>$request->getParameter('module')));
-        }
-    }
-
-    /**
-     * @return String
-     */
-    public function getAndClearComesFromRoute()
-    {
-        $route_info = $this->getAttribute('comes_from',
-                                    array('action'=>'',
-                                          'module'=>''));
-
-        $route = $route_info['module'].'/'.$route_info['action'];
-
-        $this->getAttributeHolder()->remove('comes_from');
-
-        return $route;
     }
 
     private $is_first_request = true;

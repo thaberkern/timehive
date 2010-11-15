@@ -10,17 +10,20 @@
  * @property string $name
  * @property Doctrine_Collection $users
  * @property Doctrine_Collection $TimeItemTypes
+ * @property Doctrine_Collection $Projects
  * 
  * @method enum                getType()          Returns the current record's "type" value
  * @method date                getValidUntil()    Returns the current record's "valid_until" value
  * @method string              getName()          Returns the current record's "name" value
  * @method Doctrine_Collection getUsers()         Returns the current record's "users" collection
  * @method Doctrine_Collection getTimeItemTypes() Returns the current record's "TimeItemTypes" collection
+ * @method Doctrine_Collection getProjects()      Returns the current record's "Projects" collection
  * @method Account             setType()          Sets the current record's "type" value
  * @method Account             setValidUntil()    Sets the current record's "valid_until" value
  * @method Account             setName()          Sets the current record's "name" value
  * @method Account             setUsers()         Sets the current record's "users" collection
  * @method Account             setTimeItemTypes() Sets the current record's "TimeItemTypes" collection
+ * @method Account             setProjects()      Sets the current record's "Projects" collection
  * 
  * @package    timeboxx
  * @subpackage model
@@ -59,6 +62,10 @@ abstract class BaseAccount extends sfDoctrineRecord
              'foreign' => 'account_id'));
 
         $this->hasMany('TimeItemType as TimeItemTypes', array(
+             'local' => 'id',
+             'foreign' => 'account_id'));
+
+        $this->hasMany('Project as Projects', array(
              'local' => 'id',
              'foreign' => 'account_id'));
 

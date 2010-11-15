@@ -8,21 +8,27 @@
  * @property string $name
  * @property string $number
  * @property integer $owner_id
+ * @property integer $account_id
  * @property User $Owner
  * @property Doctrine_Collection $AssignedUser
+ * @property Account $Account
  * @property Doctrine_Collection $TimeLogItems
  * 
  * @method string              getName()         Returns the current record's "name" value
  * @method string              getNumber()       Returns the current record's "number" value
  * @method integer             getOwnerId()      Returns the current record's "owner_id" value
+ * @method integer             getAccountId()    Returns the current record's "account_id" value
  * @method User                getOwner()        Returns the current record's "Owner" value
  * @method Doctrine_Collection getAssignedUser() Returns the current record's "AssignedUser" collection
+ * @method Account             getAccount()      Returns the current record's "Account" value
  * @method Doctrine_Collection getTimeLogItems() Returns the current record's "TimeLogItems" collection
  * @method Project             setName()         Sets the current record's "name" value
  * @method Project             setNumber()       Sets the current record's "number" value
  * @method Project             setOwnerId()      Sets the current record's "owner_id" value
+ * @method Project             setAccountId()    Sets the current record's "account_id" value
  * @method Project             setOwner()        Sets the current record's "Owner" value
  * @method Project             setAssignedUser() Sets the current record's "AssignedUser" collection
+ * @method Project             setAccount()      Sets the current record's "Account" value
  * @method Project             setTimeLogItems() Sets the current record's "TimeLogItems" collection
  * 
  * @package    timeboxx
@@ -47,6 +53,10 @@ abstract class BaseProject extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 20,
              ));
+        $this->hasColumn('account_id', 'integer', 20, array(
+             'type' => 'integer',
+             'length' => 20,
+             ));
     }
 
     public function setUp()
@@ -60,6 +70,10 @@ abstract class BaseProject extends sfDoctrineRecord
              'refClass' => 'ProjectUser',
              'local' => 'project_id',
              'foreign' => 'user_id'));
+
+        $this->hasOne('Account', array(
+             'local' => 'account_id',
+             'foreign' => 'id'));
 
         $this->hasMany('TimeLogItem as TimeLogItems', array(
              'local' => 'id',

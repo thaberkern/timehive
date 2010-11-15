@@ -28,6 +28,10 @@
                         <td><input class="txt pwd" type="password" id="password" name="password" /></td>
                     </tr>
                     <tr>
+                        <th>&nbsp;</th>
+                        <td><label class="check"><input class="check" type="checkbox" id="autologin" name="autologin" value="1"/><?php echo __('Keep logged in');?></label></td>
+                    </tr>
+                    <tr>
                         <th></th>
                         <td class="tr proceed">
                             <input class="button" type="submit" value="<?php echo __('Login'); ?> »" />
