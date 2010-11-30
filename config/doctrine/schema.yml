@@ -65,12 +65,15 @@ Project:
   columns:
     name: { type: string(255) }
     number: { type: string(100) }
+    deactivated: { type: boolean }
     owner_id: { type: integer(20) }
     account_id: { type: integer(20) }
   relations:
     Owner: { class: User, foreignAlias: OwnedProjects, local: owner_id }
     AssignedUser: { class: User, refClass: ProjectUser }
     Account: { class: Account, foreignAlias: Projects, local: account_id }
+  actAs:
+    Timestampable: ~
     
 ProjectUser:
   tableName: tb_project_user

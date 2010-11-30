@@ -15,16 +15,22 @@ abstract class BaseProjectFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'name'               => new sfWidgetFormFilterInput(),
       'number'             => new sfWidgetFormFilterInput(),
+      'deactivated'        => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'owner_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Owner'), 'add_empty' => true)),
       'account_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Account'), 'add_empty' => true)),
+      'created_at'         => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'updated_at'         => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'assigned_user_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'User')),
     ));
 
     $this->setValidators(array(
       'name'               => new sfValidatorPass(array('required' => false)),
       'number'             => new sfValidatorPass(array('required' => false)),
+      'deactivated'        => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'owner_id'           => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Owner'), 'column' => 'id')),
       'account_id'         => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Account'), 'column' => 'id')),
+      'created_at'         => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'updated_at'         => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'assigned_user_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'User', 'required' => false)),
     ));
 
@@ -66,8 +72,11 @@ abstract class BaseProjectFormFilter extends BaseFormFilterDoctrine
       'id'                 => 'Number',
       'name'               => 'Text',
       'number'             => 'Text',
+      'deactivated'        => 'Boolean',
       'owner_id'           => 'ForeignKey',
       'account_id'         => 'ForeignKey',
+      'created_at'         => 'Date',
+      'updated_at'         => 'Date',
       'assigned_user_list' => 'ManyKey',
     );
   }

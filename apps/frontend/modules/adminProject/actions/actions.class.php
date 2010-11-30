@@ -22,6 +22,8 @@ class adminProjectActions extends sfActions
 
     public function executeList(sfWebRequest $request)
     {
-        
+        $account_id = $this->getUser()->getAttribute('account_id');
+        $this->projects = ProjectTable::getInstance()
+                                ->findByAccountId($account_id);
     }
 }

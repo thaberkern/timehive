@@ -18,8 +18,11 @@ abstract class BaseProjectForm extends BaseFormDoctrine
       'id'                 => new sfWidgetFormInputHidden(),
       'name'               => new sfWidgetFormInputText(),
       'number'             => new sfWidgetFormInputText(),
+      'deactivated'        => new sfWidgetFormInputCheckbox(),
       'owner_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Owner'), 'add_empty' => true)),
       'account_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Account'), 'add_empty' => true)),
+      'created_at'         => new sfWidgetFormDateTime(),
+      'updated_at'         => new sfWidgetFormDateTime(),
       'assigned_user_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'User')),
     ));
 
@@ -27,8 +30,11 @@ abstract class BaseProjectForm extends BaseFormDoctrine
       'id'                 => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'               => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'number'             => new sfValidatorString(array('max_length' => 100, 'required' => false)),
+      'deactivated'        => new sfValidatorBoolean(array('required' => false)),
       'owner_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Owner'), 'required' => false)),
       'account_id'         => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Account'), 'required' => false)),
+      'created_at'         => new sfValidatorDateTime(),
+      'updated_at'         => new sfValidatorDateTime(),
       'assigned_user_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'User', 'required' => false)),
     ));
 

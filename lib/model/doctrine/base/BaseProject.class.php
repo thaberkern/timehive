@@ -7,6 +7,7 @@
  * 
  * @property string $name
  * @property string $number
+ * @property boolean $deactivated
  * @property integer $owner_id
  * @property integer $account_id
  * @property User $Owner
@@ -16,6 +17,7 @@
  * 
  * @method string              getName()         Returns the current record's "name" value
  * @method string              getNumber()       Returns the current record's "number" value
+ * @method boolean             getDeactivated()  Returns the current record's "deactivated" value
  * @method integer             getOwnerId()      Returns the current record's "owner_id" value
  * @method integer             getAccountId()    Returns the current record's "account_id" value
  * @method User                getOwner()        Returns the current record's "Owner" value
@@ -24,6 +26,7 @@
  * @method Doctrine_Collection getTimeLogItems() Returns the current record's "TimeLogItems" collection
  * @method Project             setName()         Sets the current record's "name" value
  * @method Project             setNumber()       Sets the current record's "number" value
+ * @method Project             setDeactivated()  Sets the current record's "deactivated" value
  * @method Project             setOwnerId()      Sets the current record's "owner_id" value
  * @method Project             setAccountId()    Sets the current record's "account_id" value
  * @method Project             setOwner()        Sets the current record's "Owner" value
@@ -48,6 +51,9 @@ abstract class BaseProject extends sfDoctrineRecord
         $this->hasColumn('number', 'string', 100, array(
              'type' => 'string',
              'length' => 100,
+             ));
+        $this->hasColumn('deactivated', 'boolean', null, array(
+             'type' => 'boolean',
              ));
         $this->hasColumn('owner_id', 'integer', 20, array(
              'type' => 'integer',
@@ -78,5 +84,8 @@ abstract class BaseProject extends sfDoctrineRecord
         $this->hasMany('TimeLogItem as TimeLogItems', array(
              'local' => 'id',
              'foreign' => 'project_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

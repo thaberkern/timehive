@@ -7,6 +7,15 @@ class ProjectTable extends Doctrine_Table
         return Doctrine_Core::getTable('Project');
     }
 
+    public function findByAccountId($account_id)
+    {
+        return Doctrine_Query::create()
+                    ->from('Project p')
+                    ->where('p.account_id=? AND deactivated=0',
+                                array($account_id))
+                    ->execute();
+    }
+
     public function getTimeTotals($user_id, $time_range)
     {
         switch ($time_range) {
