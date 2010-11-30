@@ -60,15 +60,15 @@ class myUser extends sfBasicSecurityUser
         $this->setAttribute('username', $user->getUsername());
         $this->setAttribute('firstname', $user->getFirstName());
         $this->setAttribute('lastname', $user->getLastName());
-        $this->setAttribute('theme', $user->Setting->theme);
+        //$this->setAttribute('theme', $user->Setting->theme);
 
         if ($user->administrator == true) {
             $this->addCredential('admin');
         }
 
-        if ($user->Setting->culture != "") {
+        /*if ($user->Setting->culture != "") {
             $this->setCulture($user->Setting->culture);
-        }
+        }*/
     }
 
     private $is_first_request = true;

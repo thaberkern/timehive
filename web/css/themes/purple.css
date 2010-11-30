@@ -202,6 +202,8 @@ form.basic dl dd {float: left;}
 form.basic dl dt {padding: 3px 5px 3px 0; width: 20%;}
 form.basic dl dd {padding: 3px 0 3px 5px; width: 76%;}
 
+label { margin-right: 4px }
+
 label.check,
 label.radio {margin-right: 5px;}
 form small {color: #999;}

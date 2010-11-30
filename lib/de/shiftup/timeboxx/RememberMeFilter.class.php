@@ -2,7 +2,6 @@
 
 class RememberMeFilter extends sfFilter
 {
-
     /**
      * @see sfFilter
      */
@@ -21,18 +20,11 @@ class RememberMeFilter extends sfFilter
                     sfContext::getInstance()->getLogger()->info('load user');
                     $user = Doctrine::getTable('User')->find($token->user_id);
 
-
                     $this->context->getUser()->signIn($user);
                 }
-            }
-
-            if ($this->context->getUser()->isAnonymous()) {
-                $settings = Doctrine::getTable('Settings')->find(1);
-                $this->context->getUser()->setCulture($settings->default_language);
             }
         }
 
         $filterChain->execute();
     }
-
 }
