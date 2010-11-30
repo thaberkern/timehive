@@ -7,15 +7,18 @@
  * 
  * @property string $name
  * @property integer $account_id
+ * @property timestamp $deleted_at
  * @property Account $Account
  * @property Doctrine_Collection $TimeLogItem
  * 
  * @method string              getName()        Returns the current record's "name" value
  * @method integer             getAccountId()   Returns the current record's "account_id" value
+ * @method timestamp           getDeletedAt()   Returns the current record's "deleted_at" value
  * @method Account             getAccount()     Returns the current record's "Account" value
  * @method Doctrine_Collection getTimeLogItem() Returns the current record's "TimeLogItem" collection
  * @method TimeItemType        setName()        Sets the current record's "name" value
  * @method TimeItemType        setAccountId()   Sets the current record's "account_id" value
+ * @method TimeItemType        setDeletedAt()   Sets the current record's "deleted_at" value
  * @method TimeItemType        setAccount()     Sets the current record's "Account" value
  * @method TimeItemType        setTimeLogItem() Sets the current record's "TimeLogItem" collection
  * 
@@ -37,6 +40,9 @@ abstract class BaseTimeItemType extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 20,
              ));
+        $this->hasColumn('deleted_at', 'timestamp', null, array(
+             'type' => 'timestamp',
+             ));
     }
 
     public function setUp()
@@ -49,5 +55,8 @@ abstract class BaseTimeItemType extends sfDoctrineRecord
         $this->hasMany('TimeLogItem', array(
              'local' => 'id',
              'foreign' => 'type_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

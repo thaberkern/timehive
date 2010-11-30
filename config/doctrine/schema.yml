@@ -54,8 +54,11 @@ TimeItemType:
   columns:
     name: { type: string(255) }
     account_id: { type: integer(20) }
+    deleted_at: { type: timestamp }
   relations:
-    Account: { class: Account, foreignAlias: TimeItemTypes, local: account_id }    
+    Account: { class: Account, foreignAlias: TimeItemTypes, local: account_id }
+  actAs:
+    Timestampable: ~
 
 Project:
   tableName: tb_project
