@@ -1,6 +1,26 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+admin_home:
+  url: /admin
+  param: { module: adminTimeItemType, action: list }
+
+admin_user:
+  url: /admin/user/:action/*
+  param: { module: adminUser }
+
+admin_timeitemtype:
+  url: /admin/timeitemtype/:action/*
+  param: { module: adminTimeItemType }
+
+admin_role:
+  url: /admin/role/:action/*
+  param: { module: adminRole }
+
+admin_project:
+  url: /admin/project/:action/*
+  param: { module: adminProject }
+
 timesheet:
   url: /timesheet/:week
   param: { module: timesheet, action: index }
