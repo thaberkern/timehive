@@ -34,6 +34,12 @@ class loginActions extends sfActions
         $user = UserTable::getInstance()->login($username, $password);
 
         if ($user) {
+            if ($user->locked) {
+                $this->getUser()->setAuthenticated(false);
+                $this->getUser()->setFlash('login_failure.locked', true);
+                $this->redirect('login/index');
+            }
+
             $this->getUser()->signIn($user);
 
             if ($request->getParameter('autologin', 0) == 1) {

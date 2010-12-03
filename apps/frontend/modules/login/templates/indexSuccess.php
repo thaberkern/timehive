@@ -13,10 +13,16 @@
         <form class="table" action="<?php echo url_for('login/login'); ?>" method="post">
             <div class="inner-form">
                 <?php if ($sf_user->getFlash('login_failure', false) == true): ?>
-                <div class="msg msg-error">
-                    <strong><?php echo __('Login failed!') ?></strong><br/>
-                    <?php echo __('Either your password or username was wrong. Please try again!') ?>
-                </div>
+                    <div class="msg msg-error">
+                        <strong><?php echo __('Login failed!') ?></strong><br/>
+                        <?php echo __('Either your password or username was wrong. Please try again!') ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ($sf_user->getFlash('login_failure.locked', false) == true): ?>
+                    <div class="msg msg-error">
+                        <strong><?php echo __('Login failed!') ?></strong><br/>
+                        <?php echo __('Your user is locked, you can not use TimeBoxx anymore!') ?>
+                    </div>
                 <?php endif; ?>
                 <table cellspacing="0">
                     <tr>

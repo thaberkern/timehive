@@ -24,6 +24,7 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'password'      => new sfWidgetFormInputText(),
       'administrator' => new sfWidgetFormInputCheckbox(),
       'locked'        => new sfWidgetFormInputCheckbox(),
+      'deleted_at'    => new sfWidgetFormDateTime(),
       'created_at'    => new sfWidgetFormDateTime(),
       'updated_at'    => new sfWidgetFormDateTime(),
       'project_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Project')),
@@ -39,10 +40,15 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'password'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'administrator' => new sfValidatorBoolean(array('required' => false)),
       'locked'        => new sfValidatorBoolean(array('required' => false)),
+      'deleted_at'    => new sfValidatorDateTime(array('required' => false)),
       'created_at'    => new sfValidatorDateTime(),
       'updated_at'    => new sfValidatorDateTime(),
       'project_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Project', 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'User', 'column' => array('username')))
+    );
 
     $this->widgetSchema->setNameFormat('user[%s]');
 

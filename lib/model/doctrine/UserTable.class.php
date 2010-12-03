@@ -18,9 +18,10 @@ class UserTable extends Doctrine_Table
         $password_hash = md5($password);
 
         $user = Doctrine_Query::create()
-                        ->from('User')
-                        ->where('username=? AND password=?',
+                        ->from('User u')
+                        ->where('u.username=? AND u.password=?',
                                     array($username, $password_hash))
+                        ->andWhere('u.deleted_at IS NULL')
                         ->fetchOne();
 
         if ($user &&
@@ -40,4 +41,13 @@ class UserTable extends Doctrine_Table
                             ->execute();
     }
 
+    public function findByAccountId($account_id)
+    {
+        return Doctrine_Query::create()
+                            ->from('User u')
+                            ->where('u.account_id=? AND deleted_at IS NULL',
+                                            array($account_id))
+                            ->orderBy('u.username')
+                            ->execute();
+    }
 }

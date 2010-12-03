@@ -2,6 +2,7 @@
     <div class="boxin">
         <div class="header">
             <h3><?php echo __('Administration');?></h3>
+            <a class="button" href="<?php echo url_for('adminProject/new');?>"><?php echo __('New project');?>&nbsp;»</a>
             <ul>
                 <li><a href="<?php echo url_for('adminUser/list');?>"><?php echo __('User');?></a></li>
                 <li><a href="<?php echo url_for('adminRole/list');?>"><?php echo __('Roles');?></a></li>

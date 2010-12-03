@@ -15,10 +15,11 @@ User:
     last_name: { type: string(255) }
     email: { type: string(255) }
     account_id: { type: integer(20) }
-    username: { type: string(255) }
+    username: { type: string(255), unique: true }
     password: { type: string(255) }
     administrator: { type: boolean }
     locked: { type: boolean }
+    deleted_at: { type: timestamp }
   relations:
     Account: { class: Account, foreignAlias: users, local: account_id }
   actAs:

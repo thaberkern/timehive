@@ -13,6 +13,7 @@
  * @property string $password
  * @property boolean $administrator
  * @property boolean $locked
+ * @property timestamp $deleted_at
  * @property Account $Account
  * @property Doctrine_Collection $TimeLogItems
  * @property Doctrine_Collection $MissingTimeItemEntries
@@ -29,6 +30,7 @@
  * @method string              getPassword()               Returns the current record's "password" value
  * @method boolean             getAdministrator()          Returns the current record's "administrator" value
  * @method boolean             getLocked()                 Returns the current record's "locked" value
+ * @method timestamp           getDeletedAt()              Returns the current record's "deleted_at" value
  * @method Account             getAccount()                Returns the current record's "Account" value
  * @method Doctrine_Collection getTimeLogItems()           Returns the current record's "TimeLogItems" collection
  * @method Doctrine_Collection getMissingTimeItemEntries() Returns the current record's "MissingTimeItemEntries" collection
@@ -44,6 +46,7 @@
  * @method User                setPassword()               Sets the current record's "password" value
  * @method User                setAdministrator()          Sets the current record's "administrator" value
  * @method User                setLocked()                 Sets the current record's "locked" value
+ * @method User                setDeletedAt()              Sets the current record's "deleted_at" value
  * @method User                setAccount()                Sets the current record's "Account" value
  * @method User                setTimeLogItems()           Sets the current record's "TimeLogItems" collection
  * @method User                setMissingTimeItemEntries() Sets the current record's "MissingTimeItemEntries" collection
@@ -80,6 +83,7 @@ abstract class BaseUser extends sfDoctrineRecord
              ));
         $this->hasColumn('username', 'string', 255, array(
              'type' => 'string',
+             'unique' => true,
              'length' => 255,
              ));
         $this->hasColumn('password', 'string', 255, array(
@@ -91,6 +95,9 @@ abstract class BaseUser extends sfDoctrineRecord
              ));
         $this->hasColumn('locked', 'boolean', null, array(
              'type' => 'boolean',
+             ));
+        $this->hasColumn('deleted_at', 'timestamp', null, array(
+             'type' => 'timestamp',
              ));
     }
 

@@ -7,9 +7,23 @@
  * 
  * @package    timeboxx
  * @subpackage model
- * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 class Account extends BaseAccount
 {
+    public function hasEnoughLicensesToAddUser()
+    {
+        $count = Doctrine_Query::create()
+                        ->select('COUNT(*) as count')
+                        ->from('User u')
+                        ->where('u.account_id=?', $this->id)
+                        ->fetchArray();
+
+        switch ($this->type) {
+            case 'free': return $count['count'] < 5 - 1; break;
+            case 'small': return $count['count'] < 25 - 1; break;
+            case 'pro': return $count['count'] < 50 - 1; break;
+            case 'unlimited': return true; break;
+        }
+    }
 }
