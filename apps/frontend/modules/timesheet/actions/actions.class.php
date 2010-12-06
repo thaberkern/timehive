@@ -18,7 +18,18 @@ class timesheetActions extends sfActions
      */
     public function executeIndex(sfWebRequest $request)
     {
-        $this->weekstart = date('Y-m-d');
+        $this->week = $request->getParameter('week', date('W'));
+        $days = DateTimeHelper::create()->getDaysOfWeek($this->week, date("Y"));
+        $this->weekstart = $days[1];
+
+        $account_id = $this->getUser()->getAttribute('account_id');
+        $this->projects = ProjectTable::getInstance()
+                                ->findByAccountId($account_id);
+
+        $this->item_types = Doctrine_Query::create()
+                                ->from('TimeItemType tit')
+                                ->orderBy('name ASC')
+                                ->execute();
     }
 
 }

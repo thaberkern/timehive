@@ -19529,3 +19529,1677 @@ Dec 06 11:47:43 symfony [info] {sfWebDebugLogger} View "Success" for "dashboard/
 Dec 06 11:47:43 symfony [info] {sfWebDebugLogger} Partial "dashboard/_missingPager" 31.83 ms (1)
 Dec 06 11:47:43 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.12 ms (1)
 Dec 06 11:47:43 symfony [info] {sfWebResponse} Send content (70550 o)
+Dec 06 11:50:43 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'dashboard',  'action' => 'index',)
+Dec 06 11:50:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 11:50:43 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 11:50:43 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 11:50:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 11:50:43 symfony [info] {dashboardActions} Call "dashboardActions->executeIndex()"
+Dec 06 11:50:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 11:50:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.value AS t__value, t.itemdate AS t__itemdate, t.type_id AS t__type_id, t.project_id AS t__project_id, t.user_id AS t__user_id, t.note AS t__note, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timelog_item t WHERE (t.user_id = ?) ORDER BY t.itemdate DESC LIMIT 10 - (1)
+Dec 06 11:50:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM tb_missing_time_entries t WHERE (t.user_id = ? AND t.ignored_at IS NULL) - (1)
+Dec 06 11:50:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at, t2.id AS t2__id, t2.value AS t2__value, t2.itemdate AS t2__itemdate, t2.type_id AS t2__type_id, t2.project_id AS t2__project_id, t2.user_id AS t2__user_id, t2.note AS t2__note, t2.created_at AS t2__created_at, t2.updated_at AS t2__updated_at, SUM(t2.value) AS t2__0 FROM tb_project t INNER JOIN tb_timelog_item t2 ON t.id = t2.project_id WHERE (t2.user_id = ? AND (t2.itemdate >= ? AND t2.itemdate <= ?)) GROUP BY t.id ORDER BY t.name - (1, 2010-11-01 00:00:00, 2010-11-30 23:59:59)
+Dec 06 11:50:44 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/dashboard/templates/indexSuccess.php"
+Dec 06 11:50:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.id = ?) - (1)
+Dec 06 11:50:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t WHERE (t.id = ?) - (2)
+Dec 06 11:50:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t WHERE (t.id = ?) - (1)
+Dec 06 11:50:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t WHERE (t.id = ?) - (1)
+Dec 06 11:50:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.day AS t__day, t.user_id AS t__user_id, t.ignored_at AS t__ignored_at FROM tb_missing_time_entries t WHERE (t.user_id = ? AND t.ignored_at IS NULL) ORDER BY t.day DESC LIMIT 10 - (1)
+Dec 06 11:50:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.day AS t__day, t.user_id AS t__user_id, t.ignored_at AS t__ignored_at FROM tb_missing_time_entries t WHERE (t.user_id = ? AND t.ignored_at IS NULL) ORDER BY t.day DESC LIMIT 10 - (1)
+Dec 06 11:50:44 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/dashboard/templates/_missingPager.php"
+Dec 06 11:50:44 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:50:44 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:50:44 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 11:50:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 11:50:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 11:50:44 symfony [info] {sfWebDebugLogger} Configuration 10.98 ms (9)
+Dec 06 11:50:44 symfony [info] {sfWebDebugLogger} Factories 57.63 ms (1)
+Dec 06 11:50:44 symfony [info] {sfWebDebugLogger} Action "dashboard/index" 260.42 ms (1)
+Dec 06 11:50:44 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.13 ms (10)
+Dec 06 11:50:44 symfony [info] {sfWebDebugLogger} View "Success" for "dashboard/index" 140.87 ms (1)
+Dec 06 11:50:44 symfony [info] {sfWebDebugLogger} Partial "dashboard/_missingPager" 4.93 ms (1)
+Dec 06 11:50:44 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.15 ms (1)
+Dec 06 11:50:44 symfony [info] {sfWebResponse} Send content (67200 o)
+Dec 06 11:51:01 symfony [info] {sfPatternRouting} Match route "admin_home" (/admin) for /admin with parameters array (  'module' => 'adminTimeItemType',  'action' => 'list',)
+Dec 06 11:51:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 11:51:01 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 11:51:01 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 11:51:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 11:51:01 symfony [info] {adminTimeItemTypeActions} Call "adminTimeItemTypeActions->executeList()"
+Dec 06 11:51:01 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 11:51:01 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t WHERE (t.account_id = ? AND t.deleted_at IS NULL) - (1)
+Dec 06 11:51:01 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/adminTimeItemType/templates/listSuccess.php"
+Dec 06 11:51:01 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:51:01 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:51:01 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 11:51:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 11:51:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 11:51:01 symfony [info] {sfWebDebugLogger} Configuration 62.85 ms (10)
+Dec 06 11:51:01 symfony [info] {sfWebDebugLogger} Factories 51.11 ms (1)
+Dec 06 11:51:01 symfony [info] {sfWebDebugLogger} Action "adminTimeItemType/list" 47.74 ms (1)
+Dec 06 11:51:01 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 11:51:01 symfony [info] {sfWebDebugLogger} View "Success" for "adminTimeItemType/list" 81.26 ms (1)
+Dec 06 11:51:01 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.02 ms (1)
+Dec 06 11:51:01 symfony [info] {sfWebResponse} Send content (45628 o)
+Dec 06 11:51:27 symfony [info] {sfPatternRouting} Match route "admin_project" (/admin/project/:action/*) for /admin/project/list with parameters array (  'module' => 'adminProject',  'action' => 'list',)
+Dec 06 11:51:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 11:51:27 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 11:51:27 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 11:51:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 11:51:27 symfony [info] {adminProjectActions} Call "adminProjectActions->executeList()"
+Dec 06 11:51:27 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 11:51:27 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 11:51:27 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/adminProject/templates/listSuccess.php"
+Dec 06 11:51:27 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.first_name AS t__first_name, t.last_name AS t__last_name, t.email AS t__email, t.account_id AS t__account_id, t.username AS t__username, t.password AS t__password, t.administrator AS t__administrator, t.locked AS t__locked, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_user t WHERE (t.id = ?) - (1)
+Dec 06 11:51:27 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.first_name AS t__first_name, t.last_name AS t__last_name, t.email AS t__email, t.account_id AS t__account_id, t.username AS t__username, t.password AS t__password, t.administrator AS t__administrator, t.locked AS t__locked, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_user t WHERE (t.id = ?) - (1)
+Dec 06 11:51:27 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:51:27 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:51:27 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 11:51:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 11:51:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 11:51:27 symfony [info] {sfWebDebugLogger} Configuration 59.44 ms (10)
+Dec 06 11:51:27 symfony [info] {sfWebDebugLogger} Factories 51.94 ms (1)
+Dec 06 11:51:27 symfony [info] {sfWebDebugLogger} Action "adminProject/list" 47.73 ms (1)
+Dec 06 11:51:27 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (4)
+Dec 06 11:51:27 symfony [info] {sfWebDebugLogger} View "Success" for "adminProject/list" 112.84 ms (1)
+Dec 06 11:51:27 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.84 ms (1)
+Dec 06 11:51:27 symfony [info] {sfWebResponse} Send content (51728 o)
+Dec 06 11:51:36 symfony [info] {sfPatternRouting} Match route "admin_user" (/admin/user/:action/*) for /admin/user/list with parameters array (  'module' => 'adminUser',  'action' => 'list',)
+Dec 06 11:51:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 11:51:36 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 11:51:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 11:51:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 11:51:36 symfony [info] {adminUserActions} Call "adminUserActions->executeList()"
+Dec 06 11:51:37 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 11:51:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.first_name AS t__first_name, t.last_name AS t__last_name, t.email AS t__email, t.account_id AS t__account_id, t.username AS t__username, t.password AS t__password, t.administrator AS t__administrator, t.locked AS t__locked, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_user t WHERE (t.account_id = ? AND t.deleted_at IS NULL) ORDER BY t.username - (1)
+Dec 06 11:51:37 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/adminUser/templates/listSuccess.php"
+Dec 06 11:51:37 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:51:37 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:51:37 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 11:51:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 11:51:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 11:51:37 symfony [info] {sfWebDebugLogger} Configuration 65.81 ms (10)
+Dec 06 11:51:37 symfony [info] {sfWebDebugLogger} Factories 48.40 ms (1)
+Dec 06 11:51:37 symfony [info] {sfWebDebugLogger} Action "adminUser/list" 60.07 ms (1)
+Dec 06 11:51:37 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 11:51:37 symfony [info] {sfWebDebugLogger} View "Success" for "adminUser/list" 80.29 ms (1)
+Dec 06 11:51:37 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.96 ms (1)
+Dec 06 11:51:37 symfony [info] {sfWebResponse} Send content (48046 o)
+Dec 06 11:53:05 symfony [info] {sfPatternRouting} Match route "admin_project" (/admin/project/:action/*) for /admin/project/list with parameters array (  'module' => 'adminProject',  'action' => 'list',)
+Dec 06 11:53:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 11:53:05 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 11:53:05 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 11:53:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 11:53:05 symfony [info] {adminProjectActions} Call "adminProjectActions->executeList()"
+Dec 06 11:53:05 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 11:53:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 11:53:05 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/adminProject/templates/listSuccess.php"
+Dec 06 11:53:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.first_name AS t__first_name, t.last_name AS t__last_name, t.email AS t__email, t.account_id AS t__account_id, t.username AS t__username, t.password AS t__password, t.administrator AS t__administrator, t.locked AS t__locked, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_user t WHERE (t.id = ?) - (1)
+Dec 06 11:53:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.first_name AS t__first_name, t.last_name AS t__last_name, t.email AS t__email, t.account_id AS t__account_id, t.username AS t__username, t.password AS t__password, t.administrator AS t__administrator, t.locked AS t__locked, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_user t WHERE (t.id = ?) - (1)
+Dec 06 11:53:05 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:53:05 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 11:53:05 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 11:53:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 11:53:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 11:53:05 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Dec 06 11:53:05 symfony [info] {sfWebDebugLogger} Factories 57.05 ms (1)
+Dec 06 11:53:05 symfony [info] {sfWebDebugLogger} Action "adminProject/list" 59.01 ms (1)
+Dec 06 11:53:05 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (4)
+Dec 06 11:53:05 symfony [info] {sfWebDebugLogger} View "Success" for "adminProject/list" 85.00 ms (1)
+Dec 06 11:53:05 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.34 ms (1)
+Dec 06 11:53:05 symfony [info] {sfWebResponse} Send content (51735 o)
+Dec 06 13:15:57 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:15:58 symfony [info] {myUser} Automatic user logout due to timeout
+Dec 06 13:15:58 symfony [info] {myUser} User is not authenticated
+Dec 06 13:15:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:15:58 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:15:58 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:15:58 symfony [info] {sfBasicSecurityFilter} Action "timesheet/index" requires authentication, forwarding to "login/index"
+Dec 06 13:15:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:15:58 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:15:58 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:15:58 symfony [info] {loginActions} Call "loginActions->executeIndex()"
+Dec 06 13:15:58 symfony [info] {loginActions} Change layout to "login"
+Dec 06 13:15:58 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/login/templates/indexSuccess.php"
+Dec 06 13:15:59 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/login.php"
+Dec 06 13:15:59 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/login.php"
+Dec 06 13:15:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:15:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:15:59 symfony [info] {sfWebDebugLogger} Configuration 246.23 ms (13)
+Dec 06 13:15:59 symfony [info] {sfWebDebugLogger} Factories 668.87 ms (1)
+Dec 06 13:15:59 symfony [info] {sfWebDebugLogger} Action "login/index" 0.65 ms (1)
+Dec 06 13:15:59 symfony [info] {sfWebDebugLogger} View "Success" for "login/index" 261.32 ms (1)
+Dec 06 13:15:59 symfony [info] {sfWebResponse} Send content (40153 o)
+Dec 06 13:16:07 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /login/login with parameters array (  'module' => 'login',  'action' => 'login',)
+Dec 06 13:16:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:16:07 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:16:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:16:07 symfony [info] {loginActions} Call "loginActions->executeLogin()"
+Dec 06 13:16:08 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:16:08 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.first_name AS t__first_name, t.last_name AS t__last_name, t.email AS t__email, t.account_id AS t__account_id, t.username AS t__username, t.password AS t__password, t.administrator AS t__administrator, t.locked AS t__locked, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_user t WHERE ((t.username = ? AND t.password = ?) AND t.deleted_at IS NULL) - (thaberkern, e8a0a8ab47edb6ef105753eb218de795)
+Dec 06 13:16:08 symfony [info] {myUser} User is not authenticated
+Dec 06 13:16:08 symfony [info] {loginActions} Forward to action "login/index"
+Dec 06 13:16:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:16:08 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:16:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:16:08 symfony [info] {loginActions} Call "loginActions->executeIndex()"
+Dec 06 13:16:08 symfony [info] {loginActions} Change layout to "login"
+Dec 06 13:16:08 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/login/templates/indexSuccess.php"
+Dec 06 13:16:08 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/login.php"
+Dec 06 13:16:08 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/login.php"
+Dec 06 13:16:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:16:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:16:08 symfony [info] {sfWebDebugLogger} Configuration 20.18 ms (12)
+Dec 06 13:16:08 symfony [info] {sfWebDebugLogger} Factories 46.51 ms (1)
+Dec 06 13:16:08 symfony [info] {sfWebDebugLogger} Action "login/login" 896.14 ms (1)
+Dec 06 13:16:08 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.06 ms (2)
+Dec 06 13:16:08 symfony [info] {sfWebDebugLogger} Action "login/index" 0.48 ms (1)
+Dec 06 13:16:08 symfony [info] {sfWebDebugLogger} View "Success" for "login/index" 21.71 ms (1)
+Dec 06 13:16:08 symfony [info] {sfWebResponse} Send content (44946 o)
+Dec 06 13:16:14 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /login/login with parameters array (  'module' => 'login',  'action' => 'login',)
+Dec 06 13:16:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:16:14 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:16:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:16:14 symfony [info] {loginActions} Call "loginActions->executeLogin()"
+Dec 06 13:16:14 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:16:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.first_name AS t__first_name, t.last_name AS t__last_name, t.email AS t__email, t.account_id AS t__account_id, t.username AS t__username, t.password AS t__password, t.administrator AS t__administrator, t.locked AS t__locked, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_user t WHERE ((t.username = ? AND t.password = ?) AND t.deleted_at IS NULL) - (thaberkern, e10adc3949ba59abbe56e057f20f883e)
+Dec 06 13:16:14 symfony [info] {myUser} User is authenticated
+Dec 06 13:16:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.user_id AS t__user_id, t.culture AS t__culture, t.reminder AS t__reminder, t.theme AS t__theme FROM tb_settings t WHERE (t.user_id = ?) - (1)
+Dec 06 13:16:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.type AS t__type, t.valid_until AS t__valid_until, t.name AS t__name, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_account t WHERE (t.id = ?) - (1)
+Dec 06 13:16:15 symfony [info] {myUser} Add credential(s) "admin"
+Dec 06 13:16:15 symfony [info] {sfFrontWebController} Redirect to "http://timeboxx_ng.local/frontend_dev.php/"
+Dec 06 13:16:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Dec 06 13:16:15 symfony [info] {sfWebResponse} Send header "Location: http://timeboxx_ng.local/frontend_dev.php/"
+Dec 06 13:16:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:16:15 symfony [info] {sfWebDebugLogger} Configuration 10.64 ms (8)
+Dec 06 13:16:15 symfony [info] {sfWebDebugLogger} Factories 45.84 ms (1)
+Dec 06 13:16:15 symfony [info] {sfWebDebugLogger} Action "login/login" 266.93 ms (1)
+Dec 06 13:16:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.06 ms (4)
+Dec 06 13:16:15 symfony [info] {sfWebResponse} Send content (113 o)
+Dec 06 13:16:15 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'dashboard',  'action' => 'index',)
+Dec 06 13:16:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:16:15 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:16:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:16:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:16:15 symfony [info] {dashboardActions} Call "dashboardActions->executeIndex()"
+Dec 06 13:16:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:16:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.value AS t__value, t.itemdate AS t__itemdate, t.type_id AS t__type_id, t.project_id AS t__project_id, t.user_id AS t__user_id, t.note AS t__note, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timelog_item t WHERE (t.user_id = ?) ORDER BY t.itemdate DESC LIMIT 10 - (1)
+Dec 06 13:16:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM tb_missing_time_entries t WHERE (t.user_id = ? AND t.ignored_at IS NULL) - (1)
+Dec 06 13:16:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at, t2.id AS t2__id, t2.value AS t2__value, t2.itemdate AS t2__itemdate, t2.type_id AS t2__type_id, t2.project_id AS t2__project_id, t2.user_id AS t2__user_id, t2.note AS t2__note, t2.created_at AS t2__created_at, t2.updated_at AS t2__updated_at, SUM(t2.value) AS t2__0 FROM tb_project t INNER JOIN tb_timelog_item t2 ON t.id = t2.project_id WHERE (t2.user_id = ? AND (t2.itemdate >= ? AND t2.itemdate <= ?)) GROUP BY t.id ORDER BY t.name - (1, 2010-12-01 00:00:00, 2010-12-31 23:59:59)
+Dec 06 13:16:16 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/dashboard/templates/indexSuccess.php"
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.id = ?) - (1)
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t WHERE (t.id = ?) - (2)
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.id = ?) - (1)
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t WHERE (t.id = ?) - (1)
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.id = ?) - (2)
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t WHERE (t.id = ?) - (1)
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.day AS t__day, t.user_id AS t__user_id, t.ignored_at AS t__ignored_at FROM tb_missing_time_entries t WHERE (t.user_id = ? AND t.ignored_at IS NULL) ORDER BY t.day DESC LIMIT 10 - (1)
+Dec 06 13:16:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.day AS t__day, t.user_id AS t__user_id, t.ignored_at AS t__ignored_at FROM tb_missing_time_entries t WHERE (t.user_id = ? AND t.ignored_at IS NULL) ORDER BY t.day DESC LIMIT 10 - (1)
+Dec 06 13:16:16 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/dashboard/templates/_missingPager.php"
+Dec 06 13:16:16 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:16:16 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:16:16 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:16:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:16:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:16:16 symfony [info] {sfWebDebugLogger} Configuration 10.54 ms (9)
+Dec 06 13:16:16 symfony [info] {sfWebDebugLogger} Factories 41.93 ms (1)
+Dec 06 13:16:16 symfony [info] {sfWebDebugLogger} Action "dashboard/index" 629.87 ms (1)
+Dec 06 13:16:16 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.18 ms (12)
+Dec 06 13:16:16 symfony [info] {sfWebDebugLogger} View "Success" for "dashboard/index" 486.14 ms (1)
+Dec 06 13:16:16 symfony [info] {sfWebDebugLogger} Partial "dashboard/_missingPager" 17.53 ms (1)
+Dec 06 13:16:16 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 16.66 ms (1)
+Dec 06 13:16:16 symfony [info] {sfWebResponse} Send content (70557 o)
+Dec 06 13:16:21 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:16:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:16:21 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:16:21 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:16:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:16:21 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:16:21 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:16:21 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:16:21 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:16:21 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:16:21 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:16:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:16:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:16:21 symfony [info] {sfWebDebugLogger} Configuration 30.04 ms (10)
+Dec 06 13:16:21 symfony [info] {sfWebDebugLogger} Factories 42.45 ms (1)
+Dec 06 13:16:21 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.28 ms (1)
+Dec 06 13:16:21 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 56.86 ms (1)
+Dec 06 13:16:21 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.84 ms (1)
+Dec 06 13:16:22 symfony [info] {sfWebResponse} Send content (38475 o)
+Dec 06 13:18:02 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:18:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:18:02 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:18:02 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:18:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:18:02 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:18:02 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:18:02 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:18:02 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:18:02 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:18:02 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:18:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:18:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:18:02 symfony [info] {sfWebDebugLogger} Configuration 15.54 ms (9)
+Dec 06 13:18:02 symfony [info] {sfWebDebugLogger} Factories 62.37 ms (1)
+Dec 06 13:18:02 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.51 ms (1)
+Dec 06 13:18:02 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 44.40 ms (1)
+Dec 06 13:18:02 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.25 ms (1)
+Dec 06 13:18:02 symfony [info] {sfWebResponse} Send content (38703 o)
+Dec 06 13:18:40 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:18:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:18:40 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:18:40 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:18:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:18:40 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:18:40 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:18:40 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:18:40 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:18:40 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:18:40 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:18:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:18:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:18:40 symfony [info] {sfWebDebugLogger} Configuration 17.48 ms (9)
+Dec 06 13:18:40 symfony [info] {sfWebDebugLogger} Factories 61.05 ms (1)
+Dec 06 13:18:40 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.34 ms (1)
+Dec 06 13:18:40 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 54.35 ms (1)
+Dec 06 13:18:40 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.30 ms (1)
+Dec 06 13:18:40 symfony [info] {sfWebResponse} Send content (38779 o)
+Dec 06 13:19:28 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:19:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:19:28 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:19:28 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:19:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:19:28 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:19:28 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:19:28 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:19:28 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:19:28 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:19:28 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:19:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:19:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:19:28 symfony [info] {sfWebDebugLogger} Configuration 9.99 ms (9)
+Dec 06 13:19:28 symfony [info] {sfWebDebugLogger} Factories 62.11 ms (1)
+Dec 06 13:19:28 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.31 ms (1)
+Dec 06 13:19:28 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 48.49 ms (1)
+Dec 06 13:19:28 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.38 ms (1)
+Dec 06 13:19:28 symfony [info] {sfWebResponse} Send content (38778 o)
+Dec 06 13:21:39 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:21:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:21:39 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:21:39 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:21:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:21:39 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:21:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:21:39 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:21:39 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:21:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:21:39 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:21:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:21:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:21:39 symfony [info] {sfWebDebugLogger} Configuration 11.38 ms (9)
+Dec 06 13:21:39 symfony [info] {sfWebDebugLogger} Factories 50.57 ms (1)
+Dec 06 13:21:39 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.30 ms (1)
+Dec 06 13:21:39 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 37.17 ms (1)
+Dec 06 13:21:39 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.89 ms (1)
+Dec 06 13:21:39 symfony [info] {sfWebResponse} Send content (39830 o)
+Dec 06 13:21:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/img/cal-right.png with parameters array (  'module' => 'css',  'action' => 'img',  'cal-right.png' => true,)
+Dec 06 13:21:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/img/cal-left.png with parameters array (  'module' => 'css',  'action' => 'img',  'cal-left.png' => true,)
+Dec 06 13:21:40 symfony [info] {sfFrontWebController} Action "css/img" does not exist
+Dec 06 13:21:40 symfony [err] {sfError404Exception} Action "css/img" does not exist.
+Dec 06 13:21:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Dec 06 13:21:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:21:40 symfony [info] {sfWebDebugLogger} Configuration 5.93 ms (5)
+Dec 06 13:21:40 symfony [info] {sfWebDebugLogger} Factories 321.87 ms (1)
+Dec 06 13:21:40 symfony [info] {sfFrontWebController} Action "css/img" does not exist
+Dec 06 13:21:40 symfony [err] {sfError404Exception} Action "css/img" does not exist.
+Dec 06 13:21:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Dec 06 13:21:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:21:40 symfony [info] {sfWebDebugLogger} Configuration 5.81 ms (5)
+Dec 06 13:21:40 symfony [info] {sfWebDebugLogger} Factories 674.01 ms (1)
+Dec 06 13:24:25 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:24:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:24:26 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:24:26 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:24:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:24:26 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:24:26 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:24:26 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:24:26 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:24:26 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:24:26 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:24:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:24:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:24:26 symfony [info] {sfWebDebugLogger} Configuration 12.83 ms (9)
+Dec 06 13:24:26 symfony [info] {sfWebDebugLogger} Factories 54.82 ms (1)
+Dec 06 13:24:26 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.28 ms (1)
+Dec 06 13:24:26 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 53.36 ms (1)
+Dec 06 13:24:26 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.69 ms (1)
+Dec 06 13:24:26 symfony [info] {sfWebResponse} Send content (39807 o)
+Dec 06 13:24:26 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /<img src= with parameters array (  'module' => '<img src=',  'action' => 'index',)
+Dec 06 13:24:26 symfony [info] {sfFrontWebController} Action "imgsrc/index" does not exist
+Dec 06 13:24:26 symfony [err] {sfError404Exception} Action "imgsrc/index" does not exist.
+Dec 06 13:24:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Dec 06 13:24:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:24:26 symfony [info] {sfWebDebugLogger} Configuration 5.81 ms (5)
+Dec 06 13:24:26 symfony [info] {sfWebDebugLogger} Factories 186.08 ms (1)
+Dec 06 13:24:42 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:24:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:24:42 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:24:42 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:24:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:24:42 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:24:42 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:24:42 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:24:42 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:24:42 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:24:42 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:24:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:24:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:24:42 symfony [info] {sfWebDebugLogger} Configuration 11.29 ms (9)
+Dec 06 13:24:42 symfony [info] {sfWebDebugLogger} Factories 56.00 ms (1)
+Dec 06 13:24:42 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.34 ms (1)
+Dec 06 13:24:42 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 57.94 ms (1)
+Dec 06 13:24:42 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 5.41 ms (1)
+Dec 06 13:24:42 symfony [info] {sfWebResponse} Send content (39779 o)
+Dec 06 13:25:01 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:25:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:25:01 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:25:01 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:25:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:25:01 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:25:01 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:25:01 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:25:01 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:25:01 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:25:01 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:25:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:25:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:25:01 symfony [info] {sfWebDebugLogger} Configuration 10.34 ms (9)
+Dec 06 13:25:01 symfony [info] {sfWebDebugLogger} Factories 49.04 ms (1)
+Dec 06 13:25:01 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.30 ms (1)
+Dec 06 13:25:01 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 37.22 ms (1)
+Dec 06 13:25:01 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.97 ms (1)
+Dec 06 13:25:01 symfony [info] {sfWebResponse} Send content (39780 o)
+Dec 06 13:26:38 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:26:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:26:39 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:26:39 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:26:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:26:39 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:26:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:26:39 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:26:39 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:26:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:26:39 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:26:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:26:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:26:39 symfony [info] {sfWebDebugLogger} Configuration 14.29 ms (9)
+Dec 06 13:26:39 symfony [info] {sfWebDebugLogger} Factories 63.84 ms (1)
+Dec 06 13:26:39 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.31 ms (1)
+Dec 06 13:26:39 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 53.58 ms (1)
+Dec 06 13:26:39 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.24 ms (1)
+Dec 06 13:26:39 symfony [info] {sfWebResponse} Send content (39709 o)
+Dec 06 13:27:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:27:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:27:30 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:27:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:27:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:27:30 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:27:30 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:27:30 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:27:30 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:27:30 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:27:30 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:27:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:27:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:27:30 symfony [info] {sfWebDebugLogger} Configuration 10.68 ms (9)
+Dec 06 13:27:30 symfony [info] {sfWebDebugLogger} Factories 46.81 ms (1)
+Dec 06 13:27:30 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.32 ms (1)
+Dec 06 13:27:30 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 37.34 ms (1)
+Dec 06 13:27:30 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.24 ms (1)
+Dec 06 13:27:30 symfony [info] {sfWebResponse} Send content (39709 o)
+Dec 06 13:29:07 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:29:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:29:07 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:29:07 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:29:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:29:07 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:29:07 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:29:07 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:29:07 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:29:07 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:29:07 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:29:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:29:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:29:07 symfony [info] {sfWebDebugLogger} Configuration 13.21 ms (9)
+Dec 06 13:29:07 symfony [info] {sfWebDebugLogger} Factories 58.51 ms (1)
+Dec 06 13:29:07 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.30 ms (1)
+Dec 06 13:29:07 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 63.21 ms (1)
+Dec 06 13:29:07 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.55 ms (1)
+Dec 06 13:29:07 symfony [info] {sfWebResponse} Send content (40332 o)
+Dec 06 13:31:40 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:31:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:31:40 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:31:40 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:31:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:31:40 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:31:40 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:31:40 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:31:40 symfony [notice] {sfWebDebugLogger}  Notice at D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules\timesheet\templates\indexSuccess.php on line 70 (Undefined variable: projects)
+Dec 06 13:31:40 symfony [warning] {sfWebDebugLogger}  Warning at D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules\timesheet\templates\indexSuccess.php on line 70 (Invalid argument supplied for foreach())
+Dec 06 13:31:40 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:31:40 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:31:40 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:31:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:31:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:31:40 symfony [info] {sfWebDebugLogger} Configuration 12.28 ms (9)
+Dec 06 13:31:40 symfony [info] {sfWebDebugLogger} Factories 57.40 ms (1)
+Dec 06 13:31:40 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 0.29 ms (1)
+Dec 06 13:31:40 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 59.69 ms (1)
+Dec 06 13:31:40 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.89 ms (1)
+Dec 06 13:31:40 symfony [info] {sfWebResponse} Send content (54531 o)
+Dec 06 13:32:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:32:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:32:30 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:32:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:32:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:32:30 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:32:30 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:32:30 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:32:30 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:32:30 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:32:30 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:32:30 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:32:30 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:32:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:32:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:32:30 symfony [info] {sfWebDebugLogger} Configuration 11.32 ms (9)
+Dec 06 13:32:30 symfony [info] {sfWebDebugLogger} Factories 47.82 ms (1)
+Dec 06 13:32:30 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 101.61 ms (1)
+Dec 06 13:32:30 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Dec 06 13:32:30 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 35.24 ms (1)
+Dec 06 13:32:30 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.88 ms (1)
+Dec 06 13:32:30 symfony [info] {sfWebResponse} Send content (44941 o)
+Dec 06 13:33:48 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:33:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:33:49 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:33:49 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:33:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:33:49 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:33:49 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:33:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:33:49 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:33:49 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:33:49 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:33:49 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:33:49 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:33:49 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:33:49 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:33:49 symfony [info] {sfWebDebugLogger} Configuration 14.00 ms (9)
+Dec 06 13:33:49 symfony [info] {sfWebDebugLogger} Factories 53.15 ms (1)
+Dec 06 13:33:49 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 105.58 ms (1)
+Dec 06 13:33:49 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:33:49 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 41.91 ms (1)
+Dec 06 13:33:49 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.07 ms (1)
+Dec 06 13:33:49 symfony [info] {sfWebResponse} Send content (45042 o)
+Dec 06 13:36:10 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:36:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:36:10 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:36:10 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:36:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:36:10 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:36:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:36:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:36:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:36:10 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:36:10 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:36:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:36:10 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:36:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:36:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:36:10 symfony [info] {sfWebDebugLogger} Configuration 14.66 ms (9)
+Dec 06 13:36:10 symfony [info] {sfWebDebugLogger} Factories 61.07 ms (1)
+Dec 06 13:36:10 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 69.49 ms (1)
+Dec 06 13:36:10 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:36:10 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 153.90 ms (1)
+Dec 06 13:36:10 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 5.59 ms (1)
+Dec 06 13:36:10 symfony [info] {sfWebResponse} Send content (45054 o)
+Dec 06 13:39:02 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:39:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:39:02 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:39:02 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:39:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:39:02 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:39:02 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:39:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:39:02 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:39:02 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:39:02 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:39:02 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:39:02 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:39:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:39:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:39:02 symfony [info] {sfWebDebugLogger} Configuration 11.30 ms (9)
+Dec 06 13:39:02 symfony [info] {sfWebDebugLogger} Factories 56.06 ms (1)
+Dec 06 13:39:02 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 72.22 ms (1)
+Dec 06 13:39:02 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Dec 06 13:39:02 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 68.78 ms (1)
+Dec 06 13:39:02 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.26 ms (1)
+Dec 06 13:39:02 symfony [info] {sfWebResponse} Send content (45040 o)
+Dec 06 13:42:14 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:42:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:42:15 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:42:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:42:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:42:15 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:42:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:42:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:42:15 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:42:15 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:42:15 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:42:15 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:42:15 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:42:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:42:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:42:15 symfony [info] {sfWebDebugLogger} Configuration 12.19 ms (9)
+Dec 06 13:42:15 symfony [info] {sfWebDebugLogger} Factories 58.53 ms (1)
+Dec 06 13:42:15 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 69.25 ms (1)
+Dec 06 13:42:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:42:15 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 61.44 ms (1)
+Dec 06 13:42:15 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.41 ms (1)
+Dec 06 13:42:15 symfony [info] {sfWebResponse} Send content (45598 o)
+Dec 06 13:55:10 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:55:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:55:10 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:55:10 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:55:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:55:10 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:56:11 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:56:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:56:11 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:56:11 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:56:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:56:11 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:56:11 symfony [notice] {sfWebDebugLogger}  Notice at D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules\timesheet\actions\actions.class.php on line 23 (Undefined offset: 0)
+Dec 06 13:56:11 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:56:11 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:56:11 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:56:11 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:56:11 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:56:11 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:56:11 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:56:11 symfony [warning] {sfWebDebugLogger}  Warning at D:\www\opensource\timeboxx_reloaded_sf\lib\vendor\symfony\lib\response\sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules\timesheet\actions\actions.class.php:23))
+Dec 06 13:56:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:56:11 symfony [warning] {sfWebDebugLogger}  Warning at D:\www\opensource\timeboxx_reloaded_sf\lib\vendor\symfony\lib\response\sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules\timesheet\actions\actions.class.php:23))
+Dec 06 13:56:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:56:11 symfony [info] {sfWebDebugLogger} Configuration 9.33 ms (9)
+Dec 06 13:56:11 symfony [info] {sfWebDebugLogger} Factories 47.97 ms (1)
+Dec 06 13:56:11 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 74.29 ms (1)
+Dec 06 13:56:11 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:56:11 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 59.10 ms (1)
+Dec 06 13:56:11 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.05 ms (1)
+Dec 06 13:56:11 symfony [info] {sfWebResponse} Send content (45693 o)
+Dec 06 13:56:27 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:56:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:56:27 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:56:27 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:56:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:56:27 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:56:27 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:56:27 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:56:27 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:56:27 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:56:27 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:56:27 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:56:27 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:56:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:56:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:56:27 symfony [info] {sfWebDebugLogger} Configuration 8.59 ms (9)
+Dec 06 13:56:27 symfony [info] {sfWebDebugLogger} Factories 44.79 ms (1)
+Dec 06 13:56:27 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 55.99 ms (1)
+Dec 06 13:56:27 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:56:27 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 50.08 ms (1)
+Dec 06 13:56:27 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.86 ms (1)
+Dec 06 13:56:27 symfony [info] {sfWebResponse} Send content (45720 o)
+Dec 06 13:57:18 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:57:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:57:18 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:57:18 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:57:18 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:57:18 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:57:18 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:57:18 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:57:18 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:57:18 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:57:18 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:57:18 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:57:18 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:57:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:57:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:57:18 symfony [info] {sfWebDebugLogger} Configuration 13.61 ms (9)
+Dec 06 13:57:18 symfony [info] {sfWebDebugLogger} Factories 47.80 ms (1)
+Dec 06 13:57:18 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 98.18 ms (1)
+Dec 06 13:57:18 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Dec 06 13:57:18 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 74.56 ms (1)
+Dec 06 13:57:18 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 5.52 ms (1)
+Dec 06 13:57:19 symfony [info] {sfWebResponse} Send content (45770 o)
+Dec 06 13:58:25 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:58:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:25 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:25 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:25 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:25 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:25 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:25 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:25 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:25 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:25 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:25 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:25 symfony [info] {sfWebDebugLogger} Configuration 10.96 ms (9)
+Dec 06 13:58:25 symfony [info] {sfWebDebugLogger} Factories 49.57 ms (1)
+Dec 06 13:58:25 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 59.93 ms (1)
+Dec 06 13:58:25 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:25 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 68.81 ms (1)
+Dec 06 13:58:25 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.60 ms (1)
+Dec 06 13:58:25 symfony [info] {sfWebResponse} Send content (45828 o)
+Dec 06 13:58:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /time with parameters array (  'module' => 'time',  'action' => 'index',)
+Dec 06 13:58:30 symfony [info] {sfFrontWebController} Action "time/index" does not exist
+Dec 06 13:58:30 symfony [err] {sfError404Exception} Action "time/index" does not exist.
+Dec 06 13:58:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Dec 06 13:58:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:30 symfony [info] {sfWebDebugLogger} Configuration 6.04 ms (5)
+Dec 06 13:58:30 symfony [info] {sfWebDebugLogger} Factories 49.30 ms (1)
+Dec 06 13:58:33 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:58:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:33 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:33 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:33 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:33 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:33 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:33 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:33 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:33 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:33 symfony [info] {sfWebDebugLogger} Configuration 10.33 ms (9)
+Dec 06 13:58:33 symfony [info] {sfWebDebugLogger} Factories 44.24 ms (1)
+Dec 06 13:58:33 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 82.47 ms (1)
+Dec 06 13:58:33 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:33 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 58.65 ms (1)
+Dec 06 13:58:33 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.05 ms (1)
+Dec 06 13:58:33 symfony [info] {sfWebResponse} Send content (45796 o)
+Dec 06 13:58:41 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /timesheet with parameters array (  'module' => 'timesheet',  'action' => 'index',)
+Dec 06 13:58:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:41 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:41 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:41 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:41 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:41 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:41 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:41 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:41 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:41 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:41 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:41 symfony [info] {sfWebDebugLogger} Configuration 8.26 ms (9)
+Dec 06 13:58:41 symfony [info] {sfWebDebugLogger} Factories 59.42 ms (1)
+Dec 06 13:58:41 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 69.74 ms (1)
+Dec 06 13:58:41 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:41 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 52.37 ms (1)
+Dec 06 13:58:41 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.83 ms (1)
+Dec 06 13:58:41 symfony [info] {sfWebResponse} Send content (45827 o)
+Dec 06 13:58:43 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 13:58:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:43 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:43 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:43 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:43 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:43 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:43 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:43 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:43 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:43 symfony [info] {sfWebDebugLogger} Configuration 10.83 ms (9)
+Dec 06 13:58:43 symfony [info] {sfWebDebugLogger} Factories 46.20 ms (1)
+Dec 06 13:58:43 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 55.88 ms (1)
+Dec 06 13:58:43 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:43 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 43.73 ms (1)
+Dec 06 13:58:43 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.83 ms (1)
+Dec 06 13:58:43 symfony [info] {sfWebResponse} Send content (45894 o)
+Dec 06 13:58:45 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/51 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '51',)
+Dec 06 13:58:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:45 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:45 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:45 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:45 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:45 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:45 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:46 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:46 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:46 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:46 symfony [info] {sfWebDebugLogger} Configuration 11.32 ms (9)
+Dec 06 13:58:46 symfony [info] {sfWebDebugLogger} Factories 45.77 ms (1)
+Dec 06 13:58:46 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 47.78 ms (1)
+Dec 06 13:58:46 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:46 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 43.38 ms (1)
+Dec 06 13:58:46 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.82 ms (1)
+Dec 06 13:58:46 symfony [info] {sfWebResponse} Send content (45897 o)
+Dec 06 13:58:48 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/52 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '52',)
+Dec 06 13:58:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:48 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:48 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:48 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:48 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:48 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:48 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:48 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:48 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:48 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:48 symfony [info] {sfWebDebugLogger} Configuration 9.15 ms (9)
+Dec 06 13:58:48 symfony [info] {sfWebDebugLogger} Factories 43.44 ms (1)
+Dec 06 13:58:48 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 44.07 ms (1)
+Dec 06 13:58:48 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:48 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 41.20 ms (1)
+Dec 06 13:58:48 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.89 ms (1)
+Dec 06 13:58:48 symfony [info] {sfWebResponse} Send content (45894 o)
+Dec 06 13:58:51 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/51 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '51',)
+Dec 06 13:58:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:51 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:51 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:51 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:51 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:51 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:51 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:51 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:51 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:51 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:51 symfony [info] {sfWebDebugLogger} Configuration 11.89 ms (9)
+Dec 06 13:58:51 symfony [info] {sfWebDebugLogger} Factories 46.12 ms (1)
+Dec 06 13:58:51 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 47.77 ms (1)
+Dec 06 13:58:51 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:51 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 43.02 ms (1)
+Dec 06 13:58:51 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.74 ms (1)
+Dec 06 13:58:51 symfony [info] {sfWebResponse} Send content (45897 o)
+Dec 06 13:58:53 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 13:58:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 13:58:53 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 13:58:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 13:58:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 13:58:53 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 13:58:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 13:58:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 13:58:53 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 13:58:53 symfony [info] {main} Set slot "sidebar"
+Dec 06 13:58:53 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:53 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 13:58:53 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 13:58:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 13:58:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 13:58:53 symfony [info] {sfWebDebugLogger} Configuration 8.83 ms (9)
+Dec 06 13:58:53 symfony [info] {sfWebDebugLogger} Factories 43.17 ms (1)
+Dec 06 13:58:53 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 53.41 ms (1)
+Dec 06 13:58:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 13:58:53 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 40.84 ms (1)
+Dec 06 13:58:53 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.77 ms (1)
+Dec 06 13:58:53 symfony [info] {sfWebResponse} Send content (45896 o)
+Dec 06 14:01:39 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:01:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:01:39 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:01:39 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:01:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:01:39 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:01:39 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:01:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:01:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:01:39 symfony [info] {main} Set slot "sidebar"
+Dec 06 14:01:39 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:01:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:01:39 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:01:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:01:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:01:39 symfony [info] {sfWebDebugLogger} Configuration 15.29 ms (9)
+Dec 06 14:01:39 symfony [info] {sfWebDebugLogger} Factories 55.12 ms (1)
+Dec 06 14:01:39 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 56.58 ms (1)
+Dec 06 14:01:39 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:01:39 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 58.87 ms (1)
+Dec 06 14:01:39 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.07 ms (1)
+Dec 06 14:01:39 symfony [info] {sfWebResponse} Send content (45956 o)
+Dec 06 14:02:09 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:02:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:02:09 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:02:09 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:02:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:02:09 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:02:09 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:02:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:02:09 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:02:09 symfony [info] {main} Set slot "sidebar"
+Dec 06 14:02:09 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:02:09 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:02:09 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:02:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:02:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:02:09 symfony [info] {sfWebDebugLogger} Configuration 14.51 ms (9)
+Dec 06 14:02:09 symfony [info] {sfWebDebugLogger} Factories 55.29 ms (1)
+Dec 06 14:02:09 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 89.19 ms (1)
+Dec 06 14:02:09 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:02:09 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 73.02 ms (1)
+Dec 06 14:02:09 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.37 ms (1)
+Dec 06 14:02:09 symfony [info] {sfWebResponse} Send content (45864 o)
+Dec 06 14:02:25 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:02:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:02:25 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:02:25 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:02:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:02:25 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:02:25 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:02:25 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:02:25 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:02:25 symfony [info] {main} Set slot "sidebar"
+Dec 06 14:02:25 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:02:25 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:02:25 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:02:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:02:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:02:25 symfony [info] {sfWebDebugLogger} Configuration 19.45 ms (9)
+Dec 06 14:02:25 symfony [info] {sfWebDebugLogger} Factories 56.26 ms (1)
+Dec 06 14:02:25 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 83.46 ms (1)
+Dec 06 14:02:25 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Dec 06 14:02:25 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 65.65 ms (1)
+Dec 06 14:02:25 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 6.33 ms (1)
+Dec 06 14:02:25 symfony [info] {sfWebResponse} Send content (45868 o)
+Dec 06 14:02:42 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:02:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:02:42 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:02:42 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:02:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:02:42 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:02:42 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:02:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:02:42 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:02:42 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:02:42 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:02:42 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:02:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:02:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:02:42 symfony [info] {sfWebDebugLogger} Configuration 12.12 ms (9)
+Dec 06 14:02:42 symfony [info] {sfWebDebugLogger} Factories 50.37 ms (1)
+Dec 06 14:02:42 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 67.15 ms (1)
+Dec 06 14:02:42 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:02:42 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 63.01 ms (1)
+Dec 06 14:02:42 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.33 ms (1)
+Dec 06 14:02:43 symfony [info] {sfWebResponse} Send content (45485 o)
+Dec 06 14:03:18 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:03:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:03:18 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:03:18 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:03:18 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:03:18 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:03:18 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:03:18 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:03:18 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:03:18 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:03:18 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:03:18 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:03:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:03:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:03:18 symfony [info] {sfWebDebugLogger} Configuration 10.92 ms (9)
+Dec 06 14:03:18 symfony [info] {sfWebDebugLogger} Factories 53.15 ms (1)
+Dec 06 14:03:18 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 56.27 ms (1)
+Dec 06 14:03:18 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:03:18 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 60.97 ms (1)
+Dec 06 14:03:18 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.82 ms (1)
+Dec 06 14:03:18 symfony [info] {sfWebResponse} Send content (45450 o)
+Dec 06 14:03:29 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:03:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:03:29 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:03:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:03:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:03:29 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:03:29 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:03:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:03:29 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:03:30 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:03:30 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:03:30 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:03:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:03:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:03:30 symfony [info] {sfWebDebugLogger} Configuration 11.87 ms (9)
+Dec 06 14:03:30 symfony [info] {sfWebDebugLogger} Factories 51.36 ms (1)
+Dec 06 14:03:30 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 54.24 ms (1)
+Dec 06 14:03:30 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:03:30 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 72.43 ms (1)
+Dec 06 14:03:30 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.28 ms (1)
+Dec 06 14:03:30 symfony [info] {sfWebResponse} Send content (45477 o)
+Dec 06 14:04:21 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:04:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:04:21 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:04:21 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:04:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:04:21 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:04:22 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:04:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:04:22 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:04:22 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:04:22 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:04:22 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:04:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:04:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:04:22 symfony [info] {sfWebDebugLogger} Configuration 11.64 ms (9)
+Dec 06 14:04:22 symfony [info] {sfWebDebugLogger} Factories 55.92 ms (1)
+Dec 06 14:04:22 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 69.58 ms (1)
+Dec 06 14:04:22 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:04:22 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 61.30 ms (1)
+Dec 06 14:04:22 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.28 ms (1)
+Dec 06 14:04:22 symfony [info] {sfWebResponse} Send content (45479 o)
+Dec 06 14:04:35 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:04:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:04:35 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:04:35 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:04:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:04:35 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:04:35 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:04:35 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:04:35 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:04:35 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:04:35 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:04:35 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:04:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:04:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:04:35 symfony [info] {sfWebDebugLogger} Configuration 11.59 ms (9)
+Dec 06 14:04:35 symfony [info] {sfWebDebugLogger} Factories 50.53 ms (1)
+Dec 06 14:04:35 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 58.17 ms (1)
+Dec 06 14:04:35 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:04:35 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 54.72 ms (1)
+Dec 06 14:04:35 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.82 ms (1)
+Dec 06 14:04:35 symfony [info] {sfWebResponse} Send content (45497 o)
+Dec 06 14:04:48 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:04:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:04:48 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:04:48 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:04:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:04:48 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:04:48 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:04:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:04:48 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:04:48 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:04:48 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:04:48 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:04:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:04:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:04:48 symfony [info] {sfWebDebugLogger} Configuration 11.53 ms (9)
+Dec 06 14:04:48 symfony [info] {sfWebDebugLogger} Factories 51.87 ms (1)
+Dec 06 14:04:48 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 81.95 ms (1)
+Dec 06 14:04:48 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Dec 06 14:04:48 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 56.29 ms (1)
+Dec 06 14:04:48 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.81 ms (1)
+Dec 06 14:04:48 symfony [info] {sfWebResponse} Send content (45505 o)
+Dec 06 14:08:03 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:08:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:08:03 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:08:03 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:08:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:08:03 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:08:04 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:08:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:08:04 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:08:04 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:08:04 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:08:04 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:08:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:08:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:08:04 symfony [info] {sfWebDebugLogger} Configuration 12.05 ms (9)
+Dec 06 14:08:04 symfony [info] {sfWebDebugLogger} Factories 55.61 ms (1)
+Dec 06 14:08:04 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 104.52 ms (1)
+Dec 06 14:08:04 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Dec 06 14:08:04 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 58.25 ms (1)
+Dec 06 14:08:04 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.38 ms (1)
+Dec 06 14:08:04 symfony [info] {sfWebResponse} Send content (45272 o)
+Dec 06 14:11:29 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:11:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:11:29 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:11:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:11:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:11:29 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:11:29 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:11:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:11:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:11:29 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:11:29 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:11:29 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:11:29 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:11:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:11:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:11:29 symfony [info] {sfWebDebugLogger} Configuration 12.19 ms (9)
+Dec 06 14:11:29 symfony [info] {sfWebDebugLogger} Factories 57.32 ms (1)
+Dec 06 14:11:29 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 144.47 ms (1)
+Dec 06 14:11:29 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (3)
+Dec 06 14:11:29 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 47.85 ms (1)
+Dec 06 14:11:29 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.89 ms (1)
+Dec 06 14:11:29 symfony [info] {sfWebResponse} Send content (47245 o)
+Dec 06 14:16:38 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:16:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:16:38 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:16:38 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:16:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:16:38 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:16:38 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:16:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:16:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:16:38 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:16:38 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:16:38 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:16:38 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:16:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:16:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:16:38 symfony [info] {sfWebDebugLogger} Configuration 13.65 ms (9)
+Dec 06 14:16:38 symfony [info] {sfWebDebugLogger} Factories 54.28 ms (1)
+Dec 06 14:16:38 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 76.75 ms (1)
+Dec 06 14:16:38 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (3)
+Dec 06 14:16:38 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 59.57 ms (1)
+Dec 06 14:16:38 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.03 ms (1)
+Dec 06 14:16:38 symfony [info] {sfWebResponse} Send content (47224 o)
+Dec 06 14:19:53 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:19:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:19:53 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:19:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:19:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:19:53 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:19:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:19:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:19:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:19:53 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:19:53 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:19:53 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:19:53 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:19:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:19:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:19:53 symfony [info] {sfWebDebugLogger} Configuration 13.64 ms (9)
+Dec 06 14:19:53 symfony [info] {sfWebDebugLogger} Factories 53.74 ms (1)
+Dec 06 14:19:53 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 100.78 ms (1)
+Dec 06 14:19:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:19:53 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 63.43 ms (1)
+Dec 06 14:19:53 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.95 ms (1)
+Dec 06 14:19:53 symfony [info] {sfWebResponse} Send content (47225 o)
+Dec 06 14:26:53 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:26:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:26:53 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:26:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:26:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:26:53 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:26:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:26:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:26:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:26:53 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:27:03 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/50 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '50',)
+Dec 06 14:27:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:27:03 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:27:03 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:27:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:27:03 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:27:03 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:27:03 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:27:03 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:27:03 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:27:03 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:03 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:03 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:27:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:27:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:27:03 symfony [info] {sfWebDebugLogger} Configuration 10.02 ms (9)
+Dec 06 14:27:03 symfony [info] {sfWebDebugLogger} Factories 65.46 ms (1)
+Dec 06 14:27:03 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 59.48 ms (1)
+Dec 06 14:27:03 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:27:03 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 53.80 ms (1)
+Dec 06 14:27:03 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.64 ms (1)
+Dec 06 14:27:03 symfony [info] {sfWebResponse} Send content (46558 o)
+Dec 06 14:27:15 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/51 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '51',)
+Dec 06 14:27:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:27:15 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:27:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:27:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:27:15 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:27:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:27:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:27:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:27:15 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:27:15 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:15 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:15 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:27:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:27:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:27:15 symfony [info] {sfWebDebugLogger} Configuration 10.78 ms (9)
+Dec 06 14:27:15 symfony [info] {sfWebDebugLogger} Factories 44.90 ms (1)
+Dec 06 14:27:15 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 57.38 ms (1)
+Dec 06 14:27:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:27:15 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 44.55 ms (1)
+Dec 06 14:27:15 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.86 ms (1)
+Dec 06 14:27:15 symfony [info] {sfWebResponse} Send content (46609 o)
+Dec 06 14:27:17 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/52 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '52',)
+Dec 06 14:27:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:27:17 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:27:17 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:27:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:27:17 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:27:17 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:27:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:27:17 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:27:17 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:27:17 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:17 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:17 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:27:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:27:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:27:17 symfony [info] {sfWebDebugLogger} Configuration 11.22 ms (9)
+Dec 06 14:27:17 symfony [info] {sfWebDebugLogger} Factories 45.63 ms (1)
+Dec 06 14:27:17 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 57.11 ms (1)
+Dec 06 14:27:17 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:27:17 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 43.09 ms (1)
+Dec 06 14:27:17 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.77 ms (1)
+Dec 06 14:27:18 symfony [info] {sfWebResponse} Send content (46606 o)
+Dec 06 14:27:24 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 14:27:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:27:24 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:27:24 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:27:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:27:24 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:27:24 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:27:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:27:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:27:24 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:27:24 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:24 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:24 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:27:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:27:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:27:24 symfony [info] {sfWebDebugLogger} Configuration 8.88 ms (9)
+Dec 06 14:27:24 symfony [info] {sfWebDebugLogger} Factories 43.61 ms (1)
+Dec 06 14:27:24 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 63.20 ms (1)
+Dec 06 14:27:24 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:27:24 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 41.83 ms (1)
+Dec 06 14:27:24 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.08 ms (1)
+Dec 06 14:27:24 symfony [info] {sfWebResponse} Send content (46599 o)
+Dec 06 14:27:25 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/54 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '54',)
+Dec 06 14:27:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:27:25 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:27:25 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:27:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:27:25 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:27:26 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:27:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:27:26 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:27:26 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:27:26 symfony [err] {sfException} Impossible to parse date "" with format "yyyy-MM-dd HH:mm:ss".
+Dec 06 14:27:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Dec 06 14:27:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:27:26 symfony [info] {sfWebDebugLogger} Configuration 6.61 ms (9)
+Dec 06 14:27:26 symfony [info] {sfWebDebugLogger} Factories 42.24 ms (1)
+Dec 06 14:27:26 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 112.75 ms (1)
+Dec 06 14:27:26 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:27:26 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 118.42 ms (1)
+Dec 06 14:27:28 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 14:27:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:27:28 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:27:28 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:27:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:27:28 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:27:28 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:27:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:27:28 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:27:28 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:27:28 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:28 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:27:28 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:27:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:27:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:27:28 symfony [info] {sfWebDebugLogger} Configuration 6.27 ms (9)
+Dec 06 14:27:28 symfony [info] {sfWebDebugLogger} Factories 43.22 ms (1)
+Dec 06 14:27:28 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 56.61 ms (1)
+Dec 06 14:27:28 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:27:28 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 42.16 ms (1)
+Dec 06 14:27:28 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.62 ms (1)
+Dec 06 14:27:28 symfony [info] {sfWebResponse} Send content (46599 o)
+Dec 06 14:43:21 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 14:43:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:43:21 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:43:21 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:43:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:43:21 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:43:21 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:43:21 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:43:21 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:43:21 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:43:21 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:43:21 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:43:21 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:43:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:43:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:43:21 symfony [info] {sfWebDebugLogger} Configuration 15.31 ms (9)
+Dec 06 14:43:21 symfony [info] {sfWebDebugLogger} Factories 64.19 ms (1)
+Dec 06 14:43:21 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 104.36 ms (1)
+Dec 06 14:43:21 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:43:21 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 52.10 ms (1)
+Dec 06 14:43:21 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.86 ms (1)
+Dec 06 14:43:22 symfony [info] {sfWebResponse} Send content (46900 o)
+Dec 06 14:52:50 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 14:52:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:52:50 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:52:50 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:52:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:52:50 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:52:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:52:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:52:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:52:50 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:52:50 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:52:50 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:52:50 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:52:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:52:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:52:50 symfony [info] {sfWebDebugLogger} Configuration 12.03 ms (9)
+Dec 06 14:52:50 symfony [info] {sfWebDebugLogger} Factories 51.42 ms (1)
+Dec 06 14:52:50 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 60.80 ms (1)
+Dec 06 14:52:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (3)
+Dec 06 14:52:50 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 48.18 ms (1)
+Dec 06 14:52:50 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.90 ms (1)
+Dec 06 14:52:50 symfony [info] {sfWebResponse} Send content (46899 o)
+Dec 06 14:54:11 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 14:54:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 14:54:11 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 14:54:11 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 14:54:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 14:54:11 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 14:54:11 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 14:54:11 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 14:54:11 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 14:54:11 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 14:54:11 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:54:11 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 14:54:11 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 14:54:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 14:54:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 14:54:11 symfony [info] {sfWebDebugLogger} Configuration 14.46 ms (9)
+Dec 06 14:54:11 symfony [info] {sfWebDebugLogger} Factories 48.99 ms (1)
+Dec 06 14:54:11 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 61.25 ms (1)
+Dec 06 14:54:11 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 14:54:11 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 59.35 ms (1)
+Dec 06 14:54:11 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.91 ms (1)
+Dec 06 14:54:11 symfony [info] {sfWebResponse} Send content (46747 o)
+Dec 06 15:03:24 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:03:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:03:24 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:03:24 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:03:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:03:24 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:03:24 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:03:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:03:25 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:03:25 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:03:25 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:03:25 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:03:25 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:03:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:03:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:03:25 symfony [info] {sfWebDebugLogger} Configuration 44.23 ms (9)
+Dec 06 15:03:25 symfony [info] {sfWebDebugLogger} Factories 407.08 ms (1)
+Dec 06 15:03:25 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 380.75 ms (1)
+Dec 06 15:03:25 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (3)
+Dec 06 15:03:25 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 305.61 ms (1)
+Dec 06 15:03:25 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 12.31 ms (1)
+Dec 06 15:03:25 symfony [info] {sfWebResponse} Send content (47234 o)
+Dec 06 15:03:41 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:03:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:03:41 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:03:41 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:03:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:03:41 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:03:41 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:03:41 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:03:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:03:41 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:03:41 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:03:41 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:03:41 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:03:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:03:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:03:41 symfony [info] {sfWebDebugLogger} Configuration 9.81 ms (9)
+Dec 06 15:03:41 symfony [info] {sfWebDebugLogger} Factories 66.26 ms (1)
+Dec 06 15:03:41 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 60.54 ms (1)
+Dec 06 15:03:41 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:03:41 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 63.13 ms (1)
+Dec 06 15:03:41 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.28 ms (1)
+Dec 06 15:03:41 symfony [info] {sfWebResponse} Send content (47234 o)
+Dec 06 15:04:10 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:04:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:04:10 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:04:10 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:04:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:04:10 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:04:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:04:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:04:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:04:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:04:10 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:04:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:04:10 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:04:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:04:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:04:10 symfony [info] {sfWebDebugLogger} Configuration 13.76 ms (9)
+Dec 06 15:04:10 symfony [info] {sfWebDebugLogger} Factories 78.12 ms (1)
+Dec 06 15:04:10 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 221.99 ms (1)
+Dec 06 15:04:10 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:04:10 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 54.54 ms (1)
+Dec 06 15:04:10 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.03 ms (1)
+Dec 06 15:04:11 symfony [info] {sfWebResponse} Send content (47238 o)
+Dec 06 15:05:00 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:05:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:05:00 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:05:00 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:05:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:05:00 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:05:00 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:05:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:05:00 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:05:00 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:05:00 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:05:00 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:05:00 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:05:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:05:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:05:00 symfony [info] {sfWebDebugLogger} Configuration 11.07 ms (9)
+Dec 06 15:05:00 symfony [info] {sfWebDebugLogger} Factories 50.74 ms (1)
+Dec 06 15:05:00 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 104.50 ms (1)
+Dec 06 15:05:00 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (3)
+Dec 06 15:05:00 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 53.94 ms (1)
+Dec 06 15:05:00 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.15 ms (1)
+Dec 06 15:05:00 symfony [info] {sfWebResponse} Send content (47253 o)
+Dec 06 15:06:24 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:06:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:06:24 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:06:24 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:06:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:06:24 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:06:24 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:06:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:06:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:06:24 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:06:24 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:06:24 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:06:24 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:06:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:06:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:06:24 symfony [info] {sfWebDebugLogger} Configuration 14.02 ms (9)
+Dec 06 15:06:24 symfony [info] {sfWebDebugLogger} Factories 53.22 ms (1)
+Dec 06 15:06:24 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 105.72 ms (1)
+Dec 06 15:06:24 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (3)
+Dec 06 15:06:24 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 48.46 ms (1)
+Dec 06 15:06:24 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.85 ms (1)
+Dec 06 15:06:24 symfony [info] {sfWebResponse} Send content (47253 o)
+Dec 06 15:07:34 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:07:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:07:34 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:07:34 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:07:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:07:34 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:07:34 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:07:34 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:07:34 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:07:34 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:07:34 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:07:34 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:07:34 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:07:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:07:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:07:34 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Dec 06 15:07:34 symfony [info] {sfWebDebugLogger} Factories 47.13 ms (1)
+Dec 06 15:07:34 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 73.09 ms (1)
+Dec 06 15:07:34 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:07:34 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 56.78 ms (1)
+Dec 06 15:07:34 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 7.15 ms (1)
+Dec 06 15:07:35 symfony [info] {sfWebResponse} Send content (47252 o)
+Dec 06 15:11:10 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:11:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:11:10 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:11:10 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:11:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:11:10 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:11:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:11:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:11:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:11:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:11:10 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:11:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:11:10 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:11:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:11:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:11:10 symfony [info] {sfWebDebugLogger} Configuration 17.88 ms (9)
+Dec 06 15:11:10 symfony [info] {sfWebDebugLogger} Factories 65.36 ms (1)
+Dec 06 15:11:10 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 80.42 ms (1)
+Dec 06 15:11:10 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:11:10 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 59.18 ms (1)
+Dec 06 15:11:10 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 5.35 ms (1)
+Dec 06 15:11:10 symfony [info] {sfWebResponse} Send content (47359 o)
+Dec 06 15:13:10 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:13:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:13:10 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:13:10 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:13:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:13:10 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:13:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:13:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:13:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:13:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:13:10 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:13:10 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:13:10 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:13:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:13:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:13:10 symfony [info] {sfWebDebugLogger} Configuration 13.06 ms (9)
+Dec 06 15:13:10 symfony [info] {sfWebDebugLogger} Factories 83.64 ms (1)
+Dec 06 15:13:10 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 60.23 ms (1)
+Dec 06 15:13:10 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:13:10 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 44.72 ms (1)
+Dec 06 15:13:10 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.84 ms (1)
+Dec 06 15:13:11 symfony [info] {sfWebResponse} Send content (47359 o)
+Dec 06 15:13:32 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:13:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:13:32 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:13:32 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:13:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:13:32 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:13:32 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:13:32 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:13:32 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:13:32 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:13:32 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:13:32 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:13:32 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:13:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:13:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:13:32 symfony [info] {sfWebDebugLogger} Configuration 11.07 ms (9)
+Dec 06 15:13:32 symfony [info] {sfWebDebugLogger} Factories 50.08 ms (1)
+Dec 06 15:13:32 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 84.85 ms (1)
+Dec 06 15:13:32 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:13:32 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 49.42 ms (1)
+Dec 06 15:13:32 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.74 ms (1)
+Dec 06 15:13:32 symfony [info] {sfWebResponse} Send content (47359 o)
+Dec 06 15:13:50 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:13:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:13:50 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:13:50 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:13:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:13:50 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:13:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:13:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:13:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:13:50 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:13:50 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:13:50 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:13:50 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:13:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:13:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:13:50 symfony [info] {sfWebDebugLogger} Configuration 8.65 ms (9)
+Dec 06 15:13:50 symfony [info] {sfWebDebugLogger} Factories 46.78 ms (1)
+Dec 06 15:13:50 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 72.99 ms (1)
+Dec 06 15:13:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:13:50 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 43.89 ms (1)
+Dec 06 15:13:50 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.06 ms (1)
+Dec 06 15:13:50 symfony [info] {sfWebResponse} Send content (47358 o)
+Dec 06 15:14:22 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:14:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:14:22 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:14:22 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:14:22 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:14:22 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:14:22 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:14:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:14:22 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:14:22 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:14:22 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:14:22 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:14:22 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:14:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:14:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:14:22 symfony [info] {sfWebDebugLogger} Configuration 10.72 ms (9)
+Dec 06 15:14:22 symfony [info] {sfWebDebugLogger} Factories 48.00 ms (1)
+Dec 06 15:14:22 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 94.70 ms (1)
+Dec 06 15:14:22 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:14:22 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 63.86 ms (1)
+Dec 06 15:14:22 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 5.68 ms (1)
+Dec 06 15:14:22 symfony [info] {sfWebResponse} Send content (47359 o)
+Dec 06 15:14:38 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:14:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:14:38 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:14:38 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:14:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:14:38 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:14:38 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:14:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:14:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:14:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:14:39 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:14:39 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:14:39 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:14:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:14:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:14:39 symfony [info] {sfWebDebugLogger} Configuration 13.92 ms (9)
+Dec 06 15:14:39 symfony [info] {sfWebDebugLogger} Factories 79.81 ms (1)
+Dec 06 15:14:39 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 104.16 ms (1)
+Dec 06 15:14:39 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (3)
+Dec 06 15:14:39 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 65.68 ms (1)
+Dec 06 15:14:39 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.06 ms (1)
+Dec 06 15:14:39 symfony [info] {sfWebResponse} Send content (47360 o)
+Dec 06 15:15:05 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:15:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:15:05 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:15:05 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:15:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:15:05 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:15:05 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:15:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:15:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:15:05 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:15:05 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:15:05 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:15:05 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:15:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:15:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:15:05 symfony [info] {sfWebDebugLogger} Configuration 7.81 ms (9)
+Dec 06 15:15:05 symfony [info] {sfWebDebugLogger} Factories 61.51 ms (1)
+Dec 06 15:15:05 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 72.12 ms (1)
+Dec 06 15:15:05 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:15:05 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 46.25 ms (1)
+Dec 06 15:15:05 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.80 ms (1)
+Dec 06 15:15:05 symfony [info] {sfWebResponse} Send content (47358 o)
+Dec 06 15:15:29 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:15:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:15:29 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:15:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:15:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:15:29 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:15:29 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:15:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:15:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:15:30 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:15:30 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:15:30 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:15:30 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:15:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:15:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:15:30 symfony [info] {sfWebDebugLogger} Configuration 36.94 ms (9)
+Dec 06 15:15:30 symfony [info] {sfWebDebugLogger} Factories 86.95 ms (1)
+Dec 06 15:15:30 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 60.32 ms (1)
+Dec 06 15:15:30 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:15:30 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 55.93 ms (1)
+Dec 06 15:15:30 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.06 ms (1)
+Dec 06 15:15:30 symfony [info] {sfWebResponse} Send content (47367 o)
+Dec 06 15:15:41 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:15:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:15:41 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:15:41 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:15:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:15:41 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:15:41 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:15:41 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:15:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:15:41 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:15:41 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:15:41 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:15:41 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:15:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:15:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:15:41 symfony [info] {sfWebDebugLogger} Configuration 9.57 ms (9)
+Dec 06 15:15:41 symfony [info] {sfWebDebugLogger} Factories 55.97 ms (1)
+Dec 06 15:15:41 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 154.51 ms (1)
+Dec 06 15:15:41 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (3)
+Dec 06 15:15:41 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 60.34 ms (1)
+Dec 06 15:15:41 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 4.79 ms (1)
+Dec 06 15:15:41 symfony [info] {sfWebResponse} Send content (47368 o)
+Dec 06 15:19:08 symfony [info] {sfPatternRouting} Match route "timesheet" (/timesheet/:week) for /timesheet/53 with parameters array (  'module' => 'timesheet',  'action' => 'index',  'week' => '53',)
+Dec 06 15:19:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Dec 06 15:19:08 symfony [info] {sfFilterChain} Executing filter "RememberMeFilter"
+Dec 06 15:19:08 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Dec 06 15:19:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Dec 06 15:19:08 symfony [info] {timesheetActions} Call "timesheetActions->executeIndex()"
+Dec 06 15:19:08 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Dec 06 15:19:08 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.number AS t__number, t.deactivated AS t__deactivated, t.owner_id AS t__owner_id, t.account_id AS t__account_id, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_project t WHERE (t.account_id = ? AND t.deactivated = 0) - (1)
+Dec 06 15:19:08 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.account_id AS t__account_id, t.deleted_at AS t__deleted_at, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM tb_timeitem_type t ORDER BY t.name ASC - ()
+Dec 06 15:19:08 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\modules/timesheet/templates/indexSuccess.php"
+Dec 06 15:19:08 symfony [info] {sfPHPView} Decorate content with "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:19:08 symfony [info] {sfPHPView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/layout.php"
+Dec 06 15:19:08 symfony [info] {sfPartialView} Render "D:\www\opensource\timeboxx_reloaded_sf\apps\frontend\templates/_mainMenu.php"
+Dec 06 15:19:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Dec 06 15:19:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Dec 06 15:19:08 symfony [info] {sfWebDebugLogger} Configuration 14.94 ms (9)
+Dec 06 15:19:08 symfony [info] {sfWebDebugLogger} Factories 65.40 ms (1)
+Dec 06 15:19:08 symfony [info] {sfWebDebugLogger} Action "timesheet/index" 64.72 ms (1)
+Dec 06 15:19:08 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
+Dec 06 15:19:08 symfony [info] {sfWebDebugLogger} View "Success" for "timesheet/index" 52.59 ms (1)
+Dec 06 15:19:08 symfony [info] {sfWebDebugLogger} Partial "global/_mainMenu" 3.85 ms (1)
+Dec 06 15:19:08 symfony [info] {sfWebResponse} Send content (47368 o)
