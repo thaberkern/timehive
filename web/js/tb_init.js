@@ -34,13 +34,5 @@ $(document).ready(function() {
     $('.grid .line:even').addClass('even');
     $('.grid .line:first-child').addClass('firstline');
     $('.grid .line:last-child').addClass('lastline');
-    // Tabs switching
-    $('#box1 .content#box1-grid').hide(); // hide content related to inactive tab by default
-    $('#box1 .header ul a').click(function(){
-        $('#box1 .header ul a').removeClass('active');
-        $(this).addClass('active'); // make clicked tab active
-        $('#box1 .content').hide(); // hide all content
-        $('#box1').find('#' + $(this).attr('rel')).show(); // and show content related to clicked tab
-        return false;
-    });
+    
 });

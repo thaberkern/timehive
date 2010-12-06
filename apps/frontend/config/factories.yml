@@ -29,6 +29,9 @@ dev:
       delivery_strategy: none
 
 all:
+  mailer:
+    class: DynamicConfigMailer
+
   routing:
     class: sfPatternRouting
     param:

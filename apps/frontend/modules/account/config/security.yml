@@ -1,0 +1,8 @@
+sendPassword:
+  is_secure: false
+
+newPassword:
+  is_secure: false
+
+createPassword:
+  is_secure: false

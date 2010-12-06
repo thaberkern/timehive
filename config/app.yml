@@ -8,3 +8,13 @@ all:
 
   user:
     cultures: [de,en]
+
+
+  system:
+    email:
+      host: "servicemail.rotex.de"
+      authentification: true
+      port: 25
+      username:
+      password:
+      from: "timo.haberkern@rotex.de"
