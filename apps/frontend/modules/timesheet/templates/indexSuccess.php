@@ -13,6 +13,21 @@
             recalcTotalHours(wd);
         }
     });
+
+    function changeTimeLogItem(weekday, project_id) {
+        alert (weekday+"..."+project_id);
+    }
+
+    function addTimeEntry(weekday, project_id) {
+        new $.ajax(
+                {
+                  url:'<?php echo url_for('timesheet/field');?>',
+                  data: {'project_id': project_id, 'weekday': weekday},
+                  success: function(html) {
+                      $('#cell_'+project_id+'_'+weekday).append(html);
+                  }
+                });
+    }
 </script>
 
 <div class="box box-100">
@@ -25,11 +40,15 @@
                 <thead>
                     <tr>
                         <th class="tc month" colspan="8">
-                            <a href="<?php echo url_for('timesheet/index?week='.($week-1));?>"><?php echo image_tag('cal-left.png'); ?></a>
+                            <?php $prev_week = date('W', $weekstart - (7 * 24 * 60 * 60)); ?>
+                            <?php $prev_year = date('Y', $weekstart - (7 * 24 * 60 * 60)); ?>
+                            <a href="<?php echo url_for('timesheet/index?week='.$prev_week.'&year='.$prev_year);?>"><?php echo image_tag('cal-left.png'); ?></a>
                             <?php echo __('%1 to %2', array('%1'=>format_date($weekstart, 'p'),
                                                             '%2'=>format_date($weekstart + (6 * 24 * 60 * 60), 'p')));?>
-                            
-                            <a href="<?php echo url_for('timesheet/index?week='.($week+1));?>"><?php echo image_tag('cal-right.png'); ?></a>
+
+                            <?php $next_week = date('W', $weekstart + (7 * 24 * 60 * 60)); ?>
+                            <?php $next_year = date('Y', $weekstart + (7 * 24 * 60 * 60)); ?>
+                            <a href="<?php echo url_for('timesheet/index?week='.$next_week.'&year='.$next_year);?>"><?php echo image_tag('cal-right.png'); ?></a>
                         </th>
                     </tr>
                     <tr>
@@ -85,15 +104,55 @@
                     <?php foreach ($projects as $project):?>
                     <tr>
                         <td><?php echo $project->name;?></td>
-                        <td>
-
+                        <td id="cell_<?php echo $project->getId();?>_1" nowrap>
+                            <?php include_partial('projecttimeitems', array('weekday'=>1,
+                                            'weekstart' => $weekstart,
+                                            'project'=>$project,
+                                            'time_items'=>$time_items,
+                                            'item_types'=>$item_types));?>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td id="cell_<?php echo $project->getId();?>_2" nowrap>
+                            <?php include_partial('projecttimeitems', array('weekday'=>2,
+                                            'weekstart' => $weekstart,
+                                            'project'=>$project,
+                                            'time_items'=>$time_items,
+                                            'item_types'=>$item_types));?>
+                        </td>
+                        <td id="cell_<?php echo $project->getId();?>_3" nowrap>
+                            <?php include_partial('projecttimeitems', array('weekday'=>3,
+                                            'weekstart' => $weekstart,
+                                            'project'=>$project,
+                                            'time_items'=>$time_items,
+                                            'item_types'=>$item_types));?>
+                        </td>
+                        <td id="cell_<?php echo $project->getId();?>_4" nowrap>
+                            <?php include_partial('projecttimeitems', array('weekday'=>4,
+                                            'weekstart' => $weekstart,
+                                            'project'=>$project,
+                                            'time_items'=>$time_items,
+                                            'item_types'=>$item_types));?>
+                        </td>
+                        <td id="cell_<?php echo $project->getId();?>_5" nowrap>
+                            <?php include_partial('projecttimeitems', array('weekday'=>5,
+                                            'weekstart' => $weekstart,
+                                            'project'=>$project,
+                                            'time_items'=>$time_items,
+                                            'item_types'=>$item_types));?>
+                        </td>
+                        <td id="cell_<?php echo $project->getId();?>_6" nowrap>
+                            <?php include_partial('projecttimeitems', array('weekday'=>6,
+                                            'weekstart' => $weekstart,
+                                            'project'=>$project,
+                                            'time_items'=>$time_items,
+                                            'item_types'=>$item_types));?>
+                        </td>
+                        <td id="cell_<?php echo $project->getId();?>_7" nowrap>
+                            <?php include_partial('projecttimeitems', array('weekday'=>7,
+                                            'weekstart' => $weekstart,
+                                            'project'=>$project,
+                                            'time_items'=>$time_items,
+                                            'item_types'=>$item_types));?>
+                        </td>
                     </tr>
                     <?php endforeach;?>
                 </tbody>

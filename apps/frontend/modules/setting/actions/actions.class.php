@@ -18,7 +18,7 @@ class settingActions extends sfActions
      */
     public function executeIndex(sfWebRequest $request)
     {
-        
+
     }
 
 }

@@ -40,7 +40,24 @@ EOF;
 
             if (false == TimeLogItemTable::getInstance()->updateMissedBookings(time(), $user)) {
                 if ($user->Setting->reminder == true) {
+                    $mailer = $this->getMailer();
 
+                    $mailserver = sfConfig::get('app_system_email');
+                    $context = sfContext::createInstance($this->configuration);
+                    $this->configuration->loadHelpers('Partial');
+                    
+                    $i18n = $context->getI18N();
+                    $subject = $i18n->__('TimeBoxx - Missing Bookings');
+
+                    $body = get_partial('global/missingBookings', array('user'=>$user));
+
+                    $message = $mailer->compose($mailserver['from'],
+                                                $user->email,
+                                                $subject);
+
+                    $message->setBody($body, 'text/html');
+
+                    $mailer->send($message);
                 }
             }            
         }

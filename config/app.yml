@@ -18,3 +18,9 @@ all:
       username:
       password:
       from: "timo.haberkern@rotex.de"
+
+dev:
+  frontend_url: http://timeboxx_ng.local/frontend_dev.php
+
+prod:
+  frontend_url: http://timeboxx_ng.local

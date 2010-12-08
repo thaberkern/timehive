@@ -22,7 +22,7 @@ admin_project:
   param: { module: adminProject }
 
 timesheet:
-  url: /timesheet/:week
+  url: /timesheet/:week/:year
   param: { module: timesheet, action: index }
 
 logout:

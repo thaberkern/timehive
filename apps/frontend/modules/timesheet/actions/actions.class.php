@@ -19,17 +19,40 @@ class timesheetActions extends sfActions
     public function executeIndex(sfWebRequest $request)
     {
         $this->week = $request->getParameter('week', date('W'));
-        $days = DateTimeHelper::create()->getDaysOfWeek($this->week, date("Y"));
+        $this->year = $request->getParameter('year', date('Y'));
+        $days = DateTimeHelper::create()->getDaysOfWeek($this->week, $this->year);
         $this->weekstart = $days[1];
 
         $account_id = $this->getUser()->getAttribute('account_id');
         $this->projects = ProjectTable::getInstance()
                                 ->findByAccountId($account_id);
 
-        $this->item_types = Doctrine_Query::create()
-                                ->from('TimeItemType tit')
-                                ->orderBy('name ASC')
-                                ->execute();
+        $this->item_types = TimeItemTypeTable::getInstance()
+                                ->findByAccountId($account_id);
+
+        $items = Doctrine_Query::create()
+                        ->from('TimeLogItem ti')
+                        ->where('ti.itemdate >= ? and itemdate <= ? and ti.user_id = ?',
+                                array(date('Y-m-d', $days[1]),
+                                    date('Y-m-d', $days[1] + (5 * 24 * 60 * 60)),
+                                    $this->getUser()->getAttribute('uid')
+                                )
+                        )
+                        ->execute();
+
+        $this->time_items = new TimeItemSelector($items);
     }
 
+    public function executeField(sfWebRequest $request)
+    {
+        $query = new Doctrine_Query();
+        $project = ProjectTable::getInstance()
+                                ->find($request->getParameter('project_id'));
+
+        $this->setLayout(false);
+        return $this->renderPartial('timeitem', array(
+            'project' => $project,
+            'weekday' => $request->getParameter('weekday')
+        ));
+    }
 }
