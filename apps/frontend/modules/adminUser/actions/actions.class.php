@@ -33,6 +33,10 @@ class adminUserActions extends sfActions
         $user = UserTable::getInstance()->find($request->getParameter('id'));
         $this->forward404Unless($user);
 
+        if ($user->account_id != $this->getUser()->getAttribute('account_id')) {
+            $this->redirect('default/secure');
+        }
+
         $user->locked = true;
         $user->save();
 
@@ -95,6 +99,10 @@ class adminUserActions extends sfActions
         $this->forward404Unless($user = Doctrine::getTable('User')->find(array($request->getParameter('id'))), sprintf('User does not exist (%s).', $request->getParameter('id')));
         $this->form = new UserForm($user);
 
+        if ($user->account_id != $this->getUser()->getAttribute('account_id')) {
+            $this->redirect('default/secure');
+        }
+
         $this->processForm($request, $this->form);
 
         $this->setTemplate('edit');
@@ -105,6 +113,11 @@ class adminUserActions extends sfActions
         $request->checkCSRFProtection();
 
         $this->forward404Unless($user = Doctrine::getTable('User')->find(array($request->getParameter('id'))), sprintf('User does not exist (%s).', $request->getParameter('id')));
+
+        if ($user->account_id != $this->getUser()->getAttribute('account_id')) {
+            $this->redirect('default/secure');
+        }
+
         $user->deleted_at = date('Y-m-d H:i:s');
         $user->save();
 
@@ -115,6 +128,10 @@ class adminUserActions extends sfActions
     {
         $user = UserTable::getInstance()->find($request->getParameter('id'));
         $this->forward404Unless($user);
+
+        if ($user->account_id != $this->getUser()->getAttribute('account_id')) {
+            $this->redirect('default/secure');
+        }
 
         if ($user->Account->hasEnoughLicensesToAddUser() == false) {
             $this->getUser()->setFlash('error.license_count', 1);

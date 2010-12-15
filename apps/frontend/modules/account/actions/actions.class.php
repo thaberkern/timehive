@@ -17,7 +17,22 @@ class accountActions extends sfActions
      */
     public function executeIndex(sfWebRequest $request)
     {
+        $user_id = $this->getUser()->getAttribute('uid');
+        $this->forward404Unless($user = Doctrine::getTable('User')->find(array($user_id)), sprintf('User does not exist (%s).', $user_id));
+        $this->form = new UserForm($user);
+    }
+
+    public function executeUpdate(sfWebRequest $request)
+    {
+        $user_id = $this->getUser()->getAttribute('uid');
         
+        $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+        $this->forward404Unless($user = Doctrine::getTable('User')->find(array($user_id)), sprintf('User does not exist (%s).', $user_id));
+        $this->form = new UserForm($user);
+
+        $this->processForm($request, $this->form);
+
+        $this->setTemplate('index');
     }
 
     public function executeNewPassword(sfWebRequest $request)
@@ -123,6 +138,36 @@ class accountActions extends sfActions
             $this->getUser()->setFlash('send_pwd_failure',
                         $this->getContext()->getI18N()->__('There is no such e-mail address in the our database!'));
             $this->redirect('login/index');
+        }
+    }
+
+    protected function processForm(sfWebRequest $request, sfForm $form)
+    {
+        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+        $user_values = $request->getParameter('user');
+
+        if ($form->isValid()) {
+
+            $user = UserTable::getInstance()->find($user_values['id']);
+
+            $user->first_name = $user_values['first_name'];
+            $user->last_name = $user_values['last_name'];
+            $user->email = $user_values['email'];
+
+            $org_password = $user['password'];
+            if (strlen($user['password']) != 32) {
+                $user->password = md5($user['password']);
+            }
+
+            $user->Setting->theme = $user_values['settings']['theme'];
+            $user->Setting->culture = $user_values['settings']['culture'];
+            $user->Setting->reminder = array_key_exists('reminder', $user_values['settings']);
+
+            $this->getUser()->setAttribute('theme', $user->Setting->theme);
+            $user->save();
+
+            $this->getUser()->setFlash('saved.success', 1);
+            $this->redirect('account/index');
         }
     }
 

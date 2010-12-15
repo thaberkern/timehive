@@ -40,3 +40,6 @@ all:
   .actions:
     login_module:           login   # To be called when a ntrue-authenticated user
     login_action:           index     # Tries to access a secure page
+
+    secure_module:          share
+    secure_action:          secure

@@ -54,6 +54,11 @@ class adminTimeItemTypeActions extends sfActions
     {
         $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
         $this->forward404Unless($time_item_type = Doctrine::getTable('TimeItemType')->find(array($request->getParameter('id'))), sprintf('Object time_item_type does not exist (%s).', $request->getParameter('id')));
+
+        if ($time_item_type->account_id != $this->getUser()->getAttribute('account_id')) {
+            $this->redirect('default/secure');
+        }
+        
         $this->form = new TimeItemTypeForm($time_item_type);
 
         $this->processForm($request, $this->form);
@@ -66,8 +71,11 @@ class adminTimeItemTypeActions extends sfActions
         $request->checkCSRFProtection();
 
         $this->forward404Unless($time_item_type = Doctrine::getTable('TimeItemType')->find(array($request->getParameter('id'))), sprintf('Object time_item_type does not exist (%s).', $request->getParameter('id')));
-        $time_item_type->delete();
+        if ($time_item_type->account_id != $this->getUser()->getAttribute('account_id')) {
+            $this->redirect('default/secure');
+        }
 
+        $time_item_type->delete();
         $this->redirect('adminTimeItemType/list');
     }
 

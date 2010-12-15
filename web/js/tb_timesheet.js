@@ -3,7 +3,7 @@
  *
  * @param weekday The day of the week (starting from 1 = monday)
  */
-function recalcTotalHours(weekday) {
+function recalcTotalHours(unique_id, field, weekday) {
     total = 0;
 
     var inputfields = $("input[class*=value_"+weekday+"]");
@@ -17,5 +17,10 @@ function recalcTotalHours(weekday) {
         }
     }
 
-    $('#total-'+weekday).html($().number_format(total, {numberOfDecimals: 2, decimalSeparator: ':', thousandsSeparator: ','}));
+    $('#total-'+weekday).html($().number_format(total, {numberOfDecimals: 2, decimalSeparator: '.', thousandsSeparator: ','}));
+    
+    if (field != null) {
+        $('#container_'+unique_id).html(field.value);
+    }
+    
 }

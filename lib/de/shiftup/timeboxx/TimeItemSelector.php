@@ -14,12 +14,11 @@ class TimeItemSelector
 
     public function find($project_id, $booking_date)
     {
-
         $result = array();
 
         if (array_key_exists($project_id, $this->time_items) &&
-                array_key_exists(date("Y-m-d H:i:s", $booking_date), $this->time_items[$project_id])) {
-            $values = $this->time_items[$project_id][date("Y-m-d H:i:s", $booking_date)];
+                array_key_exists(date("Y-m-d", $booking_date), $this->time_items[$project_id])) {
+            $values = $this->time_items[$project_id][date("Y-m-d", $booking_date)];
             if ($values) {
                 return $values;
             }

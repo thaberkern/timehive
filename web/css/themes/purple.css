@@ -34,6 +34,8 @@ a.alt:hover, a.alt:active, a.alt:focus,
 .altbox .content a:hover, .altbox .content a:active, .altbox .content a:focus {border-color: #f7cffa; color: #b93ab9;}
 a img {border: none;}
 
+a.add { border: 0; }
+
 /* abstract classes
 ======================================*/
 /* autocleaning (use for parent of floated element, but take care, it has some limitations) */
@@ -110,7 +112,7 @@ a img {border: none;}
 		#nav #h-wrap .ico-admin {background-image: url("/images/themes/h-ico/advanced.png");}
 		#nav #h-wrap .ico-timesheet {background-image: url("/images/themes/h-ico/time.png");}
 		#nav #h-wrap .ico-report {background-image: url("/images/themes/h-ico/report.png");}
-		
+		#nav #h-wrap .ico-account {background-image: url("/images/themes/h-ico/user.png");}
 		#nav #h-wrap h2 {background: url("/images/themes/h-wrap-h2.png") 100% 100% no-repeat; position: relative; float: left; height: 51px; line-height: 55px; vertical-align: middle; font-size: 200%; font-weight: bold;}
 		#nav #h-wrap.active h2 {background: none;}
 		#nav #h-wrap h2 .h-ico {display: block; height: 100%; padding-right: 42px;}
@@ -361,3 +363,12 @@ ul.actions li {display: inline; margin-right: 5px;}
 #login td.proceed {padding-right: 0;}
 #login td.proceed input {margin: 0;}
 #login input.txt {width: 260px;}
+
+.timeitem { width: 50px; }
+.timeitem p { border: 1px solid #999; background-color: #FDFDFD; width: 50px; height: 18px; float: left}
+
+.timelog-edit tr { height: 26px; }
+.timelog-edit td { vertical-align: top; }
+.timelog-edit th { padding-right: 10px; font-weight: bold; }
+
+form.simple { padding: 0; margin: 0; }

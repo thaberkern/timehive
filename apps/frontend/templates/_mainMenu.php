@@ -8,8 +8,10 @@
                             case 'dashboard': echo __('Dashboard'); break;
                             case 'timesheet': echo __('Timesheet'); break;
                             case 'report': echo __('Reports'); break;
+                            case 'account': echo __('My account'); break;
+                            case 'share': echo __('Message'); break;
                             default:
-                                if (substr($sf_request->getParameter('module'), 0, 5)) {
+                                if (substr($sf_request->getParameter('module'), 0, 5) == 'admin') {
                                     echo __('Administration'); 
                                 }
                                 break;

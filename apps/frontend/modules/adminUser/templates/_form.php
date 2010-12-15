@@ -6,16 +6,18 @@
         <input type="hidden" name="sf_method" value="put" />
     <?php endif; ?>
     <?php echo $form->renderHiddenFields(false) ?>
+
+    <?php if ($sf_user->getFlash('saved.success', 0) != 0):?>
+        <div class="msg msg-ok">
+            <p><?php echo __('Saved element successfully');?>!</p>
+        </div>
+    <?php endif;?>
+
+    <?php include_partial('global/error_message', array('form'=>$form));?>
+
+        
     <fieldset>
         <legend><strong><?php echo __('User');?></strong></legend>
-        <?php if ($sf_user->getFlash('saved.success', 0) != 0):?>
-            <div class="msg msg-ok">
-                <p><?php echo __('Saved element successfully');?>!</p>
-            </div>
-        <?php endif;?>
-
-        <?php include_partial('global/error_message', array('form'=>$form));?>
-
         <?php echo $form['first_name']->renderLabel() ?>
         <?php echo $form['first_name'] ?>
 

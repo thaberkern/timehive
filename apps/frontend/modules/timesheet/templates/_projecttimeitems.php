@@ -4,10 +4,15 @@
      be created a empty input box even if there are no saved entries -->
 <?php if (count($project_time_items) == 0) $project_time_items = array(null);?>
 
-<!-- create a input and combo box for every item -->
+<div id="timeitem_container_<?php echo $weekday.'_'.$project->id;?>" style="float: left;">
 <?php foreach ($project_time_items as $time_item): ?>
     <?php include_partial('timeitem', array('weekday'=>$weekday,
+                                            'weekstart'=>$weekstart,
                                             'project'=>$project,
                                             'time_item'=>$time_item,
                                             'item_types'=>$item_types));?>
+
 <?php endforeach;?>
+</div>
+<a class="add" href="javascript:addTimeEntry(<?php echo $weekday;?>, <?php echo $project->getId();?>)"><?php echo image_tag('add');?></a>
+
