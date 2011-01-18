@@ -21,10 +21,34 @@ User:
     locked: { type: boolean }
     deleted_at: { type: timestamp }
   relations:
-    Account: { class: Account, foreignAlias: users, local: account_id }
+    Account: { class: Account, foreignAlias: Users, local: account_id }
   actAs:
     Timestampable: ~
-    
+
+Role:
+  tableName: tb_role
+  columns:
+    name: { type: string(255) }
+    account_id: { type: integer(20) }
+    deleted_at: { type: timestamp }
+  relations:
+    Account: { class: Account, foreignAlias: Roles, local: account_id }
+    Credentials: { class: Credential, refClass: RoleCredential, foreignAlias: Roles }
+  actAs:
+    Timestampable: ~
+
+Credential:
+  tableName: ts_credential
+  columns:
+    name: { type: string(255) }
+    group_name: { type: string(255) }
+
+RoleCredential:
+  tableName: ts_role_credential
+  columns:
+    role_id: { type: integer(11), primary: true }
+    credential_id: { type: integer(11), primary: true }
+
 TimeLogItem:
   tableName: tb_timelog_item
   columns:

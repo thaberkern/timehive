@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="en" target-language="en" datatype="plain" date="2010-08-23T15:05:18Z">
+    <body>
+      <trans-unit id="10000">
+        <source>credential.group.timetracking</source>
+        <target>Timetracking</target>
+      </trans-unit>
+      <trans-unit id="10001">
+        <source>credential.group.report</source>
+        <target>Reporting</target>
+      </trans-unit>
+      <trans-unit id="10002">
+        <source>credential.timetracking.edit</source>
+        <target>Add/edit timetracking values</target>
+      </trans-unit>
+      <trans-unit id="10003">
+        <source>credential.report.last_bookings.other</source>
+        <target>Show time tracking entries (other users)</target>
+      </trans-unit>
+      <trans-unit id="10004">
+        <source>credential.report.last_bookings.self</source>
+        <target>Show time tracking entries (only users itself)</target>
+      </trans-unit>
+      <trans-unit id="10005">
+        <source>credential.report.project_total.self</source>
+        <target>Show project totals (only users itself)</target>
+      </trans-unit>
+      <trans-unit id="10006">
+        <source>credential.report.project_total.other</source>
+        <target>Show project totals (other users)</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

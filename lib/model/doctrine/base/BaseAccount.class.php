@@ -8,20 +8,23 @@
  * @property enum $type
  * @property date $valid_until
  * @property string $name
- * @property Doctrine_Collection $users
+ * @property Doctrine_Collection $Users
+ * @property Doctrine_Collection $Roles
  * @property Doctrine_Collection $TimeItemTypes
  * @property Doctrine_Collection $Projects
  * 
  * @method enum                getType()          Returns the current record's "type" value
  * @method date                getValidUntil()    Returns the current record's "valid_until" value
  * @method string              getName()          Returns the current record's "name" value
- * @method Doctrine_Collection getUsers()         Returns the current record's "users" collection
+ * @method Doctrine_Collection getUsers()         Returns the current record's "Users" collection
+ * @method Doctrine_Collection getRoles()         Returns the current record's "Roles" collection
  * @method Doctrine_Collection getTimeItemTypes() Returns the current record's "TimeItemTypes" collection
  * @method Doctrine_Collection getProjects()      Returns the current record's "Projects" collection
  * @method Account             setType()          Sets the current record's "type" value
  * @method Account             setValidUntil()    Sets the current record's "valid_until" value
  * @method Account             setName()          Sets the current record's "name" value
- * @method Account             setUsers()         Sets the current record's "users" collection
+ * @method Account             setUsers()         Sets the current record's "Users" collection
+ * @method Account             setRoles()         Sets the current record's "Roles" collection
  * @method Account             setTimeItemTypes() Sets the current record's "TimeItemTypes" collection
  * @method Account             setProjects()      Sets the current record's "Projects" collection
  * 
@@ -57,7 +60,11 @@ abstract class BaseAccount extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('User as users', array(
+        $this->hasMany('User as Users', array(
+             'local' => 'id',
+             'foreign' => 'account_id'));
+
+        $this->hasMany('Role as Roles', array(
              'local' => 'id',
              'foreign' => 'account_id'));
 

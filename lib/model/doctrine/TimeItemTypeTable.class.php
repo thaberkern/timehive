@@ -15,6 +15,7 @@ class TimeItemTypeTable extends Doctrine_Table
                     ->from('TimeItemType it')
                     ->where('it.account_id=? AND it.deleted_at IS NULL',
                                 array($account_id))
+                    ->orderBy('it.name ASC')
                     ->execute();
     }
 }
