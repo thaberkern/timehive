@@ -21,10 +21,11 @@ class TimeItemTypeForm extends BaseTimeItemTypeForm
         unset($this['updated_at']);
     }
 
-    public function setValue($field, $value) {
-        $this->values[$field] = $value; 
-        $this->taintedValues[$field] = $value; 
-        $this->resetFormFields(); 
+    public function setValue($field, $value)
+    {
+        $this->values[$field] = $value;
+        $this->taintedValues[$field] = $value;
+        $this->resetFormFields();
     }
 
 }

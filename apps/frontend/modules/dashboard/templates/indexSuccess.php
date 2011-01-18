@@ -101,7 +101,7 @@
                 <ul class="simple">
                     <?php foreach($no_bookings_pager->getResults() as $booking):?>
                         <li>
-                            <a href="<?php echo url_for('timesheet/index?week='.week_number($booking->day));?>"><?php echo format_date($booking->day, 'P');?></a>
+                            <a href="<?php echo url_for('timesheet/index?week='.week_number($booking->day).'&year='.date('Y', strtotime($booking->day)));?>"><?php echo format_date($booking->day, 'P');?></a>
                             <span><a href="<?php echo url_for('dashboard/ignoreMissingBooking?id='.$booking->id.'&missing_page='.$sf_request->getParameter('missing_page'));?>">ignore</a></span>
                         </li>
                     <?php endforeach;?>

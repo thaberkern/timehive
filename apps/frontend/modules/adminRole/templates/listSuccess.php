@@ -38,13 +38,13 @@
                         <?php $i = 1;?>
                         <?php foreach ($roles as $role):?>
                             <tr <?php echo $i==1 ? 'class="first"' : '';?>>
-                                <td class="tc"><input type="checkbox" id="rl-check-<?php echo $i;?>" name="rl-check[<?php echo $type->id;?>]" value="true" /></td>
+                                <td class="tc"><input type="checkbox" id="rl-check-<?php echo $i;?>" name="rl-check[<?php echo $role->id;?>]" value="true" /></td>
                                 <td class="tc"><?php echo $role->name;?></td>
                                 <td class="tc"><?php echo format_date($role->created_at, 'P');?></td>
                                 <td class="tc">
                                     <ul class="actions">
                                         <li><a class="ico" href="<?php echo url_for('adminRole/edit?id='.$role->id);?>" title="edit"><img src="<?php echo image_path('edit');?>" alt="<?php echo __('edit');?>" /></a></li>
-                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminRole/delete?id='.$type->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'alt'=>'delete')) ?></li>
+                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminRole/delete?id='.$role->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'alt'=>'delete')) ?></li>
                                     </ul>
                                 </td>
                             </tr>

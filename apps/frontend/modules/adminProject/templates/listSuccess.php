@@ -10,6 +10,11 @@
                 <li><a href="<?php echo url_for('adminTimeItemType/list');?>"><?php echo __('Time item types');?></a></li>
             </ul>
         </div>
+        <?php if ($sf_user->getFlash('error.license_count', 0) != 0):?>
+            <div class="msg msg-error">
+                <p><?php echo __('You have reached the maximum amount of projects for your type of account. Please upgrade if you want to add another project.');?>:</p>
+            </div>
+        <?php endif; ?>
         <div id="box1-tabular" class="content">
             <form class="plain" action="<?php echo url_for('adminProject/bulk');?>" method="post">
                 <table cellspacing="0">
@@ -20,16 +25,17 @@
                             <td class="tc"><?php echo __('Number');?></td>
                             <td class="tc"><?php echo __('Owner');?></td>
                             <td class="tc"><?php echo __('Created at');?></td>
+                            <td class="tc"><?php echo __('Locked');?></td>
                             <td class="tc"><?php echo __('Actions');?></td>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <td colspan="6">
+                            <td colspan="7">
                                 <label>
                                     <?php echo __('with selected do');?>:
                                     <select name="prj-groupaction">
-                                        <option value="archive"><?php echo __('archive');?></option>
+                                        <option value="lock"><?php echo __('lock');?></option>
                                         <option value="delete"><?php echo __('delete');?></option>
                                     </select>
                                 </label>
@@ -47,9 +53,20 @@
                                 <td class="tc"><?php echo $project->Owner->username;?></td>
                                 <td class="tc"><?php echo format_date($project->created_at, 'P');?></td>
                                 <td class="tc">
+                                    <?php if ($project->deactivated):?>
+                                        <?php echo image_tag('lock', array('alt'=>'Locked'));?>
+                                    <?php endif;?>
+                                </td>
+                                <td class="tc">
                                     <ul class="actions">
                                         <li><a class="ico" href="<?php echo url_for('adminProject/edit?id='.$project->id);?>" title="edit"><img src="<?php echo image_path('edit');?>" alt="<?php echo __('edit');?>" /></a></li>
-                                        <li><?php echo link_to(image_tag('database', array('alt'=>'archive')), 'adminProject/archive?id='.$project->id, array('confirm' => 'Are you sure?', 'class'=>'ico', 'alt'=>'archive')) ?></li>
+                                        <li>
+                                        <?php if ($project->deactivated):?>
+                                            <?php echo link_to(image_tag('lock_delete', array('alt'=>'unlock')), 'adminProject/unlock?id='.$project->id, array('class'=>'ico', 'alt'=>'unlock')) ?>
+                                        <?php else:?>
+                                            <?php echo link_to(image_tag('lock', array('alt'=>'lock')), 'adminProject/lock?id='.$project->id, array('class'=>'ico', 'alt'=>'lock')) ?>
+                                        <?php endif; ?>
+                                        </li>
                                         <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminProject/delete?id='.$project->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'alt'=>'delete')) ?></li>
                                     </ul>
                                 </td>

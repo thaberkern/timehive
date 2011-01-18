@@ -26,4 +26,20 @@ class Account extends BaseAccount
             case 'unlimited': return true; break;
         }
     }
+
+    public function hasEnoughLicensesToAddProject()
+    {
+        $count = Doctrine_Query::create()
+                        ->select('COUNT(*) as count')
+                        ->from('Project p')
+                        ->where('p.account_id=?', $this->id)
+                        ->fetchArray();
+
+        switch ($this->type) {
+            case 'free': return $count['count'] < 5 - 1; break;
+            case 'small': return $count['count'] < 25 - 1; break;
+            case 'pro': return $count['count'] < 50 - 1; break;
+            case 'unlimited': return true; break;
+        }
+    }
 }

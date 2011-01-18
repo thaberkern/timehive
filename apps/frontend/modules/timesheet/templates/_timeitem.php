@@ -63,44 +63,33 @@
 </div>
 
 <script type="text/javascript">
-    function validate(unique_id, field, weekday) {
-        var time = jQuery.trim(""+field.value);
-        if (time.match(/^[0-9]+(\.[0-9][0-9]?)?$/)) {
-            $('#validation_error_'+unique_id).hide();
-        }
-        else {
-            field.value = 0;
-            $('#validation_error_'+unique_id).show();
-        }
-    }
-
     <?php if ($weekstart + ( ($weekday-1) * 24 * 60 * 60) > time() ):?>
         $('#container_<?php echo $unique_id;?>').qtip({
-        content: {
-            title: {
-                text: '<?php echo __('Edit Timelog entry');?>',
-                button: true
+            content: {
+                title: {
+                    text: '<?php echo __('Edit Timelog entry');?>',
+                    button: true
+                },
+                text: '<?php echo __('You can not track time entry for future dates');?>'
             },
-            text: '<?php echo __('You can not track time entry for future dates');?>'
-        },
-        show: {
-            event: 'click',
-            solo: true
-        },
-        position: {
-            <?php if ($weekday <= 5):?>
-                my: 'left center',
-                at: 'right center',
-            <?php else: ?>
-                my: 'right center',
-                at: 'left center',
-            <?php endif;?>
-            target: $('#container_<?php echo $unique_id;?>')
-        },
-        style: {
-            classes: 'ui-tooltip-rounded'
-        }
-    });
+            show: {
+                event: 'click',
+                solo: true
+            },
+            position: {
+                <?php if ($weekday <= 5):?>
+                    my: 'left center',
+                    at: 'right center',
+                <?php else: ?>
+                    my: 'right center',
+                    at: 'left center',
+                <?php endif;?>
+                target: $('#container_<?php echo $unique_id;?>')
+            },
+            style: {
+                classes: 'ui-tooltip-rounded'
+            }
+        });
     <?php else: ?>
     $('#container_<?php echo $unique_id;?>').qtip({
         content: {

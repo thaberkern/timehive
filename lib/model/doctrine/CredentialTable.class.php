@@ -20,7 +20,10 @@ class CredentialTable extends Doctrine_Table
 
     public static function getGroupedCredentials()
     {
-        $credentials = Doctrine::getTable('Credential')->findAll();
+        $credentials = Doctrine_Query::create()
+                            ->from('Credential')
+                            ->orderBy('sort_order ASC')
+                            ->execute();
 
         $result = array();
 

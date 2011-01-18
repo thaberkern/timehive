@@ -65,7 +65,7 @@ class UserForm extends BaseUserForm
 
         $this->embedForm('settings', new SettingForm($this->getObject()->getSetting()));
 
-        unset($this['created_at'], $this['updated_at'], $this['deleted_at']);
+        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['assigned_user_list'], $this['owner_id']);
     }
 
     public function setValue($field, $value)
@@ -74,7 +74,4 @@ class UserForm extends BaseUserForm
         $this->taintedValues[$field] = $value;
         $this->resetFormFields();
     }
-
-
-
 }

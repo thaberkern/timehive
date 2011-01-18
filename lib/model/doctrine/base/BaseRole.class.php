@@ -10,17 +10,20 @@
  * @property timestamp $deleted_at
  * @property Account $Account
  * @property Doctrine_Collection $Credentials
+ * @property Doctrine_Collection $ProjectUsers
  * 
- * @method string              getName()        Returns the current record's "name" value
- * @method integer             getAccountId()   Returns the current record's "account_id" value
- * @method timestamp           getDeletedAt()   Returns the current record's "deleted_at" value
- * @method Account             getAccount()     Returns the current record's "Account" value
- * @method Doctrine_Collection getCredentials() Returns the current record's "Credentials" collection
- * @method Role                setName()        Sets the current record's "name" value
- * @method Role                setAccountId()   Sets the current record's "account_id" value
- * @method Role                setDeletedAt()   Sets the current record's "deleted_at" value
- * @method Role                setAccount()     Sets the current record's "Account" value
- * @method Role                setCredentials() Sets the current record's "Credentials" collection
+ * @method string              getName()         Returns the current record's "name" value
+ * @method integer             getAccountId()    Returns the current record's "account_id" value
+ * @method timestamp           getDeletedAt()    Returns the current record's "deleted_at" value
+ * @method Account             getAccount()      Returns the current record's "Account" value
+ * @method Doctrine_Collection getCredentials()  Returns the current record's "Credentials" collection
+ * @method Doctrine_Collection getProjectUsers() Returns the current record's "ProjectUsers" collection
+ * @method Role                setName()         Sets the current record's "name" value
+ * @method Role                setAccountId()    Sets the current record's "account_id" value
+ * @method Role                setDeletedAt()    Sets the current record's "deleted_at" value
+ * @method Role                setAccount()      Sets the current record's "Account" value
+ * @method Role                setCredentials()  Sets the current record's "Credentials" collection
+ * @method Role                setProjectUsers() Sets the current record's "ProjectUsers" collection
  * 
  * @package    timeboxx
  * @subpackage model
@@ -56,6 +59,10 @@ abstract class BaseRole extends sfDoctrineRecord
              'refClass' => 'RoleCredential',
              'local' => 'role_id',
              'foreign' => 'credential_id'));
+
+        $this->hasMany('ProjectUser as ProjectUsers', array(
+             'local' => 'id',
+             'foreign' => 'role_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

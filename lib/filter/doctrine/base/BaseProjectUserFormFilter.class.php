@@ -15,11 +15,13 @@ abstract class BaseProjectUserFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'project_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Project'), 'add_empty' => true)),
       'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
+      'role_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Role'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
       'project_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Project'), 'column' => 'id')),
       'user_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('User'), 'column' => 'id')),
+      'role_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Role'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('project_user_filters[%s]');
@@ -42,6 +44,7 @@ abstract class BaseProjectUserFormFilter extends BaseFormFilterDoctrine
       'id'         => 'Number',
       'project_id' => 'ForeignKey',
       'user_id'    => 'ForeignKey',
+      'role_id'    => 'ForeignKey',
     );
   }
 }

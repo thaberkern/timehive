@@ -10,6 +10,6 @@
                 <li><a href="<?php echo url_for('adminTimeItemType/list');?>"><?php echo __('Time item types');?></a></li>
             </ul>
         </div>
-        <?php include_partial('form', array('form' => $form, 'role'=>$role, 'credentials'=>$credentials)) ?>
+        <?php include_partial('form', array('form' => $form, 'role'=>$form->getObject(), 'credentials'=>$credentials)) ?>
     </div>
 </div>

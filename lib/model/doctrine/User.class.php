@@ -38,4 +38,17 @@ class User extends BaseUser
         return $result;
     }
 
+    public function getProjectRoles($project_id)
+    {
+        return Doctrine_Query::create()
+                        ->from('Role r')
+                        ->innerJoin('r.ProjectUsers pu')
+                        ->where('pu.user_id=? AND pu.project_id=?', array($this->id, $project_id))
+                        ->execute();
+    }
+
+    public function __toString()
+    {
+        return $this->first_name." ".$this->last_name." (".$this->username.")";
+    }
 }

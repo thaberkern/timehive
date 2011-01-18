@@ -79,8 +79,6 @@ class adminUserActions extends sfActions
             case 'delete': $query->set('deleted_at', '?', date('Y-m-d H:i:s')); break;
         }
 
-        $ids = array_keys($request->getParameter('usr-check', array()));
-
         $query->whereIn('u.id', $ids);
         $query->execute();
 

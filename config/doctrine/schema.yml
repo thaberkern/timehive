@@ -38,16 +38,17 @@ Role:
     Timestampable: ~
 
 Credential:
-  tableName: ts_credential
+  tableName: tb_credential
   columns:
     name: { type: string(255) }
     group_name: { type: string(255) }
+    sort_order: { type: integer(20) }
 
 RoleCredential:
-  tableName: ts_role_credential
+  tableName: tb_role_credential
   columns:
-    role_id: { type: integer(11), primary: true }
-    credential_id: { type: integer(11), primary: true }
+    role_id: { type: integer(20), primary: true }
+    credential_id: { type: integer(20), primary: true }
 
 TimeLogItem:
   tableName: tb_timelog_item
@@ -93,6 +94,7 @@ Project:
     deactivated: { type: boolean }
     owner_id: { type: integer(20) }
     account_id: { type: integer(20) }
+    deleted_at: { type: timestamp }
   relations:
     Owner: { class: User, foreignAlias: OwnedProjects, local: owner_id }
     AssignedUser: { class: User, refClass: ProjectUser }
@@ -105,6 +107,10 @@ ProjectUser:
   columns:
     project_id: { type: integer(20) }
     user_id: { type: integer(20) }
+    role_id: { type: integer(20) }
+  relations:
+    Project: { class: Project, foreignAlias: ProjectUsers, local: project_id }
+    Role: { class: Role, foreignAlias: ProjectUsers, local: role_id }
 
 Setting:
   tableName: tb_settings

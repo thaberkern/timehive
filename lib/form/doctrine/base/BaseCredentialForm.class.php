@@ -18,6 +18,7 @@ abstract class BaseCredentialForm extends BaseFormDoctrine
       'id'         => new sfWidgetFormInputHidden(),
       'name'       => new sfWidgetFormInputText(),
       'group_name' => new sfWidgetFormInputText(),
+      'sort_order' => new sfWidgetFormInputText(),
       'roles_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Role')),
     ));
 
@@ -25,6 +26,7 @@ abstract class BaseCredentialForm extends BaseFormDoctrine
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'group_name' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'sort_order' => new sfValidatorInteger(array('required' => false)),
       'roles_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Role', 'required' => false)),
     ));
 

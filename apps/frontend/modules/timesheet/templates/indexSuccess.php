@@ -19,6 +19,17 @@
         }
     });
 
+    function validate(unique_id, field, weekday) {
+        var time = jQuery.trim(""+field.value);
+        if (time.match(/^[0-9]+(\.[0-9][0-9]?)?$/)) {
+            $('#validation_error_'+unique_id).hide();
+        }
+        else {
+            field.value = 0;
+            $('#validation_error_'+unique_id).show();
+        }
+    }
+
     function addTimeEntry(weekday, project_id) {
         new $.ajax(
                 {
@@ -103,7 +114,7 @@
                         </tr>
                         <tr>
                             <td colspan="8">
-                                <input class="button altbutton" type="submit" value="<?php echo __('Speichern');?>" />
+                                <input class="button altbutton" type="submit" value="<?php echo __('Save');?>" />
                             </td>
                         </tr>
                     </tfoot>

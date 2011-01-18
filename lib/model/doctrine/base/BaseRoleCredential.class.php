@@ -22,16 +22,16 @@ abstract class BaseRoleCredential extends sfDoctrineRecord
 {
     public function setTableDefinition()
     {
-        $this->setTableName('ts_role_credential');
-        $this->hasColumn('role_id', 'integer', 11, array(
+        $this->setTableName('tb_role_credential');
+        $this->hasColumn('role_id', 'integer', 20, array(
              'type' => 'integer',
              'primary' => true,
-             'length' => 11,
+             'length' => 20,
              ));
-        $this->hasColumn('credential_id', 'integer', 11, array(
+        $this->hasColumn('credential_id', 'integer', 20, array(
              'type' => 'integer',
              'primary' => true,
-             'length' => 11,
+             'length' => 20,
              ));
     }
 

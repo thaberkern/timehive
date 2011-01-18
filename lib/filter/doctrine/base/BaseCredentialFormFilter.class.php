@@ -15,12 +15,14 @@ abstract class BaseCredentialFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'name'       => new sfWidgetFormFilterInput(),
       'group_name' => new sfWidgetFormFilterInput(),
+      'sort_order' => new sfWidgetFormFilterInput(),
       'roles_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Role')),
     ));
 
     $this->setValidators(array(
       'name'       => new sfValidatorPass(array('required' => false)),
       'group_name' => new sfValidatorPass(array('required' => false)),
+      'sort_order' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'roles_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Role', 'required' => false)),
     ));
 
@@ -62,6 +64,7 @@ abstract class BaseCredentialFormFilter extends BaseFormFilterDoctrine
       'id'         => 'Number',
       'name'       => 'Text',
       'group_name' => 'Text',
+      'sort_order' => 'Number',
       'roles_list' => 'ManyKey',
     );
   }

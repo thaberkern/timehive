@@ -1,5 +1,5 @@
 all:
-  version: 0.6.0
+  version: 0.7.0
 
   autologin_expiration: 84600
 
@@ -8,7 +8,6 @@ all:
 
   user:
     cultures: [de,en]
-
 
   system:
     email:

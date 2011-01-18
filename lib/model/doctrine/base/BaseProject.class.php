@@ -10,29 +10,35 @@
  * @property boolean $deactivated
  * @property integer $owner_id
  * @property integer $account_id
+ * @property timestamp $deleted_at
  * @property User $Owner
  * @property Doctrine_Collection $AssignedUser
  * @property Account $Account
  * @property Doctrine_Collection $TimeLogItems
+ * @property Doctrine_Collection $ProjectUsers
  * 
  * @method string              getName()         Returns the current record's "name" value
  * @method string              getNumber()       Returns the current record's "number" value
  * @method boolean             getDeactivated()  Returns the current record's "deactivated" value
  * @method integer             getOwnerId()      Returns the current record's "owner_id" value
  * @method integer             getAccountId()    Returns the current record's "account_id" value
+ * @method timestamp           getDeletedAt()    Returns the current record's "deleted_at" value
  * @method User                getOwner()        Returns the current record's "Owner" value
  * @method Doctrine_Collection getAssignedUser() Returns the current record's "AssignedUser" collection
  * @method Account             getAccount()      Returns the current record's "Account" value
  * @method Doctrine_Collection getTimeLogItems() Returns the current record's "TimeLogItems" collection
+ * @method Doctrine_Collection getProjectUsers() Returns the current record's "ProjectUsers" collection
  * @method Project             setName()         Sets the current record's "name" value
  * @method Project             setNumber()       Sets the current record's "number" value
  * @method Project             setDeactivated()  Sets the current record's "deactivated" value
  * @method Project             setOwnerId()      Sets the current record's "owner_id" value
  * @method Project             setAccountId()    Sets the current record's "account_id" value
+ * @method Project             setDeletedAt()    Sets the current record's "deleted_at" value
  * @method Project             setOwner()        Sets the current record's "Owner" value
  * @method Project             setAssignedUser() Sets the current record's "AssignedUser" collection
  * @method Project             setAccount()      Sets the current record's "Account" value
  * @method Project             setTimeLogItems() Sets the current record's "TimeLogItems" collection
+ * @method Project             setProjectUsers() Sets the current record's "ProjectUsers" collection
  * 
  * @package    timeboxx
  * @subpackage model
@@ -63,6 +69,9 @@ abstract class BaseProject extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 20,
              ));
+        $this->hasColumn('deleted_at', 'timestamp', null, array(
+             'type' => 'timestamp',
+             ));
     }
 
     public function setUp()
@@ -82,6 +91,10 @@ abstract class BaseProject extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $this->hasMany('TimeLogItem as TimeLogItems', array(
+             'local' => 'id',
+             'foreign' => 'project_id'));
+
+        $this->hasMany('ProjectUser as ProjectUsers', array(
              'local' => 'id',
              'foreign' => 'project_id'));
 

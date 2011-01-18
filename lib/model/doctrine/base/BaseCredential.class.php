@@ -7,13 +7,16 @@
  * 
  * @property string $name
  * @property string $group_name
+ * @property integer $sort_order
  * @property Doctrine_Collection $Roles
  * 
  * @method string              getName()       Returns the current record's "name" value
  * @method string              getGroupName()  Returns the current record's "group_name" value
+ * @method integer             getSortOrder()  Returns the current record's "sort_order" value
  * @method Doctrine_Collection getRoles()      Returns the current record's "Roles" collection
  * @method Credential          setName()       Sets the current record's "name" value
  * @method Credential          setGroupName()  Sets the current record's "group_name" value
+ * @method Credential          setSortOrder()  Sets the current record's "sort_order" value
  * @method Credential          setRoles()      Sets the current record's "Roles" collection
  * 
  * @package    timeboxx
@@ -25,7 +28,7 @@ abstract class BaseCredential extends sfDoctrineRecord
 {
     public function setTableDefinition()
     {
-        $this->setTableName('ts_credential');
+        $this->setTableName('tb_credential');
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
@@ -33,6 +36,10 @@ abstract class BaseCredential extends sfDoctrineRecord
         $this->hasColumn('group_name', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
+             ));
+        $this->hasColumn('sort_order', 'integer', 20, array(
+             'type' => 'integer',
+             'length' => 20,
              ));
     }
 
