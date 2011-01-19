@@ -38,7 +38,7 @@
                 <p><?php echo __('You need to save a project before you can add user with their roles');?></p>
             </div>
         <?php else: ?>
-            <?php include_partial('projectroles', array('users'=>$project_user, 'project'=>$form->getObject()));?>
+            <?php include_partial('projectroles', array('users'=>$users, 'project_users'=>$project_user, 'roles'=>$roles, 'project'=>$form->getObject()));?>
         <?php endif;?>
     </fieldset>
 

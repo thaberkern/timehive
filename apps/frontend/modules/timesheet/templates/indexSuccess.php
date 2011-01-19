@@ -120,58 +120,60 @@
                     </tfoot>
                     <tbody>
                         <?php foreach ($projects as $project):?>
-                        <tr>
-                            <td class="ttop"><?php echo $project->name;?></td>
-                            <td id="cell_<?php echo $project->getId();?>_1" class="tc ttop" nowrap>
-                                <?php include_partial('projecttimeitems', array('weekday'=>1,
-                                                'weekstart' => $weekstart,
-                                                'project'=>$project,
-                                                'time_items'=>$time_items,
-                                                'item_types'=>$item_types));?>
-                            </td>
-                            <td id="cell_<?php echo $project->getId();?>_2" class="tc ttop" nowrap>
-                                <?php include_partial('projecttimeitems', array('weekday'=>2,
-                                                'weekstart' => $weekstart,
-                                                'project'=>$project,
-                                                'time_items'=>$time_items,
-                                                'item_types'=>$item_types));?>
-                            </td>
-                            <td id="cell_<?php echo $project->getId();?>_3" class="tc ttop" nowrap>
-                                <?php include_partial('projecttimeitems', array('weekday'=>3,
-                                                'weekstart' => $weekstart,
-                                                'project'=>$project,
-                                                'time_items'=>$time_items,
-                                                'item_types'=>$item_types));?>
-                            </td>
-                            <td id="cell_<?php echo $project->getId();?>_4" class="tc ttop" nowrap>
-                                <?php include_partial('projecttimeitems', array('weekday'=>4,
-                                                'weekstart' => $weekstart,
-                                                'project'=>$project,
-                                                'time_items'=>$time_items,
-                                                'item_types'=>$item_types));?>
-                            </td>
-                            <td id="cell_<?php echo $project->getId();?>_5" class="tc ttop" nowrap>
-                                <?php include_partial('projecttimeitems', array('weekday'=>5,
-                                                'weekstart' => $weekstart,
-                                                'project'=>$project,
-                                                'time_items'=>$time_items,
-                                                'item_types'=>$item_types));?>
-                            </td>
-                            <td id="cell_<?php echo $project->getId();?>_6" class="tc ttop" nowrap>
-                                <?php include_partial('projecttimeitems', array('weekday'=>6,
-                                                'weekstart' => $weekstart,
-                                                'project'=>$project,
-                                                'time_items'=>$time_items,
-                                                'item_types'=>$item_types));?>
-                            </td>
-                            <td id="cell_<?php echo $project->getId();?>_7"  class="tc ttop" nowrap>
-                                <?php include_partial('projecttimeitems', array('weekday'=>7,
-                                                'weekstart' => $weekstart,
-                                                'project'=>$project,
-                                                'time_items'=>$time_items,
-                                                'item_types'=>$item_types));?>
-                            </td>
-                        </tr>
+                            <?php if ($user->hasProjectCredential(Credential::TIMETRACKING_EDIT, $project->id)):?>
+                            <tr>
+                                <td class="ttop"><?php echo $project->name;?></td>
+                                <td id="cell_<?php echo $project->getId();?>_1" class="tc ttop" nowrap>
+                                    <?php include_partial('projecttimeitems', array('weekday'=>1,
+                                                    'weekstart' => $weekstart,
+                                                    'project'=>$project,
+                                                    'time_items'=>$time_items,
+                                                    'item_types'=>$item_types));?>
+                                </td>
+                                <td id="cell_<?php echo $project->getId();?>_2" class="tc ttop" nowrap>
+                                    <?php include_partial('projecttimeitems', array('weekday'=>2,
+                                                    'weekstart' => $weekstart,
+                                                    'project'=>$project,
+                                                    'time_items'=>$time_items,
+                                                    'item_types'=>$item_types));?>
+                                </td>
+                                <td id="cell_<?php echo $project->getId();?>_3" class="tc ttop" nowrap>
+                                    <?php include_partial('projecttimeitems', array('weekday'=>3,
+                                                    'weekstart' => $weekstart,
+                                                    'project'=>$project,
+                                                    'time_items'=>$time_items,
+                                                    'item_types'=>$item_types));?>
+                                </td>
+                                <td id="cell_<?php echo $project->getId();?>_4" class="tc ttop" nowrap>
+                                    <?php include_partial('projecttimeitems', array('weekday'=>4,
+                                                    'weekstart' => $weekstart,
+                                                    'project'=>$project,
+                                                    'time_items'=>$time_items,
+                                                    'item_types'=>$item_types));?>
+                                </td>
+                                <td id="cell_<?php echo $project->getId();?>_5" class="tc ttop" nowrap>
+                                    <?php include_partial('projecttimeitems', array('weekday'=>5,
+                                                    'weekstart' => $weekstart,
+                                                    'project'=>$project,
+                                                    'time_items'=>$time_items,
+                                                    'item_types'=>$item_types));?>
+                                </td>
+                                <td id="cell_<?php echo $project->getId();?>_6" class="tc ttop" nowrap>
+                                    <?php include_partial('projecttimeitems', array('weekday'=>6,
+                                                    'weekstart' => $weekstart,
+                                                    'project'=>$project,
+                                                    'time_items'=>$time_items,
+                                                    'item_types'=>$item_types));?>
+                                </td>
+                                <td id="cell_<?php echo $project->getId();?>_7"  class="tc ttop" nowrap>
+                                    <?php include_partial('projecttimeitems', array('weekday'=>7,
+                                                    'weekstart' => $weekstart,
+                                                    'project'=>$project,
+                                                    'time_items'=>$time_items,
+                                                    'item_types'=>$item_types));?>
+                                </td>
+                            </tr>
+                            <?php endif; ?>
                         <?php endforeach;?>
                     </tbody>
                 </table>

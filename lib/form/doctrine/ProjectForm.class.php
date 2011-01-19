@@ -50,7 +50,7 @@ class ProjectForm extends BaseProjectForm
                 )
         );
 
-        unset($this['created_at'], $this['updated_at'], $this['deleted_at']);
+        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['assigned_user_list']);
     }
 
     public function setValue($field, $value)

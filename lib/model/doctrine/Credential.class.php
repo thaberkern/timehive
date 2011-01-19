@@ -12,5 +12,5 @@
  */
 class Credential extends BaseCredential
 {
-
+    const TIMETRACKING_EDIT = 'credential.timetracking.edit';
 }

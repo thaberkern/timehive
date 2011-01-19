@@ -121,6 +121,13 @@ class adminProjectActions extends sfActions
     public function executeEdit(sfWebRequest $request)
     {
         $account_id = $this->getUser()->getAttribute('account_id');
+        $this->roles = RoleTable::getInstance()
+                                    ->findByAccountId($account_id);
+
+        $this->users = UserTable::getInstance()
+                                    ->findByAccountId($account_id);
+        
+        $account_id = $this->getUser()->getAttribute('account_id');
         $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', $request->getParameter('id')));
         $this->form = new ProjectForm($project);
 
@@ -141,6 +148,77 @@ class adminProjectActions extends sfActions
         $this->setTemplate('edit');
     }
 
+    public function executeUserProjectRoles(sfWebRequest $request)
+    {
+        $result = array('page'=>1);
+
+        $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', $request->getParameter('id')));
+        $result['total'] = count($project->AssignedUser);
+        $result['rows'] = array();
+
+        foreach ($project->AssignedUser as $user) {
+
+            $roles = $user->getProjectRoles($project->id);
+            $project_roles = array();
+
+            foreach ($roles as $role) {
+                $project_roles[] = $role->name;
+            }
+
+            $result['rows'][] = array(
+                                    'cell'=>array(
+                                        $user->username,
+                                        implode(', ', $project_roles)
+                                    ),
+                                    'id'=>$user->id);
+        }
+
+        $this->renderText(json_encode($result));
+        return sfView::NONE;
+    }
+
+    public function executeEditUserProjectRole(sfWebRequest $request)
+    {
+        $this->forward404Unless($this->user = Doctrine::getTable('User')->find(array($request->getParameter('uid'))), sprintf('Object user does not exist (%s).', $request->getParameter('uid')));
+        $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', $request->getParameter('id')));
+        $account_id = $this->getUser()->getAttribute('account_id');
+        if ($this->project->account_id != $account_id || $this->user->account_id != $account_id) {
+            $this->redirect('default/secure');
+        }
+
+        $this->roles = RoleTable::getInstance()
+                                    ->findByAccountId($account_id);
+    }
+
+    public function executeUpdateUserProjectRole(sfWebRequest $request)
+    {
+        $this->forward404Unless($user = Doctrine::getTable('User')->find(array($request->getParameter('uid'))), sprintf('Object user does not exist (%s).', $request->getParameter('uid')));
+        $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', $request->getParameter('id')));
+        $account_id = $this->getUser()->getAttribute('account_id');
+        if ($project->account_id != $account_id || $user->account_id != $account_id) {
+            $this->redirect('default/secure');
+        }
+
+        ProjectUserTable::getInstance()->removeUserProjectRelations($user->id, $project->id);
+        ProjectUserTable::getInstance()->addRoles($user->id, $project->id, $request->getParameter('role', array()));
+
+        return sfView::NONE;
+    }
+
+    public function executeDeleteUserProjectRole(sfWebRequest $request)
+    {
+        $this->forward404Unless($user = Doctrine::getTable('User')->find(array($request->getParameter('uid'))), sprintf('Object user does not exist (%s).', $request->getParameter('uid')));
+        $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', $request->getParameter('id')));
+        $account_id = $this->getUser()->getAttribute('account_id');
+        if ($project->account_id != $account_id || $user->account_id != $account_id) {
+            $this->redirect('default/secure');
+        }
+
+        ProjectUserTable::getInstance()->removeUserProjectRelations($user->id, $project->id);
+        
+        return sfView::NONE;
+    }
+
     protected function processForm(sfWebRequest $request, sfForm $form)
     {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -148,8 +226,6 @@ class adminProjectActions extends sfActions
         if ($form->isValid()) {
             $form->setValue('account_id', $this->getUser()->getAttribute('account_id'));
             $project = $form->save();
-
-            $project->save();
 
             $this->getUser()->setFlash('saved.success', 1);
             $this->redirect('adminProject/edit?id=' . $project->getId());

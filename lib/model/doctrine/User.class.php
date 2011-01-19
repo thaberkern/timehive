@@ -47,6 +47,31 @@ class User extends BaseUser
                         ->execute();
     }
 
+    public function hasProjectRole($role_name, $project_id)
+    {
+        $roles = Doctrine_Query::create()
+                        ->from('Role r')
+                        ->innerJoin('r.ProjectUsers pu')
+                        ->where('pu.user_id=? AND pu.project_id=?', array($this->id, $project_id))
+                        ->andWhere('r.name=?', array($role_name))
+                        ->execute();
+
+        return count($roles) != 0;
+    }
+
+    public function hasProjectCredential($credential_name, $project_id)
+    {
+        $roles = Doctrine_Query::create()
+                        ->from('Role r')
+                        ->innerJoin('r.ProjectUsers pu')
+                        ->innerJoin('r.Credentials c')
+                        ->where('pu.user_id=? AND pu.project_id=?', array($this->id, $project_id))
+                        ->andWhere('c.name=?', array($credential_name))
+                        ->execute();
+
+        return count($roles) != 0;
+    }
+
     public function __toString()
     {
         return $this->first_name." ".$this->last_name." (".$this->username.")";

@@ -21,6 +21,18 @@ admin_project:
   url: /admin/project/:action/*
   param: { module: adminProject }
 
+report_missing_bookings:
+  url: /report/missing/bookings
+  param: { module: report, action: missingBookings }
+
+report_last_bookings:
+  url: /report/last/bookings
+  param: { module: report, action: lastBookings }
+
+report_project_total:
+  url: /report/project/total
+  param: { module: report, action: projectTotal }
+
 timesheet:
   url: /timesheet/:week/:year
   param: { module: timesheet, action: index }

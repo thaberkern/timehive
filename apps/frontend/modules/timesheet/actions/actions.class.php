@@ -27,6 +27,8 @@ class timesheetActions extends sfActions
         $this->projects = ProjectTable::getInstance()
                         ->findByAccountId($account_id);
 
+        $this->user = UserTable::getInstance()->find($this->getUser()->getAttribute('uid'));
+
         $this->item_types = TimeItemTypeTable::getInstance()
                         ->findByAccountId($account_id);
 
