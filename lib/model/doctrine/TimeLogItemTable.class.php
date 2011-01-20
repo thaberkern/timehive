@@ -30,6 +30,45 @@ class TimeLogItemTable extends Doctrine_Table
         }
     }
 
+    public function getFilterQuery($filter, $user_id = null)
+    {
+        $query = Doctrine_Query::create()
+                    ->from('TimeLogItem e')
+                    ->orderBy('e.itemdate DESC');
+
+        if (array_key_exists('user', $filter)) {
+            if ($filter['user'] != -1) {
+                $query->andWhere('e.user_id=?', array($filter['user']));
+            }
+        }
+        else {
+            if ($user_id != null) {
+                $query->andWhere('e.user_id=?', array($user_id));
+            }
+        }
+
+        if (array_key_exists('project', $filter)) {
+            if ($filter['project'] != -1) {
+                $query->andWhere('e.project_id=?', array($filter['project']));
+            }
+        }
+
+        if (array_key_exists('dateFrom', $filter)) {
+            $query->andWhere('e.itemdate>=?', array($filter['dateFrom']));
+        }
+        if (array_key_exists('dateTo', $filter)) {
+            $query->andWhere('e.itemdate<=?', array($filter['dateTo']));
+        }
+
+        return $query;
+    }
+
+    public function prepareTotalReport($filter, $projects, $user)
+    {
+        $result = array();
+        return $result;
+    }
+
     public function updateMissedBookings($day, $user)
     {
         Doctrine_Query::create()

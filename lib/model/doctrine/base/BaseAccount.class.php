@@ -8,6 +8,7 @@
  * @property enum $type
  * @property date $valid_until
  * @property string $name
+ * @property integer $workingdays
  * @property Doctrine_Collection $Users
  * @property Doctrine_Collection $Roles
  * @property Doctrine_Collection $TimeItemTypes
@@ -16,6 +17,7 @@
  * @method enum                getType()          Returns the current record's "type" value
  * @method date                getValidUntil()    Returns the current record's "valid_until" value
  * @method string              getName()          Returns the current record's "name" value
+ * @method integer             getWorkingdays()   Returns the current record's "workingdays" value
  * @method Doctrine_Collection getUsers()         Returns the current record's "Users" collection
  * @method Doctrine_Collection getRoles()         Returns the current record's "Roles" collection
  * @method Doctrine_Collection getTimeItemTypes() Returns the current record's "TimeItemTypes" collection
@@ -23,12 +25,13 @@
  * @method Account             setType()          Sets the current record's "type" value
  * @method Account             setValidUntil()    Sets the current record's "valid_until" value
  * @method Account             setName()          Sets the current record's "name" value
+ * @method Account             setWorkingdays()   Sets the current record's "workingdays" value
  * @method Account             setUsers()         Sets the current record's "Users" collection
  * @method Account             setRoles()         Sets the current record's "Roles" collection
  * @method Account             setTimeItemTypes() Sets the current record's "TimeItemTypes" collection
  * @method Account             setProjects()      Sets the current record's "Projects" collection
  * 
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
@@ -54,6 +57,10 @@ abstract class BaseAccount extends sfDoctrineRecord
         $this->hasColumn('name', 'string', 100, array(
              'type' => 'string',
              'length' => 100,
+             ));
+        $this->hasColumn('workingdays', 'integer', 20, array(
+             'type' => 'integer',
+             'length' => 20,
              ));
     }
 

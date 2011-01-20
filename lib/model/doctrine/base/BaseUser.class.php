@@ -12,13 +12,14 @@
  * @property string $username
  * @property string $password
  * @property boolean $administrator
+ * @property boolean $boss_mode
  * @property boolean $locked
  * @property timestamp $deleted_at
  * @property Account $Account
  * @property Doctrine_Collection $TimeLogItems
  * @property Doctrine_Collection $MissingTimeItemEntries
  * @property Doctrine_Collection $OwnedProjects
- * @property Doctrine_Collection $Project
+ * @property Doctrine_Collection $Projects
  * @property Setting $Setting
  * @property Doctrine_Collection $Tokens
  * 
@@ -29,13 +30,14 @@
  * @method string              getUsername()               Returns the current record's "username" value
  * @method string              getPassword()               Returns the current record's "password" value
  * @method boolean             getAdministrator()          Returns the current record's "administrator" value
+ * @method boolean             getBossMode()               Returns the current record's "boss_mode" value
  * @method boolean             getLocked()                 Returns the current record's "locked" value
  * @method timestamp           getDeletedAt()              Returns the current record's "deleted_at" value
  * @method Account             getAccount()                Returns the current record's "Account" value
  * @method Doctrine_Collection getTimeLogItems()           Returns the current record's "TimeLogItems" collection
  * @method Doctrine_Collection getMissingTimeItemEntries() Returns the current record's "MissingTimeItemEntries" collection
  * @method Doctrine_Collection getOwnedProjects()          Returns the current record's "OwnedProjects" collection
- * @method Doctrine_Collection getProject()                Returns the current record's "Project" collection
+ * @method Doctrine_Collection getProjects()               Returns the current record's "Projects" collection
  * @method Setting             getSetting()                Returns the current record's "Setting" value
  * @method Doctrine_Collection getTokens()                 Returns the current record's "Tokens" collection
  * @method User                setFirstName()              Sets the current record's "first_name" value
@@ -45,17 +47,18 @@
  * @method User                setUsername()               Sets the current record's "username" value
  * @method User                setPassword()               Sets the current record's "password" value
  * @method User                setAdministrator()          Sets the current record's "administrator" value
+ * @method User                setBossMode()               Sets the current record's "boss_mode" value
  * @method User                setLocked()                 Sets the current record's "locked" value
  * @method User                setDeletedAt()              Sets the current record's "deleted_at" value
  * @method User                setAccount()                Sets the current record's "Account" value
  * @method User                setTimeLogItems()           Sets the current record's "TimeLogItems" collection
  * @method User                setMissingTimeItemEntries() Sets the current record's "MissingTimeItemEntries" collection
  * @method User                setOwnedProjects()          Sets the current record's "OwnedProjects" collection
- * @method User                setProject()                Sets the current record's "Project" collection
+ * @method User                setProjects()               Sets the current record's "Projects" collection
  * @method User                setSetting()                Sets the current record's "Setting" value
  * @method User                setTokens()                 Sets the current record's "Tokens" collection
  * 
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
@@ -93,6 +96,9 @@ abstract class BaseUser extends sfDoctrineRecord
         $this->hasColumn('administrator', 'boolean', null, array(
              'type' => 'boolean',
              ));
+        $this->hasColumn('boss_mode', 'boolean', null, array(
+             'type' => 'boolean',
+             ));
         $this->hasColumn('locked', 'boolean', null, array(
              'type' => 'boolean',
              ));
@@ -120,7 +126,7 @@ abstract class BaseUser extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'owner_id'));
 
-        $this->hasMany('Project', array(
+        $this->hasMany('Project as Projects', array(
              'refClass' => 'ProjectUser',
              'local' => 'user_id',
              'foreign' => 'project_id'));

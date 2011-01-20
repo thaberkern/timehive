@@ -5,7 +5,7 @@
  *
  * @method User getObject() Returns the current form's model object
  *
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
@@ -23,11 +23,12 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'username'      => new sfWidgetFormInputText(),
       'password'      => new sfWidgetFormInputText(),
       'administrator' => new sfWidgetFormInputCheckbox(),
+      'boss_mode'     => new sfWidgetFormInputCheckbox(),
       'locked'        => new sfWidgetFormInputCheckbox(),
       'deleted_at'    => new sfWidgetFormDateTime(),
       'created_at'    => new sfWidgetFormDateTime(),
       'updated_at'    => new sfWidgetFormDateTime(),
-      'project_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Project')),
+      'projects_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Project')),
     ));
 
     $this->setValidators(array(
@@ -39,11 +40,12 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'username'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'password'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'administrator' => new sfValidatorBoolean(array('required' => false)),
+      'boss_mode'     => new sfValidatorBoolean(array('required' => false)),
       'locked'        => new sfValidatorBoolean(array('required' => false)),
       'deleted_at'    => new sfValidatorDateTime(array('required' => false)),
       'created_at'    => new sfValidatorDateTime(),
       'updated_at'    => new sfValidatorDateTime(),
-      'project_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Project', 'required' => false)),
+      'projects_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Project', 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
@@ -68,28 +70,28 @@ abstract class BaseUserForm extends BaseFormDoctrine
   {
     parent::updateDefaultsFromObject();
 
-    if (isset($this->widgetSchema['project_list']))
+    if (isset($this->widgetSchema['projects_list']))
     {
-      $this->setDefault('project_list', $this->object->Project->getPrimaryKeys());
+      $this->setDefault('projects_list', $this->object->Projects->getPrimaryKeys());
     }
 
   }
 
   protected function doSave($con = null)
   {
-    $this->saveProjectList($con);
+    $this->saveProjectsList($con);
 
     parent::doSave($con);
   }
 
-  public function saveProjectList($con = null)
+  public function saveProjectsList($con = null)
   {
     if (!$this->isValid())
     {
       throw $this->getErrorSchema();
     }
 
-    if (!isset($this->widgetSchema['project_list']))
+    if (!isset($this->widgetSchema['projects_list']))
     {
       // somebody has unset this widget
       return;
@@ -100,8 +102,8 @@ abstract class BaseUserForm extends BaseFormDoctrine
       $con = $this->getConnection();
     }
 
-    $existing = $this->object->Project->getPrimaryKeys();
-    $values = $this->getValue('project_list');
+    $existing = $this->object->Projects->getPrimaryKeys();
+    $values = $this->getValue('projects_list');
     if (!is_array($values))
     {
       $values = array();
@@ -110,13 +112,13 @@ abstract class BaseUserForm extends BaseFormDoctrine
     $unlink = array_diff($existing, $values);
     if (count($unlink))
     {
-      $this->object->unlink('Project', array_values($unlink));
+      $this->object->unlink('Projects', array_values($unlink));
     }
 
     $link = array_diff($values, $existing);
     if (count($link))
     {
-      $this->object->link('Project', array_values($link));
+      $this->object->link('Projects', array_values($link));
     }
   }
 

@@ -3,12 +3,7 @@
         <div class="header">
             <h3><?php echo __('Administration');?></h3>
             <a class="button" href="<?php echo url_for('adminRole/new');?>"><?php echo __('New Role');?>&nbsp;»</a>
-            <ul>
-                <li><a href="<?php echo url_for('adminUser/list');?>"><?php echo __('User');?></a></li>
-                <li><a href="#" class="active"><?php echo __('Roles');?></a></li>
-                <li><a href="<?php echo url_for('adminProject/list');?>"><?php echo __('Projects');?></a></li>
-                <li><a href="<?php echo url_for('adminTimeItemType/list');?>"><?php echo __('Time item types');?></a></li>
-            </ul>
+            <?php include_partial('global/adminHeaderMenu');?>
         </div>
         <div id="box1-tabular" class="content">
             <form class="plain" action="<?php echo url_for('adminRole/bulk');?>" method="post">

@@ -3,7 +3,7 @@
 /**
  * account actions.
  *
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage account
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
@@ -121,7 +121,7 @@ class accountActions extends sfActions
             $html = $this->getPartial('recoverEmail', array('user'=>$user,
                                                         'token'=>$token));
             $subject = sfContext::getInstance()->getI18N()
-                              -> __('Your TimeBoxx password');
+                              -> __('Your ProjectTimeBoxx password');
 
             MailSender::createInstance()
                                 ->send(

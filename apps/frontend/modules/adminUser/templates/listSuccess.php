@@ -3,12 +3,7 @@
         <div class="header">
             <h3><?php echo __('Administration');?></h3>
             <a class="button" href="<?php echo url_for('adminUser/new');?>"><?php echo __('New user');?>&nbsp;»</a>
-            <ul>
-                <li><a href="#" class="active"><?php echo __('User');?></a></li>
-                <li><a href="<?php echo url_for('adminRole/list');?>" ><?php echo __('Roles');?></a></li>
-                <li><a href="<?php echo url_for('adminProject/list');?>"><?php echo __('Projects');?></a></li>
-                <li><a href="<?php echo url_for('adminTimeItemType/list');?>"><?php echo __('Time item types');?></a></li>
-            </ul>
+            <?php include_partial('global/adminHeaderMenu');?>
         </div>
         <?php if ($sf_user->getFlash('error.license_count', 0) != 0):?>
             <div class="msg msg-error">
@@ -51,11 +46,15 @@
                                 <td class="tc"><?php echo $user->last_name.' '.$user->first_name;?></td>
                                 <td class="tc">
                                     <?php if ($user->administrator):?>
-                                        <?php echo image_tag('user_suit', array('alt'=>'Administrator'));?>
+                                        <?php echo image_tag('user_red', array('title'=>__('Administrator'), 'alt'=>__('Administrator')));?>
+                                    <?php endif;?>
+
+                                    <?php if ($user->boss_mode):?>
+                                        <?php echo image_tag('user_suit', array('title'=>__('Boss-Mode'), 'alt'=>__('Boss-Mode')));?>
                                     <?php endif;?>
 
                                     <?php if ($user->locked):?>
-                                        <?php echo image_tag('lock', array('alt'=>'Locked'));?>
+                                        <?php echo image_tag('lock', array('title'=>__('Locked'), 'alt'=>'Locked'));?>
                                     <?php endif;?>
                                 </td>
                                 <td class="tc"><?php echo format_date($user->created_at, 'P');?></td>

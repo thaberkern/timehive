@@ -45,7 +45,7 @@
                     </th>
                     <td>
                         <select id="type_<?php echo $unique_id;?>">
-                            <?php echo objects_for_select($item_types, 'getName', null, $time_item!= null ? $time_item->TimeItemType->getName() : null); ?>
+                            <?php echo objects_for_select($item_types, 'getName', null, $time_item!= null ? $time_item->TimeItemType->getName() : $default_item_type->getName()); ?>
                         </select>
                     </td>
                 </tr>

@@ -31,6 +31,22 @@
         <source>credential.report.project_total.other</source>
         <target>Show project totals (other users)</target>
       </trans-unit>
+      <trans-unit id="10007">
+        <source>account.unlimited</source>
+        <target>Unlimited</target>
+      </trans-unit>
+      <trans-unit id="10008">
+        <source>account.free</source>
+        <target>Free</target>
+      </trans-unit>
+      <trans-unit id="10009">
+        <source>account.small</source>
+        <target>Small Business</target>
+      </trans-unit>
+      <trans-unit id="10010">
+        <source>account.pro</source>
+        <target>Professional</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

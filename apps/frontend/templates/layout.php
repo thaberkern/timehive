@@ -33,11 +33,12 @@
     <div id="header">
         <div class="inner-container clearfix">
             <h1 id="logo">
-                <img src="<?php echo image_path('tb_logo.png');?>" alt="TimeBoxx" />
+                <img src="<?php echo image_path('tb_logo.png');?>" alt="ProjectTimeBoxx" />
             </h1>
             <div id="userbox">
                 <div class="inner">
                     <strong><?php echo sfContext::getInstance()->getUser()->getAttribute('username');?></strong>
+                    <p style="color: white; font-size: 8pt; margin-bottom: 3px;"><?php echo $sf_user->getAttribute('account_name');?></p>
                     <ul class="clearfix">
                         <li><a href="<?php echo url_for('account/index');?>"><?php echo __('My account');?></a></li>
                         <li><a href="<?php echo url_for('login/logout');?>"><?php echo __('Sign out');?></a></li>
@@ -57,7 +58,7 @@
         </div>
     </div>
     <div id="footer">
-         Powered by <a href="http://github.com/thaberkern/timeboxx" target="_blank">TimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
+         Powered by <a href="htpp://www.projecttimeboxx.com" target="_blank">ProjectTimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
     </div>
 </body>
 </html>

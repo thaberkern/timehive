@@ -3,7 +3,7 @@
 /**
  * adminTimeItemType actions.
  *
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage adminTimeItemType
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -42,6 +42,14 @@ class adminTimeItemTypeActions extends sfActions
         $this->processForm($request, $this->form);
 
         $this->setTemplate('new');
+    }
+
+    public function executeDefault(sfWebRequest $request)
+    {
+        $account_id = $this->getUser()->getAttribute('account_id');
+        TimeItemTypeTable::getInstance()->setAsDefault($request->getParameter('id'), $account_id);
+
+        $this->redirect('adminTimeItemType/list');
     }
 
     public function executeEdit(sfWebRequest $request)

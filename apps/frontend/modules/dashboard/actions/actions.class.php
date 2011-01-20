@@ -3,7 +3,7 @@
 /**
  * dashboard actions.
  *
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage dashboard
  * @author     Timo Haberkern
  */

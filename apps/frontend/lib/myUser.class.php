@@ -49,6 +49,56 @@ class myUser extends sfBasicSecurityUser
         return $this->getAttribute('uid', -1);
     }
 
+    public function setFilter($filter, $namespace)
+    {
+        if (array_key_exists('dateFrom', $filter)) {
+            $this->setAttribute('date-from', $filter['dateFrom'], $namespace);
+        }
+
+        if (array_key_exists('dateTo', $filter)) {
+            $this->setAttribute('date-to', $filter['dateTo'], $namespace);
+        }
+
+        if (array_key_exists('user', $filter)) {
+            $this->setAttribute('user', $filter['user'], $namespace);
+        }
+
+        if (array_key_exists('project', $filter)) {
+            $this->setAttribute('project', $filter['project'], $namespace);
+        }
+    }
+
+    public function getFilter($namespace)
+    {
+        $result = array();
+
+        if ($this->getAttribute('date-from', null, $namespace) != null) {
+            $date_from = trim($this->getAttribute('date-from', null, $namespace));
+            if ($date_from != '') {
+                $result['dateFrom'] = $date_from;
+            }
+        }
+        if ($this->getAttribute('date-to', null, $namespace) != null) {
+            $date_to = trim($this->getAttribute('date-to', null, $namespace));
+            if ($date_to != '') {
+                $result['dateTo'] = $date_to;
+            }
+        }
+        if ($this->getAttribute('user', null, $namespace) != null) {
+            $result['user'] = $this->getAttribute('user', null, $namespace);
+        }
+        if ($this->getAttribute('project', null, $namespace) != null) {
+            $result['project'] = $this->getAttribute('project', null, $namespace);
+        }
+
+        return $result;
+    }
+
+    public function clearFilter($namespace)
+    {
+        $this->getAttributeHolder()->removeNamespace($namespace);
+    }
+
     /**
      * @param User $user
      */
@@ -62,14 +112,19 @@ class myUser extends sfBasicSecurityUser
         $this->setAttribute('lastname', $user->getLastName());
         $this->setAttribute('theme', $user->Setting->theme);
         $this->setAttribute('account_id', $user->Account->id);
+        $this->setAttribute('account_name', $user->Account->name);
 
         if ($user->administrator == true) {
             $this->addCredential('admin');
         }
 
-        /*if ($user->Setting->culture != "") {
+        if ($user->administrator == true) {
+            $this->setAttribute('overlord', 1);
+        }
+
+        if ($user->Setting->culture != "") {
             $this->setCulture($user->Setting->culture);
-        }*/
+        }
     }
 
     private $is_first_request = true;

@@ -10,7 +10,7 @@
 <?php use_javascript('tb_timesheet.js');?>
 <?php use_stylesheet('jquery.qtip.css');?>
 
-<?php $sf_response->setTitle('Timeboxx - Timesheet');?>
+<?php $sf_response->setTitle('ProjectTimeBoxx - Timesheet');?>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -71,46 +71,60 @@
                         </tr>
                         <tr>
                             <th class="tc"><?php echo __('Project');?></th>
-                            <th class="tc" nowrap>
-                                <?php echo __('Monday');?><br/>
-                                <?php echo format_date($weekstart, 'd'); ?>
-                            </th>
-                            <th class="tc" nowrap>
-                                <?php echo __('Tuesday');?><br/>
-                                <?php echo format_date($weekstart + (1 * 24 * 60 * 60), 'd'); ?>
-                            </th>
-                            <th class="tc" nowrap>
-                                <?php echo __('Wednesday');?><br/>
-                                <?php echo format_date($weekstart + (2 * 24 * 60 * 60), 'd'); ?>
-                            </th>
-                            <th class="tc" nowrap>
-                                <?php echo __('Thursday');?><br/>
-                                <?php echo format_date($weekstart + (3 * 24 * 60 * 60), 'd'); ?>
-                            </th>
-                            <th class="tc" nowrap>
-                                <?php echo __('Friday');?><br/>
-                                <?php echo format_date($weekstart + (4 * 24 * 60 * 60), 'd'); ?>
-                            </th>
-                            <th class="tc" nowrap>
-                                <?php echo __('Saturday');?><br/>
-                                <?php echo format_date($weekstart + (5 * 24 * 60 * 60), 'd'); ?>
-                            </th>
-                            <th class="tc" nowrap>
-                                <?php echo __('Sunday');?><br/>
-                                <?php echo format_date($weekstart + (6 * 24 * 60 * 60), 'd'); ?>
-                            </th>
+                            <?php if (($account->workingdays & 1) == 1):?>
+                                <th class="tc" nowrap>
+                                    <?php echo __('Monday');?><br/>
+                                    <?php echo format_date($weekstart, 'd'); ?>
+                                </th>
+                            <?php endif;?>
+                            <?php if (($account->workingdays & 2) == 2):?>
+                                <th class="tc" nowrap>
+                                    <?php echo __('Tuesday');?><br/>
+                                    <?php echo format_date($weekstart + (1 * 24 * 60 * 60), 'd'); ?>
+                                </th>
+                            <?php endif;?>
+                            <?php if (($account->workingdays & 4) == 4):?>
+                                <th class="tc" nowrap>
+                                    <?php echo __('Wednesday');?><br/>
+                                    <?php echo format_date($weekstart + (2 * 24 * 60 * 60), 'd'); ?>
+                                </th>
+                            <?php endif;?>
+                            <?php if (($account->workingdays & 8) == 8):?>
+                                <th class="tc" nowrap>
+                                    <?php echo __('Thursday');?><br/>
+                                    <?php echo format_date($weekstart + (3 * 24 * 60 * 60), 'd'); ?>
+                                </th>
+                            <?php endif;?>
+                            <?php if (($account->workingdays & 16) == 16):?>
+                                <th class="tc" nowrap>
+                                    <?php echo __('Friday');?><br/>
+                                    <?php echo format_date($weekstart + (4 * 24 * 60 * 60), 'd'); ?>
+                                </th>
+                            <?php endif;?>
+                            <?php if (($account->workingdays & 32) == 32):?>
+                                <th class="tc" nowrap>
+                                    <?php echo __('Saturday');?><br/>
+                                    <?php echo format_date($weekstart + (5 * 24 * 60 * 60), 'd'); ?>
+                                </th>
+                            <?php endif;?>
+                            <?php if (($account->workingdays & 64) == 64):?>
+                                <th class="tc" nowrap>
+                                    <?php echo __('Sunday');?><br/>
+                                    <?php echo format_date($weekstart + (6 * 24 * 60 * 60), 'd'); ?>
+                                </th>
+                            <?php endif;?>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <td><?php echo __('Totals');?> (<?php echo __('hours');?>)</td>
-                            <td class="tl"><div id="total-1" style="width: 50px; text-align: right;"></div></td>
-                            <td class="tl"><div id="total-2" style="width: 50px; text-align: right;"></div></td>
-                            <td class="tl"><div id="total-3" style="width: 50px; text-align: right;"></div></td>
-                            <td class="tl"><div id="total-4" style="width: 50px; text-align: right;"></div></td>
-                            <td class="tl"><div id="total-5" style="width: 50px; text-align: right;"></div></td>
-                            <td class="tl"><div id="total-6" style="width: 50px; text-align: right;"></div></td>
-                            <td class="tl"><div id="total-7" style="width: 50px; text-align: right;"></div></td>
+                            <?php if (($account->workingdays & 1) == 1):?><td class="tl"><div id="total-1" style="width: 50px; text-align: right;"></div></td><?php endif;?>
+                            <?php if (($account->workingdays & 2) == 2):?><td class="tl"><div id="total-2" style="width: 50px; text-align: right;"></div></td><?php endif;?>
+                            <?php if (($account->workingdays & 4) == 4):?><td class="tl"><div id="total-3" style="width: 50px; text-align: right;"></div></td><?php endif;?>
+                            <?php if (($account->workingdays & 8) == 8):?><td class="tl"><div id="total-4" style="width: 50px; text-align: right;"></div></td><?php endif;?>
+                            <?php if (($account->workingdays & 16) == 16):?><td class="tl"><div id="total-5" style="width: 50px; text-align: right;"></div></td><?php endif;?>
+                            <?php if (($account->workingdays & 32) == 32):?><td class="tl"><div id="total-6" style="width: 50px; text-align: right;"></div></td><?php endif;?>
+                            <?php if (($account->workingdays & 64) == 64):?><td class="tl"><div id="total-7" style="width: 50px; text-align: right;"></div></td><?php endif;?>
                         </tr>
                         <tr>
                             <td colspan="8">
@@ -123,55 +137,21 @@
                             <?php if ($user->hasProjectCredential(Credential::TIMETRACKING_EDIT, $project->id)):?>
                             <tr>
                                 <td class="ttop"><?php echo $project->name;?></td>
-                                <td id="cell_<?php echo $project->getId();?>_1" class="tc ttop" nowrap>
-                                    <?php include_partial('projecttimeitems', array('weekday'=>1,
-                                                    'weekstart' => $weekstart,
-                                                    'project'=>$project,
-                                                    'time_items'=>$time_items,
-                                                    'item_types'=>$item_types));?>
-                                </td>
-                                <td id="cell_<?php echo $project->getId();?>_2" class="tc ttop" nowrap>
-                                    <?php include_partial('projecttimeitems', array('weekday'=>2,
-                                                    'weekstart' => $weekstart,
-                                                    'project'=>$project,
-                                                    'time_items'=>$time_items,
-                                                    'item_types'=>$item_types));?>
-                                </td>
-                                <td id="cell_<?php echo $project->getId();?>_3" class="tc ttop" nowrap>
-                                    <?php include_partial('projecttimeitems', array('weekday'=>3,
-                                                    'weekstart' => $weekstart,
-                                                    'project'=>$project,
-                                                    'time_items'=>$time_items,
-                                                    'item_types'=>$item_types));?>
-                                </td>
-                                <td id="cell_<?php echo $project->getId();?>_4" class="tc ttop" nowrap>
-                                    <?php include_partial('projecttimeitems', array('weekday'=>4,
-                                                    'weekstart' => $weekstart,
-                                                    'project'=>$project,
-                                                    'time_items'=>$time_items,
-                                                    'item_types'=>$item_types));?>
-                                </td>
-                                <td id="cell_<?php echo $project->getId();?>_5" class="tc ttop" nowrap>
-                                    <?php include_partial('projecttimeitems', array('weekday'=>5,
-                                                    'weekstart' => $weekstart,
-                                                    'project'=>$project,
-                                                    'time_items'=>$time_items,
-                                                    'item_types'=>$item_types));?>
-                                </td>
-                                <td id="cell_<?php echo $project->getId();?>_6" class="tc ttop" nowrap>
-                                    <?php include_partial('projecttimeitems', array('weekday'=>6,
-                                                    'weekstart' => $weekstart,
-                                                    'project'=>$project,
-                                                    'time_items'=>$time_items,
-                                                    'item_types'=>$item_types));?>
-                                </td>
-                                <td id="cell_<?php echo $project->getId();?>_7"  class="tc ttop" nowrap>
-                                    <?php include_partial('projecttimeitems', array('weekday'=>7,
-                                                    'weekstart' => $weekstart,
-                                                    'project'=>$project,
-                                                    'time_items'=>$time_items,
-                                                    'item_types'=>$item_types));?>
-                                </td>
+                                <?php $days = array(1=>1, 2=>2, 3=>4, 4=>8, 5=>16, 6=>32, 7=>64);?>
+
+                                <?php foreach ($days as $day=>$code):?>
+                                    <?php if (($account->workingdays & $code) == $code):?>
+                                        <td id="cell_<?php echo $project->getId();?>_<?php echo $day;?>" class="tc ttop" nowrap>
+                                            <?php include_partial('projecttimeitems', array('weekday'=>$day,
+                                                            'weekstart' => $weekstart,
+                                                            'project'=>$project,
+                                                            'time_items'=>$time_items,
+                                                            'item_types'=>$item_types,
+                                                            'default_item_type'=>$default_item_type));?>
+                                        </td>
+                                    <?php endif;?>
+                                <?php endforeach;?>
+                                
                             </tr>
                             <?php endif; ?>
                         <?php endforeach;?>

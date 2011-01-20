@@ -47,7 +47,7 @@ EOF;
                     $this->configuration->loadHelpers('Partial');
                     
                     $i18n = $context->getI18N();
-                    $subject = $i18n->__('TimeBoxx - Missing Bookings');
+                    $subject = $i18n->__('ProjectTimeBoxx - Missing Bookings');
 
                     $body = get_partial('global/missingBookings', array('user'=>$user));
 

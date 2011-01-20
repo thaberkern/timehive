@@ -3,7 +3,7 @@
 /**
  * User filter form base class.
  *
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
@@ -20,11 +20,12 @@ abstract class BaseUserFormFilter extends BaseFormFilterDoctrine
       'username'      => new sfWidgetFormFilterInput(),
       'password'      => new sfWidgetFormFilterInput(),
       'administrator' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'boss_mode'     => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'locked'        => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'deleted_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'created_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'project_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Project')),
+      'projects_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Project')),
     ));
 
     $this->setValidators(array(
@@ -35,11 +36,12 @@ abstract class BaseUserFormFilter extends BaseFormFilterDoctrine
       'username'      => new sfValidatorPass(array('required' => false)),
       'password'      => new sfValidatorPass(array('required' => false)),
       'administrator' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'boss_mode'     => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'locked'        => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'deleted_at'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'created_at'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
-      'project_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Project', 'required' => false)),
+      'projects_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Project', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('user_filters[%s]');
@@ -51,7 +53,7 @@ abstract class BaseUserFormFilter extends BaseFormFilterDoctrine
     parent::setup();
   }
 
-  public function addProjectListColumnQuery(Doctrine_Query $query, $field, $values)
+  public function addProjectsListColumnQuery(Doctrine_Query $query, $field, $values)
   {
     if (!is_array($values))
     {
@@ -85,11 +87,12 @@ abstract class BaseUserFormFilter extends BaseFormFilterDoctrine
       'username'      => 'Text',
       'password'      => 'Text',
       'administrator' => 'Boolean',
+      'boss_mode'     => 'Boolean',
       'locked'        => 'Boolean',
       'deleted_at'    => 'Date',
       'created_at'    => 'Date',
       'updated_at'    => 'Date',
-      'project_list'  => 'ManyKey',
+      'projects_list' => 'ManyKey',
     );
   }
 }

@@ -5,6 +5,7 @@ Account:
     type: { type: enum, values: [free, small, pro, unlimited] }
     valid_until: { type: date }
     name: { type: string(100) }
+    workingdays: { type: integer(20) }
   actAs:
     Timestampable: ~
     
@@ -18,6 +19,7 @@ User:
     username: { type: string(255), unique: true }
     password: { type: string(255) }
     administrator: { type: boolean }
+    boss_mode: { type: boolean }
     locked: { type: boolean }
     deleted_at: { type: timestamp }
   relations:
@@ -79,6 +81,7 @@ TimeItemType:
   tableName: tb_timeitem_type
   columns:
     name: { type: string(255) }
+    default_item: { type: boolean }
     account_id: { type: integer(20) }
     deleted_at: { type: timestamp }
   relations:
@@ -97,7 +100,7 @@ Project:
     deleted_at: { type: timestamp }
   relations:
     Owner: { class: User, foreignAlias: OwnedProjects, local: owner_id }
-    AssignedUser: { class: User, refClass: ProjectUser }
+    AssignedUser: { class: User, refClass: ProjectUser, foreignAlias: Projects }
     Account: { class: Account, foreignAlias: Projects, local: account_id }
   actAs:
     Timestampable: ~

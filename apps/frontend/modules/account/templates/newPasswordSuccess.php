@@ -1,7 +1,7 @@
 <div class="box box-50 altbox">
     <div class="boxin">
         <div class="header">
-            <h3><img src="<?php echo image_path('tb_logo_70.png');?>" alt="TimeBoxx" /></h3>
+            <h3><img src="<?php echo image_path('tb_logo_70.png');?>" alt="ProjectTimeBoxx" /></h3>
             <ul>
                 <li><a href="<?php echo url_for('login/index');?>"><?php echo __('Login'); ?></a></li>
                 <li><a class="active" href="#"><?php echo __('Lost password');?></a></li>

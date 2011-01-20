@@ -1,6 +1,6 @@
 <?php use_helper('Text', 'timeboxx');?>
 
-<?php $sf_response->setTitle('Timeboxx - '.__('Dashboard'));?>
+<?php $sf_response->setTitle('ProjectTimeBoxx - '.__('Dashboard'));?>
 
 <div class="box box-50"><!-- box 50% width -->
     <div class="boxin">
@@ -24,9 +24,9 @@
                                 <label>
                                     <?php echo __('Show');?>
                                     <select name="timeitemcount">
-                                        <option value="10" <?php echo $sf_request->getParameter('timeitemcount', 10) == 10? 'selected' : '';?>>10</option>
+                                        <option value="10" <?php echo $sf_request->getParameter('timeitemcount', 20) == 10? 'selected' : '';?>>10</option>
                                         <option value="20" <?php echo $sf_request->getParameter('timeitemcount', 20) == 20? 'selected' : '';?>>20</option>
-                                        <option value="50" <?php echo $sf_request->getParameter('timeitemcount', 50) == 50? 'selected' : '';?>>50</option>
+                                        <option value="50" <?php echo $sf_request->getParameter('timeitemcount', 20) == 50? 'selected' : '';?>>50</option>
                                     </select>
                                     <?php echo __('entries');?>
                                 </label>
@@ -47,8 +47,9 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <br/>
+    </div>    
+</div>
+<div class="box box-50"><!-- box 50% width -->
     <div class="boxin">
         <div class="header">
             <h3><?php echo __('My total time per project');?></h3>
@@ -88,8 +89,7 @@
             </table>
         </div>
     </div>
-</div>
-<div class="box box-50"><!-- box 50% width -->
+    <br/>
     <div class="boxin">
         <div class="header">
             <h3><?php echo __('Days without bookings');?></h3>

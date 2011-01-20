@@ -40,6 +40,10 @@
         <?php echo $form['administrator'] ?>
         <small>User has administration rights?</small>
 
+        <?php echo $form['boss_mode']->renderLabel() ?>
+        <?php echo $form['boss_mode'] ?>
+        <small>User is allowed to for every user and project in the reports</small>
+
         <?php echo $form['settings']['theme']->renderLabel() ?>
         <?php echo $form['settings']['theme'] ?>
 

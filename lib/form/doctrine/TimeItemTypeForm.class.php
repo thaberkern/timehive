@@ -3,7 +3,7 @@
 /**
  * TimeItemType form.
  *
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage form
  */
 class TimeItemTypeForm extends BaseTimeItemTypeForm
@@ -13,6 +13,7 @@ class TimeItemTypeForm extends BaseTimeItemTypeForm
     {
         $this->widgetSchema['name'] = new sfWidgetFormInputText(array(), array('class'=>'txt', 'size'=>'80'));
         $this->widgetSchema['account_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['default_item'] = new sfWidgetFormInputHidden();
 
         $this->validatorSchema['name'] = new sfValidatorString(array('max_length' => 255, 'required' => true));
         

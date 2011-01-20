@@ -10,7 +10,8 @@
                                             'weekstart'=>$weekstart,
                                             'project'=>$project,
                                             'time_item'=>$time_item,
-                                            'item_types'=>$item_types));?>
+                                            'item_types'=>$item_types,
+                                            'default_item_type'=>$default_item_type));?>
 
 <?php endforeach;?>
 </div>

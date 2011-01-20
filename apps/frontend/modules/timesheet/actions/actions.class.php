@@ -3,7 +3,7 @@
 /**
  * timesheet actions.
  *
- * @package    timeboxx
+ * @package    projecttimeboxx
  * @subpackage timesheet
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -32,6 +32,8 @@ class timesheetActions extends sfActions
         $this->item_types = TimeItemTypeTable::getInstance()
                         ->findByAccountId($account_id);
 
+        $this->default_item_type = TimeItemTypeTable::getInstance()->findDefaultForAccount($account_id);
+
         $items = Doctrine_Query::create()
                         ->from('TimeLogItem ti')
                         ->where('ti.itemdate >= ? and itemdate <= ? and ti.user_id = ?',
@@ -43,6 +45,7 @@ class timesheetActions extends sfActions
                         ->execute();
 
         $this->time_items = new TimeItemSelector($items);
+        $this->account = AccountTable::getInstance()->find($account_id);
     }
 
     public function executeField(sfWebRequest $request)
