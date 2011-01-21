@@ -3,16 +3,18 @@
 
 <form class="plain" action="<?php echo url_for('report/'.$destination_action);?>" method="post">
     <input type="hidden" name="page" value="1"/>
-    <label>
-        <?php echo __('Show');?>
-        <select name="pagesize">
-            <option value="10" <?php echo $sf_request->getParameter('pagesize', 20) == 10? 'selected' : '';?>>10</option>
-            <option value="20" <?php echo $sf_request->getParameter('pagesize', 20) == 20? 'selected' : '';?>>20</option>
-            <option value="50" <?php echo $sf_request->getParameter('pagesize', 20) == 50? 'selected' : '';?>>50</option>
-        </select>
-        <?php echo __('entries');?>
-    </label>
-    &nbsp;&nbsp;&nbsp;
+    <?php if ($show_pagesize_select):?>
+        <label>
+            <?php echo __('Show');?>
+            <select name="pagesize">
+                <option value="10" <?php echo $sf_request->getParameter('pagesize', 20) == 10? 'selected' : '';?>>10</option>
+                <option value="20" <?php echo $sf_request->getParameter('pagesize', 20) == 20? 'selected' : '';?>>20</option>
+                <option value="50" <?php echo $sf_request->getParameter('pagesize', 20) == 50? 'selected' : '';?>>50</option>
+            </select>
+            <?php echo __('entries');?>
+        </label>
+        &nbsp;&nbsp;
+    <?php endif; ?>
     <label>
         <?php echo __('Date from');?>:
     </label>
@@ -22,16 +24,19 @@
         <?php echo __('to');?>:
     </label>
     <input type="text" id="date-to" name="filter[dateTo]" style="width:70px" value="<?php echo $sf_user->getAttribute('date-to', '', 'report_filter');?>" />
-    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;
     <label>
         <?php echo __('User');?>:
-        <select name="filter[user]" <?php echo $sf_user->getAttribute('overlord', false) == true ? '' : 'disabled';?>>
-            <option value="-1"><?php echo __('All');?></option>
-            <?php echo objects_for_select($users, 'getId', '__toString', $sf_user->getAttribute('user', $sf_user->getAttribute('uid'), 'report_filter')!=-1 ? $sf_user->getAttribute('user', '', 'report_filter') : null); ?>
-        </select>
     </label>
-    &nbsp;&nbsp;&nbsp;
+    <select style="width: 170px;" name="filter[user]" >
+        <?php if ($sf_user->getAttribute('overlord', false)):;?>><option value="-1"><?php echo __('All');?></option><?php endif;?>
+        <?php echo objects_for_select($users, 'getId', '__toString', $sf_user->getAttribute('user', $sf_user->getAttribute('uid'), 'report_filter')!=-1 ? $sf_user->getAttribute('user', '', 'report_filter') : null); ?>
+    </select>
+    &nbsp;&nbsp;
     <?php if ($show_project_select):?>
+        <label>
+            <?php echo __('Project');?>:
+        </label>
         <select name="filter[project]">
             <option value="-1"><?php echo __('All');?></option>
             <?php echo objects_for_select($projects, 'getId', '__toString', $sf_user->getAttribute('project', -1, 'report_filter')!=-1 ? $sf_user->getAttribute('project', '', 'report_filter') : null); ?>

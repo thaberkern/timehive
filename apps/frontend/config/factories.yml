@@ -43,3 +43,12 @@ all:
     param:
       cache_key_use_vary_headers: true
       cache_key_use_host_name:    true
+
+  i18n:
+    class: sfI18N
+    param:
+      source:               XLIFF
+      debug:                true
+      untranslated_prefix:  "[T]"
+      untranslated_suffix:  "[/T]"
+    

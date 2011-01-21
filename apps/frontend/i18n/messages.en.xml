@@ -16,8 +16,8 @@
         <target>Add/edit timetracking values</target>
       </trans-unit>
       <trans-unit id="10003">
-        <source>credential.report.last_bookings.other</source>
-        <target>Show time tracking entries (other users)</target>
+        <source>credential.report.other</source>
+        <target>Show other users project totals</target>
       </trans-unit>
       <trans-unit id="10004">
         <source>credential.report.last_bookings.self</source>
@@ -26,10 +26,6 @@
       <trans-unit id="10005">
         <source>credential.report.project_total.self</source>
         <target>Show project totals (only users itself)</target>
-      </trans-unit>
-      <trans-unit id="10006">
-        <source>credential.report.project_total.other</source>
-        <target>Show project totals (other users)</target>
       </trans-unit>
       <trans-unit id="10007">
         <source>account.unlimited</source>

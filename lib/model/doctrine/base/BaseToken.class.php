@@ -19,7 +19,7 @@
  * @method Token   setValue()   Sets the current record's "value" value
  * @method Token   setUser()    Sets the current record's "User" value
  * 
- * @package    projecttimeboxx
+ * * @package    sutimeboxx
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $

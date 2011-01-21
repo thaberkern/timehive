@@ -63,10 +63,60 @@ class TimeLogItemTable extends Doctrine_Table
         return $query;
     }
 
-    public function prepareTotalReport($filter, $projects, $user)
+    public function prepareTotalReport($filter, Doctrine_Collection $projects, $user, $account_id)
     {
         $result = array();
-        return $result;
+
+        $query = Doctrine_Query::create()
+                        ->select('p.*, u.*, ti.*, ty.*, SUM(ti.value) as sum')
+                        ->from('Project p')
+                        ->innerJoin('p.TimeLogItems ti')
+                        ->innerJoin('ti.User u')
+                        ->innerJoin('ti.TimeItemType ty');
+
+        if (array_key_exists('dateFrom', $filter)) {
+            $query->andWhere('ti.itemdate>=?', array($filter['dateFrom']));
+        }
+        if (array_key_exists('dateTo', $filter)) {
+            $query->andWhere('ti.itemdate<=?', array($filter['dateTo']));
+        }
+        if (array_key_exists('project', $filter)) {
+            if ($filter['project'] != -1) {
+                $query->andWhere('p.id=?', array($filter['project']));
+            }
+        }
+
+        if (array_key_exists('user', $filter)) {
+            if ($filter['user'] != -1) {
+                $query->andWhere('ti.user_id=?', array($filter['user']));
+            }
+            else if ($user != null) {
+                $query->andWhere('ti.user_id=?', array($user->id));
+            }
+        }
+        else {
+            if ($user != null) {
+                $query->andWhere('ti.user_id=?', array($user->id));
+            }
+        }
+
+        $query->andWhere('p.deactivated = ? AND p.deleted_at IS NULL', array(false));
+        $query->andWhere('p.account_id=?', array($account_id));
+
+        $result = $query->orderBy('p.name ASC')
+                                    ->groupBy('ti.type_id, ti.user_id, p.id')
+                                    ->execute();
+
+        $project_totals = array();
+	foreach ($result as $project) {
+            $project_totals[$project->id]['project'] = $project;
+            foreach ($project->TimeLogItems as $time_item) {
+                $project_totals[$project->id]['items'][$time_item->user_id]['user'] = $time_item->User;
+                $project_totals[$project->id]['items'][$time_item->user_id]['time'][$time_item->type_id] = $time_item;
+            }
+        }
+
+        return $project_totals;
     }
 
     public function updateMissedBookings($day, $user)

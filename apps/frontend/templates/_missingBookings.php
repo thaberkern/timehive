@@ -26,7 +26,7 @@ hr {
 </head>
 <body>
 
-    <h1>ProjectTimeBoxx - <?php echo __('Missing Booking');?></h1>
+    <h1>su::TimeBoxx - <?php echo __('Missing Booking');?></h1>
     <p>
         <?php echo __('Hello %1% %2%,',
                             array('%1%'=>$user->first_name,
@@ -38,10 +38,10 @@ hr {
         </strong>
         <br/><br/>
         <?php echo __('You can enter your data under:');?>&nbsp;
-        <a href="<?php echo sfConfig::get('app_frontend_url'); ?>/timesheet/index">ProjectTimeBoxx</a>
+        <a href="<?php echo sfConfig::get('app_frontend_url'); ?>/timesheet/index">su::TimeBoxx</a>
     </p>
     <hr/>
-    <p class="footer">Powered by <a href="http://www.smarttimeboxx.com">ProjectTimeBoxx</a> V.<?php echo sfConfig::get('app_version');?></p>
+    <p class="footer">Powered by <a href="http://www.smarttimeboxx.com">su::TimeBoxx</a> V.<?php echo sfConfig::get('app_version');?></p>
 
 </body>
 </html>

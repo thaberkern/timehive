@@ -33,7 +33,7 @@
     <div id="header">
         <div class="inner-container clearfix">
             <h1 id="logo">
-                <img src="<?php echo image_path('tb_logo.png');?>" alt="ProjectTimeBoxx" />
+                <img src="<?php echo image_path('tb_logo.png');?>" alt="su::TimeBoxx" />
             </h1>
             <div id="userbox">
                 <div class="inner">
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div id="footer">
-         Powered by <a href="htpp://www.projecttimeboxx.com" target="_blank">ProjectTimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
+         Powered by <a href="htpp://www.su-timeboxx.com" target="_blank">su::TimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
     </div>
 </body>
 </html>

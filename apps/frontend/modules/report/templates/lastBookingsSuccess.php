@@ -1,4 +1,4 @@
-<?php $sf_response->setTitle('ProjectTimeBoxx - Report');?>
+<?php $sf_response->setTitle('su::TimeBoxx - Report');?>
 
 <?php use_helper('Text');?>
 <?php use_javascript('jquery.min.js');?>
@@ -12,20 +12,33 @@
             <table cellspacing="0">
                 <thead>
                     <tr>
-                        <td colspan="5">
-                            <?php include_partial('filterbar', array('destination_action' => 'lastBookings', 'users' => $users, 'user' => $user, 'show_project_select' => true, 'projects'=>$projects)); ?>
+                        <td colspan="6">
+                            <?php include_partial('filterbar', array('destination_action' => 'lastBookings', 
+                                                                     'users' => $users,
+                                                                     'user' => $user,
+                                                                     'show_project_select' => true,
+                                                                     'show_pagesize_select' => true,
+                                                                     'projects'=>$projects)); ?>
                         </td>
                     </tr>
                     <tr>
                         <td class="tl"><?php echo __('Date');?></td>
                         <td class="tl"><?php echo __('Project');?></td>
+                        <td class="tl"><?php echo __('User');?></td>
                         <td class="tc"><?php echo __('Amount (hours)');?></td>
                         <td class="tc"><?php echo __('Type');?></td>
                         <td class="tl"><?php echo __('Comment');?></td>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if ($last_bookings_pager->getResults()->count() == 0):?>
+                    <?php if ($sf_user->getAttribute('overlord', false) == false &&
+                             ($sf_user->getId() != $sf_user->getAttribute('user', -1, 'report_filter'))):?>
+                        <tr>
+                            <td colspan="6">
+                                 <div class="msg msg-info"><p><?php echo __('You are not allowed to show other users data');?></p></div>
+                            </td>
+                        </tr>
+                    <?php elseif ($last_bookings_pager->getResults()->count() == 0):?>
                         <tr>
                             <td colspan="5">
                                  <div class="msg msg-info"><p><?php echo __('There are no bookings for this filter settings');?></p></div>
@@ -36,6 +49,7 @@
                             <tr>
                                 <td class="tl"><?php echo format_date($booking->itemdate, 'P');?></td>
                                 <td class="tl"><?php echo $booking->Project;?></td>
+                                <td class="tl"><?php echo $booking->User;?></td>
                                 <td class="tr"><?php echo $booking->value;?></td>
                                 <td class="tc"><span class="tag tag-gray"><?php echo $booking->TimeItemType->name;?></span></td>
                                 <td class="tl"><?php echo truncate_text($booking->note, 80);?></td>

@@ -4,7 +4,7 @@
 <?php use_javascript('jquery-ui.min.js');?>
 <?php use_stylesheet('ui-lightness/jquery-ui.custom.css');?>
 
-<?php $sf_response->setTitle('ProjectTimeBoxx - Report');?>
+<?php $sf_response->setTitle('su::TimeBoxx - Report');?>
 
 <div class="box box-100">
     <div class="boxin">
@@ -14,7 +14,11 @@
                 <thead>
                     <tr>
                         <td colspan="2">
-                            <?php include_partial('filterbar', array('destination_action' => 'missingBookings', 'users' => $users, 'user' => $user, 'show_project_select' => false)); ?>
+                            <?php include_partial('filterbar', array('destination_action' => 'missingBookings', 
+                                                                     'users' => $users,
+                                                                     'user' => $user,
+                                                                     'show_project_select' => false,
+                                                                     'show_pagesize_select' => true)); ?>
                         </td>
                     </tr>
                     <tr>
@@ -23,7 +27,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if ($no_bookings_pager->getResults()->count() == 0):?>
+                    <?php if ($sf_user->getAttribute('overlord', false) == false &&
+                             ($sf_user->getId() != $sf_user->getAttribute('user', -1, 'report_filter'))):?>
+                        <tr>
+                            <td colspan="5">
+                                 <div class="msg msg-info"><p><?php echo __('You are not allowed to show other users data');?></p></div>
+                            </td>
+                        </tr>
+                    <?php elseif ($no_bookings_pager->getResults()->count() == 0):?>
                         <tr>
                             <td colspan="2">
                                 <div class="msg msg-info"><p><?php echo __('There is no day without bookings');?></p></div>

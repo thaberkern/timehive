@@ -25,7 +25,7 @@
  * @method Role                setCredentials()  Sets the current record's "Credentials" collection
  * @method Role                setProjectUsers() Sets the current record's "ProjectUsers" collection
  * 
- * @package    projecttimeboxx
+ * * @package    sutimeboxx
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $

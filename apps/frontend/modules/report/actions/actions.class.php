@@ -3,7 +3,7 @@
 /**
  * report actions.
  *
- * @package    projecttimeboxx
+ * * @package    sutimeboxx
  * @subpackage report
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -62,13 +62,33 @@ class reportActions extends sfActions
         $filter = $this->checkFilter($request);
 
         $account_id = $this->getUser()->getAttribute('account_id');
-        $this->users = UserTable::getInstance()
+        
+        $this->types = TimeItemTypeTable::getInstance()
                                     ->findByAccountId($account_id);
 
         $this->user = UserTable::getInstance()->find($this->getUser()->getAttribute('uid'));
-        $this->projects = $this->user->Projects;
 
-        $this->project_totals = TimeLogItemTable::getInstance()->prepareTotalReport($filter, $this->projects, $this->user);
+        $this->users = UserTable::getInstance()
+                                    ->findByAccountId($account_id);
+        
+        if ($this->getUser()->getAttribute('overlord', false) == true) {
+            $this->projects = ProjectTable::getInstance()
+                                    ->findByAccountId($account_id);
+        }
+        else if (array_key_exists('user', $filter)) {
+            $this->user = UserTable::getInstance()->find($filter['user']);
+            $this->projects = $this->user->Projects;
+        }
+        else {
+            $this->projects = $this->user->Projects;
+        }
+
+        $this->project_totals = TimeLogItemTable::getInstance()
+                                        ->prepareTotalReport($filter,
+                                                             $this->projects,
+                                                             $this->user,
+                                                             $account_id);
+
     }
 
     public function executeClearFilter(sfWebRequest $request)

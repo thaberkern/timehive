@@ -10,7 +10,7 @@
 <?php use_javascript('tb_timesheet.js');?>
 <?php use_stylesheet('jquery.qtip.css');?>
 
-<?php $sf_response->setTitle('ProjectTimeBoxx - Timesheet');?>
+<?php $sf_response->setTitle('su::TimeBoxx - Timesheet');?>
 
 <script type="text/javascript">
     $(document).ready(function() {

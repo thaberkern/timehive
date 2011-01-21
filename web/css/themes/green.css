@@ -376,3 +376,12 @@ div.fields fieldset {
 	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;
 	border: 1px solid #ccc; margin-bottom: 15px; padding: 10px 15px 15px 15px;
 }
+
+td.itemtype {
+    width: 80px; 
+    padding: 2px 4px 2px 2px !important;
+}
+
+td.slim {
+    padding: 2px 4px 2px 2px !important;
+}

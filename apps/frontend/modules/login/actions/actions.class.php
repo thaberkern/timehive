@@ -3,7 +3,7 @@
 /**
  * login actions.
  *
- * @package    projecttimeboxx
+ * * @package    sutimeboxx
  * @subpackage login
  * @author     Timo Haberkern <timo.haberkern@shift-up.de>
  * @version    SVN: $Id: actions.class.php 39 2009-09-03 07:47:30Z thaberkern $

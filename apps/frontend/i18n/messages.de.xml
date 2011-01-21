@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="en" target-language="de" datatype="plain" date="2010-08-23T15:05:18Z">
+  <file source-language="en" target-language="de" datatype="plain" date="2011-01-21T15:06:58Z">
     <body>
       <trans-unit id="1">
         <source>My account</source>
@@ -10,10 +10,6 @@
       <trans-unit id="2">
         <source>Sign out</source>
         <target>Abmelden</target>
-      </trans-unit>
-      <trans-unit id="3">
-        <source>Sign-In</source>
-        <target>Anmelden</target>
       </trans-unit>
       <trans-unit id="4">
         <source>Dashboard</source>
@@ -83,10 +79,6 @@
         <source>Number</source>
         <target>Nummer</target>
       </trans-unit>
-      <trans-unit id="21">
-        <source>Group</source>
-        <target>Gruppe</target>
-      </trans-unit>
       <trans-unit id="22">
         <source>All</source>
         <target>Alle</target>
@@ -94,10 +86,6 @@
       <trans-unit id="23">
         <source>User</source>
         <target>Benutzer</target>
-      </trans-unit>
-      <trans-unit id="24">
-        <source>Archived</source>
-        <target>Archiviert</target>
       </trans-unit>
       <trans-unit id="25">
         <source>OK</source>
@@ -107,13 +95,462 @@
         <source>Projects</source>
         <target>Projekte</target>
       </trans-unit>
-      <trans-unit id="27">
-        <source>Users</source>
-        <target>Benutzer</target>
+      <trans-unit id="29">
+        <source>Roles</source>
+        <target>Rollen</target>
       </trans-unit>
-      <trans-unit id="28">
-        <source>Timeitem types</source>
-        <target>Arbeitszeittypen</target>
+      <trans-unit id="30">
+        <source>Time item types</source>
+        <target>Zeiterfassungskategorien</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>There were errors</source>
+        <target>Es sind Fehler aufgetreten</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Message</source>
+        <target>Nachricht</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Missing Booking</source>
+        <target>Fehlende Buchung</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Hello %1% %2%,</source>
+        <target>Hallo %1% %2%,</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>you have not entered a time entry for the %1% so far.</source>
+        <target>Sie haben noch keine Buchung für den %1% durchgeführt</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>You can enter your data under:</source>
+        <target>Sie können diese Daten unter der folgenden URL eintragen:</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>Something went wrong with your password request. Please try again</source>
+        <target>Etwas ist beim Anfordern Ihres Passwortes schief gegangen. Bitte versuchen Sie es erneut</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>Password must be at least 6 characters long</source>
+        <target>Passwort muss mindestens 6 Zeichen lang sein</target>
+      </trans-unit>
+      <trans-unit id="39">
+        <source>Password and confirmation must be identical</source>
+        <target>Passwort und Wiederholung müssen übereinstimmen</target>
+      </trans-unit>
+      <trans-unit id="40">
+        <source>Your password was changed successfully. Please login again.</source>
+        <target>Ihr Passwort wurde erfolgreich geändert. Bitte erneut einloggen.</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>There is a problem with your token. Password can not be changed</source>
+        <target>Es gab ein Problem mit Ihrem Token. Das Passwort konnte nicht geändert werden</target>
+      </trans-unit>
+      <trans-unit id="42">
+        <source>Your su::TimeBoxx password</source>
+        <target>Ihr su::TimeBoxx Passwort</target>
+      </trans-unit>
+      <trans-unit id="43">
+        <source>An email with instructions to choose a new password has been sent to you.</source>
+        <target>Eine E-Mail mit Anweisungen zum Ändern des Passwortes wurde per E-Mail an Sie verschickt.</target>
+      </trans-unit>
+      <trans-unit id="44">
+        <source>There is no such e-mail address in the our database!</source>
+        <target>Eine solche E-Mail-Addresse existiert nicht in der Datenbank</target>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>My Account Settings</source>
+        <target>Meine Konto-Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>Saved element successfully</source>
+        <target>Eintrag erfolgreich gespeichert</target>
+      </trans-unit>
+      <trans-unit id="47">
+        <source>Save</source>
+        <target>Speichern</target>
+      </trans-unit>
+      <trans-unit id="48">
+        <source>Confirm password</source>
+        <target>Passwort bestätigen</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>Change Password</source>
+        <target>Passwort ändern</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>To change your password, click on the following link</source>
+        <target>Um Ihr Passwort zu ändern klicken Sie bitte den folgenden Link</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source>New project</source>
+        <target>Neues Projekt</target>
+      </trans-unit>
+      <trans-unit id="52">
+        <source>Role(s)</source>
+        <target>Rolle(n)</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>You have reached the maximum amount of projects for your type of account. Please upgrade if you want to add another project.</source>
+        <target>Sie haben das Maximum an Projekten für Ihren Account-Typ erreicht. Bitte upgraden Sie, wenn Sie weitere Projekte anlegen wollen.</target>
+      </trans-unit>
+      <trans-unit id="54">
+        <source>Owner</source>
+        <target>Besitzer</target>
+      </trans-unit>
+      <trans-unit id="55">
+        <source>Created at</source>
+        <target>Erstellt am</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Locked</source>
+        <target>Gesperrt</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>Actions</source>
+        <target>Aktionen</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>with selected do</source>
+        <target>Auswahl</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>lock</source>
+        <target>sperren</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>delete</source>
+        <target>löschen</target>
+      </trans-unit>
+      <trans-unit id="61">
+        <source>edit</source>
+        <target>bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="62">
+        <source>Project</source>
+        <target>Projekt</target>
+      </trans-unit>
+      <trans-unit id="63">
+        <source>Userroles</source>
+        <target>Benutzerrollen</target>
+      </trans-unit>
+      <trans-unit id="64">
+        <source>You need to save a project before you can add user with their roles</source>
+       <target>Sie müssen das Projekt speichern, bevor Sie Benutzer hinzufügen können</target>
+      </trans-unit>
+      <trans-unit id="65">
+        <source>Back to list</source>
+        <target>Zurück zur Liste</target>
+      </trans-unit>
+      <trans-unit id="66">
+        <source>Add</source>
+        <target>Hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="67">
+        <source>Edit</source>
+        <target>Bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="68">
+        <source>Delete</source>
+        <target>Löschen</target>
+      </trans-unit>
+      <trans-unit id="69">
+        <source>Really delete this user project role?</source>
+        <target>Diese Benutzer-Projekt-Rolle wirklich löschen?</target>
+      </trans-unit>
+      <trans-unit id="70">
+        <source>Loading</source>
+        <target>Lade</target>
+      </trans-unit>
+      <trans-unit id="71">
+        <source>Edit project-user-relation</source>
+        <target>Benutzer-Projekt-Rolle bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="72">
+        <source>Add project-user-relation</source>
+        <target>Benutzer-Projekt-Rolle hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="73">
+        <source>New Role</source>
+        <target>Neue Rolle</target>
+      </trans-unit>
+      <trans-unit id="74">
+        <source>Rolename</source>
+        <target>Rollenname</target>
+      </trans-unit>
+      <trans-unit id="75">
+        <source>Check all</source>
+        <target>Alle auswählen</target>
+      </trans-unit>
+      <trans-unit id="76">
+        <source>Uncheck all</source>
+        <target>Auswahl aufheben</target>
+      </trans-unit>
+      <trans-unit id="77">
+        <source>Account-Plan</source>
+        <target>Account-Plan</target>
+      </trans-unit>
+      <trans-unit id="78">
+        <source>unlimited</source>
+        <target>unbegrenzt</target>
+      </trans-unit>
+      </trans-unit>
+      <trans-unit id="80">
+        <source>Workingdays</source>
+        <target>Arbeitstage</target>
+      </trans-unit>
+      <trans-unit id="81">
+        <source>Monday</source>
+        <target>Montag</target>
+      </trans-unit>
+      <trans-unit id="82">
+        <source>Tuesday</source>
+        <target>Dienstag</target>
+      </trans-unit>
+      <trans-unit id="83">
+        <source>Wednesday</source>
+        <target>Mittwoch</target>
+      </trans-unit>
+      <trans-unit id="84">
+        <source>Thursday</source>
+        <target>Donnerstag</target>
+      </trans-unit>
+      <trans-unit id="85">
+        <source>Friday</source>
+        <target>Freitag</target>
+      </trans-unit>
+      <trans-unit id="86">
+        <source>Saturday</source>
+        <target>Samstag</target>
+      </trans-unit>
+      <trans-unit id="87">
+        <source>Sunday</source>
+        <target>Sonntag</target>
+      </trans-unit>
+      <trans-unit id="88">
+        <source>New Time item type</source>
+        <target>Neue Zeiterfassungskategorie</target>
+      </trans-unit>
+      <trans-unit id="89">
+        <source>Default</source>
+        <target>Standard</target>
+      </trans-unit>
+      <trans-unit id="90">
+        <source>default</source>
+        <target>Standard</target>
+      </trans-unit>
+      <trans-unit id="91">
+        <source>set as default</source>
+        <target>als Standard verwenden</target>
+      </trans-unit>
+      <trans-unit id="92">
+        <source>Time item type</source>
+        <target>Zeiterfassungskategorie</target>
+      </trans-unit>
+      <trans-unit id="93">
+        <source>New user</source>
+        <target>Neuen Benutzer</target>
+      </trans-unit>
+      <trans-unit id="94">
+        <source>You have reached the maximum amount of users for your type of account. Please upgrade if you want to add another user.</source>
+        <target>Sie haben die Maximale Anzahl an Benutzern für Ihren Account erreicht. Bitte upgraden Sie, wenn Sie weitere Benutzer hinzufügen wollen.</target>
+      </trans-unit>
+      <trans-unit id="95">
+        <source>Status</source>
+        <target>Status</target>
+      </trans-unit>
+      <trans-unit id="96">
+        <source>deactivate</source>
+        <target>deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="97">
+        <source>Administrator</source>
+        <target>Administrator</target>
+      </trans-unit>
+      <trans-unit id="98">
+        <source>Boss-Mode</source>
+        <target>Chef-Modus</target>
+      </trans-unit>
+      <trans-unit id="99">
+        <source>My last time bookings</source>
+        <target>Meine letzten Buchungen</target>
+      </trans-unit>
+      <trans-unit id="100">
+        <source>Date</source>
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="101">
+        <source>Amount (hours)</source>
+        <target>Anzahl (Stunden)</target>
+      </trans-unit>
+      <trans-unit id="102">
+        <source>Type</source>
+        <target>Kategorie</target>
+      </trans-unit>
+      <trans-unit id="103">
+        <source>Show</source>
+        <target>Anzeigen</target>
+      </trans-unit>
+      <trans-unit id="104">
+        <source>entries</source>
+        <target>Einträge</target>
+      </trans-unit>
+      <trans-unit id="105">
+        <source>My total time per project</source>
+        <target>Meine Buchungssumme pro Projekt</target>
+      </trans-unit>
+      <trans-unit id="106">
+        <source>Show for</source>
+        <target>Anzeigen für</target>
+      </trans-unit>
+      <trans-unit id="107">
+        <source>overall</source>
+        <target>Gesamt</target>
+      </trans-unit>
+      <trans-unit id="108">
+        <source>this week</source>
+        <target>diese Woche</target>
+      </trans-unit>
+      <trans-unit id="109">
+        <source>last week</source>
+        <target>letzte Woche</target>
+      </trans-unit>
+      <trans-unit id="110">
+        <source>this month</source>
+        <target>diesen Monat</target>
+      </trans-unit>
+      <trans-unit id="111">
+        <source>last month</source>
+        <target>letzten Monat</target>
+      </trans-unit>
+      <trans-unit id="112">
+        <source>Days without bookings</source>
+        <target>Tage ohne Buchung</target>
+      </trans-unit>
+      <trans-unit id="113">
+        <source>There is no day without bookings</source>
+        <target>Es gibt keine Tage ohne Buchung</target>
+      </trans-unit>
+      <trans-unit id="114">
+        <source>first</source>
+        <target>Abfang</target>
+      </trans-unit>
+      <trans-unit id="115">
+        <source>previous</source>
+        <target>zurück</target>
+      </trans-unit>
+      <trans-unit id="116">
+        <source>next</source>
+        <target>weiter</target>
+      </trans-unit>
+      <trans-unit id="117">
+        <source>last</source>
+        <target>Ende</target>
+      </trans-unit>
+      <trans-unit id="118">
+        <source>Your user is locked, you can not use su::TimeBoxx anymore!</source>
+        <target>Ihr Benutzer ist gesperrt. Sie können sz::TimeBoxx nicht nutzen!</target>
+      </trans-unit>
+      <trans-unit id="119">
+        <source>Please enter your E-Mail address. You will receive an e-mail with detailed instructions.</source>
+        <target>Bitte geben Sie Ihre E-Mail Adresse ein. Sie werden eine Nachricht mit detailierten Anweisungen bekommen.</target>
+      </trans-unit>
+      <trans-unit id="120">
+        <source>E-Mail-Address</source>
+        <target>E-Mail-Adresse</target>
+      </trans-unit>
+      <trans-unit id="121">
+        <source>Send Request</source>
+        <target>Anfrage senden</target>
+      </trans-unit>
+      <trans-unit id="122">
+        <source>Comment</source>
+        <target>Kommentar</target>
+      </trans-unit>
+      <trans-unit id="123">
+        <source>You are not allowed to show other users data</source>
+        <target>Sie besitzen nicht die Rechte, um Daten anderer Benutzer anzuzeigen</target>
+      </trans-unit>
+      <trans-unit id="124">
+        <source>There are no bookings for this filter settings</source>
+        <target>Es existieren keine Buchungen für diese Filtereinstellungen</target>
+      </trans-unit>
+      <trans-unit id="125">
+        <source>Effort</source>
+        <target>Aufwand</target>
+      </trans-unit>
+      <trans-unit id="126">
+        <source>Total hours (days)</source>
+        <target>Gesamtstunden (-tage)</target>
+      </trans-unit>
+      <trans-unit id="127">
+        <source>You are not allowed to show this users data in this project</source>
+        <target>Sie besitzen nicht die Rechte, um Daten anderer Benutzer in diesem Projekt anzuzeigen</target>
+      </trans-unit>
+      <trans-unit id="128">
+        <source>Total Project</source>
+        <target>Projektsumme</target>
+      </trans-unit>
+      <trans-unit id="129">
+        <source>Date from</source>
+        <target>Datum von</target>
+      </trans-unit>
+      <trans-unit id="130">
+        <source>to</source>
+        <target>bis</target>
+      </trans-unit>
+      <trans-unit id="131">
+        <source>Clear</source>
+        <target>Zurücksetzen</target>
+      </trans-unit>
+      <trans-unit id="132">
+        <source>Last Bookings</source>
+        <target>Letzte Buchungen</target>
+      </trans-unit>
+      <trans-unit id="133">
+        <source>Missing Bookings</source>
+        <target>Fehlende Buchungen</target>
+      </trans-unit>
+      <trans-unit id="134">
+        <source>Project totals</source>
+        <target>Projektaufwand</target>
+      </trans-unit>
+      <trans-unit id="135">
+        <source>You are not allowed to perform this operation. Maybe you have not the needed rights.</source>
+        <target>Sie können diese Operation nicht ausführen. Wahrscheinlich besitzen Sie nicht die notwendigen Rechte</target>
+      </trans-unit>
+      <trans-unit id="136">
+        <source>Saved element(s) successfully</source>
+        <target>Element(e) erfolgreiche gespeichert</target>
+      </trans-unit>
+      <trans-unit id="137">
+        <source>%1 to %2</source>
+        <target>%1 bis %2</target>
+      </trans-unit>
+      <trans-unit id="138">
+        <source>Totals</source>
+        <target>Gesamt</target>
+      </trans-unit>
+      <trans-unit id="139">
+        <source>hours</source>
+        <target>Stunden</target>
+      </trans-unit>
+      <trans-unit id="140">
+        <source>Amount</source>
+        <target>Anzahl</target>
+      </trans-unit>
+      <trans-unit id="141">
+        <source>Not a valid decimal number</source>
+        <target>Keine gültige Zahl</target>
+      </trans-unit>
+      <trans-unit id="142">
+        <source>Edit Timelog entry</source>
+        <target>Buchung bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="143">
+        <source>You can not track time entry for future dates</source>
+        <target>Sie können keine Zeiten für die Zukunft erfassen</target>
       </trans-unit>
     </body>
   </file>

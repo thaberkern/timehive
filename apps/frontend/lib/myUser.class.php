@@ -94,6 +94,21 @@ class myUser extends sfBasicSecurityUser
         return $result;
     }
 
+    public function hasProjectCredential($name, $project)
+    {
+        $user = $this->getUserObject();
+        return $user->hasProjectCredential($name, $project->id);
+    }
+
+    public function getUserObject()
+    {
+        if ($this->user != null) {
+            return $this->user;
+        }
+
+        return UserTable::getInstance()->find($this->getAttribute('uid'));
+    }
+
     public function clearFilter($namespace)
     {
         $this->getAttributeHolder()->removeNamespace($namespace);
@@ -118,15 +133,20 @@ class myUser extends sfBasicSecurityUser
             $this->addCredential('admin');
         }
 
-        if ($user->administrator == true) {
+        if ($user->boss_mode == true) {
             $this->setAttribute('overlord', 1);
+        }
+        else {
+            $this->setAttribute('overlord', 0);
         }
 
         if ($user->Setting->culture != "") {
             $this->setCulture($user->Setting->culture);
         }
+
     }
 
+    private $user = null;
     private $is_first_request = true;
 
 }
