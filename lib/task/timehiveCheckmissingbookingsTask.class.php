@@ -1,6 +1,6 @@
 <?php
 
-class timeboxxCheckmissingbookingsTask extends sfBaseTask
+class timehiveCheckmissingbookingsTask extends sfBaseTask
 {
 
     protected function configure()
@@ -17,14 +17,14 @@ class timeboxxCheckmissingbookingsTask extends sfBaseTask
                 // add your own options here
         ));
 
-        $this->namespace = 'timeboxx';
+        $this->namespace = 'timehive';
         $this->name = 'check-missing-bookings';
         $this->briefDescription = '';
         $this->detailedDescription = <<<EOF
-The [timeboxx:check-missing-bookings|INFO] task does things.
+The [timehive:check-missing-bookings|INFO] task does things.
 Call it with:
 
-  [php symfony timeboxx:check-missing-bookings|INFO]
+  [php symfony timehive:check-missing-bookings|INFO]
 EOF;
     }
 
@@ -47,7 +47,7 @@ EOF;
                     $this->configuration->loadHelpers('Partial');
                     
                     $i18n = $context->getI18N();
-                    $subject = $i18n->__('su::TimeBoxx - Missing Bookings');
+                    $subject = $i18n->__('TimeHive - Missing Bookings');
 
                     $body = get_partial('global/missingBookings', array('user'=>$user));
 

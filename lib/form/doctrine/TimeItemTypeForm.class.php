@@ -3,7 +3,7 @@
 /**
  * TimeItemType form.
  *
- * * @package    sutimeboxx
+ * @package    timehive
  * @subpackage form
  */
 class TimeItemTypeForm extends BaseTimeItemTypeForm

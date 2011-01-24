@@ -3,7 +3,7 @@
 /**
  * User form.
  *
- * * @package    sutimeboxx
+ * @package    timehive
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -64,9 +64,10 @@ class UserForm extends BaseUserForm
         $this->validatorSchema['password']->setOption('min_length', 6);
         $this->validatorSchema['password']->setMessage('min_length', 'Password must be at least 6 characters long');
 
+        $this->embedRelation('Setting');
         $this->embedForm('settings', new SettingForm($this->getObject()->getSetting()));
 
-        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['assigned_user_list'], $this['owner_id']);
+        unset($this['created_at'], $this['updated_at'], $this['deleted_at'], $this['projects_list'], $this['owner_id']);
     }
 
     public function setValue($field, $value)

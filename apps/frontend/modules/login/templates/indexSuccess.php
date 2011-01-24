@@ -1,4 +1,4 @@
-<?php $sf_response->setTitle('su::TimeBoxx - '.__('Login'));?>
+<?php $sf_response->setTitle('TimeHive - '.__('Login'));?>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -22,7 +22,7 @@
 <div class="box box-50 altbox">
     <div class="boxin">
         <div class="header">
-            <h3><img src="<?php echo image_path('tb_logo_70.png');?>" alt="su::TimeBoxx" /></h3>
+            <h3><img src="<?php echo image_path('tb_logo_70.png');?>" alt="TimeHive" /></h3>
             <ul>
                 <li><a rel="login-box" href="#" <?php echo $sf_user->getFlash('send_pwd_failure', false) == false ? 'class="active"' : '';?>><?php echo __('Login'); ?></a></li>
                 <li><a rel="lost-password-box" <?php echo $sf_user->getFlash('send_pwd_failure', false) != false ? 'class="active"' : '';?> href="#"><?php echo __('Lost password');?></a></li>
@@ -43,7 +43,7 @@
                         <div class="msg msg-error">
                             <p>
                                 <strong><?php echo __('Login failed!') ?></strong><br/>
-                                <?php echo __('Your user is locked, you can not use su::TimeBoxx anymore!') ?>
+                                <?php echo __('Your user is locked, you can not use TimeHive anymore!') ?>
                             </p>
                         </div>
                     <?php endif; ?>

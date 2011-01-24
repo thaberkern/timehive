@@ -3,7 +3,7 @@
 /**
  * Setting form.
  *
- * * @package    sutimeboxx
+ * @package    timehive
  * @subpackage form
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */

@@ -4,7 +4,7 @@
 <?php use_javascript('jquery-ui.min.js');?>
 <?php use_stylesheet('ui-lightness/jquery-ui.custom.css');?>
 
-<?php $sf_response->setTitle('su::TimeBoxx - Report');?>
+<?php $sf_response->setTitle('TimeHive - Report');?>
 
 <div class="box box-100">
     <div class="boxin">

@@ -125,6 +125,7 @@ class myUser extends sfBasicSecurityUser
         $this->setAttribute('username', $user->getUsername());
         $this->setAttribute('firstname', $user->getFirstName());
         $this->setAttribute('lastname', $user->getLastName());
+        $this->setAttribute('email', $user->getEmail());
         $this->setAttribute('theme', $user->Setting->theme);
         $this->setAttribute('account_id', $user->Account->id);
         $this->setAttribute('account_name', $user->Account->name);

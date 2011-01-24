@@ -3,7 +3,7 @@
 /**
  * adminUser actions.
  *
- * * @package    sutimeboxx
+ * @package    timehive
  * @subpackage adminUser
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -148,8 +148,6 @@ class adminUserActions extends sfActions
 
         $user = $request->getParameter('user');
         if ($form->isValid()) {
-            $form->setValue('account_id', $this->getUser()->getAttribute('account_id'));
-
             $org_password = $user['password'];
             if (strlen($user['password']) != 32) {
                 $user['password'] = md5($user['password']);
@@ -157,9 +155,14 @@ class adminUserActions extends sfActions
             }
 
             $user = $form->save();
+            $user->Setting->user_id = $user->id;
+            $user->Setting->save();
+
+            $user->account_id = $this->getUser()->getAttribute('account_id');
+            $user->save();
 
             $this->getUser()->setFlash('saved.success', 1);
-            $this->redirect('adminUser/edit?id=' . $user->getId());
+            //$this->redirect('adminUser/edit?id=' . $user->getId());
         }
     }
 }

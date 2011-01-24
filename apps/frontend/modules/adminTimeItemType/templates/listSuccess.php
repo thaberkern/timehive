@@ -46,7 +46,7 @@
                                     <ul class="actions">
                                         <li><a class="ico" href="<?php echo url_for('adminTimeItemType/edit?id='.$type->id);?>" title="<?php echo __('edit');?>"><img src="<?php echo image_path('edit');?>" alt="<?php echo __('edit');?>" /></a></li>
                                         <li><a class="ico" href="<?php echo url_for('adminTimeItemType/default?id='.$type->id);?>" title="<?php echo __('set as default');?>"><img src="<?php echo image_path('tick');?>" alt="<?php echo __('set as default');?>" /></a></li>
-                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminTimeItemType/delete?id='.$type->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'alt'=>'delete')) ?></li>
+                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminTimeItemType/delete?id='.$type->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'title'=>'delete')) ?></li>
                                     </ul>
                                 </td>
                             </tr>

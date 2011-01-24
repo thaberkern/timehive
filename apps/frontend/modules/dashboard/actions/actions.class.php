@@ -3,7 +3,7 @@
 /**
  * dashboard actions.
  *
- * * @package    sutimeboxx
+ * @package    timehive
  * @subpackage dashboard
  * @author     Timo Haberkern
  */

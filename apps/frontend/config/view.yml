@@ -6,7 +6,7 @@ default:
     content-type: text/html
 
   metas:
-    title:        su::TimeBoxx
+    title:        TimeHive
     description:  Open source project timetracking software
     #keywords:     symfony, project
     #language:     en

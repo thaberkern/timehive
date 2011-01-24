@@ -20,14 +20,14 @@
         <strong><?php echo $form['name']->renderLabel() ?></strong>
         <?php echo $form['name'] ?>
         <br/><br/>
-        <label><strong>Account valid until</strong></label>
+        <label><strong><?php echo __('Account valid until');?></strong></label>
         <?php if ($form->getObject()->valid_until == '' || $form->getObject()->valid_until == null): ?>
             <?php echo __('unlimited');?>
         <?php else:?>
             <?php echo format_date($form->getObject()->valid_until, 'F'); ?>
         <?php endif;?>
         <br/><br/>
-        <label><strong>Account plan type</strong></label>
+        <label><strong><?php echo __('Account plan type');?></strong></label>
         <?php echo __('account.'.$form->getObject()->type); ?>
     </fieldset>
 

@@ -1,3 +1,4 @@
+<?php use_helper('Gravatar');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -33,10 +34,10 @@
     <div id="header">
         <div class="inner-container clearfix">
             <h1 id="logo">
-                <img src="<?php echo image_path('tb_logo.png');?>" alt="su::TimeBoxx" />
+                <img src="<?php echo image_path('tb_logo.png');?>" alt="TimeHive" />
             </h1>
-            <div id="userbox">
-                <div class="inner">
+            <div id="userbox" >
+                <div class="inner" style="background: url(<?php echo gravatar_url($sf_user->getAttribute('email'), 32);?>) no-repeat scroll 16px 16px transparent;">
                     <strong><?php echo sfContext::getInstance()->getUser()->getAttribute('username');?></strong>
                     <p style="color: white; font-size: 8pt; margin-bottom: 3px;"><?php echo $sf_user->getAttribute('account_name');?></p>
                     <ul class="clearfix">
@@ -58,7 +59,7 @@
         </div>
     </div>
     <div id="footer">
-         Powered by <a href="htpp://www.su-timeboxx.com" target="_blank">su::TimeBoxx</a> V.<?php echo sfConfig::get('app_version');?>
+         Powered by <a href="htpp://www.timehive.com" target="_blank">TimeHive</a> V.<?php echo sfConfig::get('app_version');?>
     </div>
 </body>
 </html>

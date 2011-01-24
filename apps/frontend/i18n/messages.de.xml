@@ -148,8 +148,8 @@
         <target>Es gab ein Problem mit Ihrem Token. Das Passwort konnte nicht geändert werden</target>
       </trans-unit>
       <trans-unit id="42">
-        <source>Your su::TimeBoxx password</source>
-        <target>Ihr su::TimeBoxx Passwort</target>
+        <source>Your TimeHive password</source>
+        <target>Ihr TimeHive Passwort</target>
       </trans-unit>
       <trans-unit id="43">
         <source>An email with instructions to choose a new password has been sent to you.</source>
@@ -294,7 +294,6 @@
       <trans-unit id="78">
         <source>unlimited</source>
         <target>unbegrenzt</target>
-      </trans-unit>
       </trans-unit>
       <trans-unit id="80">
         <source>Workingdays</source>
@@ -449,8 +448,8 @@
         <target>Ende</target>
       </trans-unit>
       <trans-unit id="118">
-        <source>Your user is locked, you can not use su::TimeBoxx anymore!</source>
-        <target>Ihr Benutzer ist gesperrt. Sie können sz::TimeBoxx nicht nutzen!</target>
+        <source>Your user is locked, you can not use TimeHive anymore!</source>
+        <target>Ihr Benutzer ist gesperrt. Sie können TimeHive nicht nutzen!</target>
       </trans-unit>
       <trans-unit id="119">
         <source>Please enter your E-Mail address. You will receive an e-mail with detailed instructions.</source>
@@ -551,6 +550,107 @@
       <trans-unit id="143">
         <source>You can not track time entry for future dates</source>
         <target>Sie können keine Zeiten für die Zukunft erfassen</target>
+      </trans-unit>
+      <trans-unit id="144">
+        <source>Firstname</source>
+        <target>Vorname</target>
+      </trans-unit>
+      <trans-unit id="145">
+        <source>Lastname</source>
+        <target>Nachname</target>
+      </trans-unit>
+      <trans-unit id="146">
+        <source>Email</source>
+        <target>E-Mail</target>
+      </trans-unit>
+      <trans-unit id="147">
+        <source>Layout theme</source>
+        <target>Seitendesign</target>
+      </trans-unit>
+      <trans-unit id="148">
+        <source>Interface language</source>
+        <target>Sprache Benutzeroberfläche</target>
+      </trans-unit>
+      <trans-unit id="149">
+        <source>Reminder</source>
+        <target>Erinnerung</target>
+      </trans-unit>
+      <trans-unit id="150">
+        <source>Send reminder E-Mails once a day if the user has not entered time-data for the day</source>
+        <target>Verschickt Erinnerungs-E-Mails, wenn der Benutzer keine Buchung für diesen Tag vorgenommen hat</target>
+      </trans-unit>
+      <trans-unit id="151">
+        <source>green</source>
+        <target>grün</target>
+      </trans-unit>
+      <trans-unit id="152">
+        <source>black</source>
+        <target>schwarz</target>
+      </trans-unit>
+      <trans-unit id="153">
+        <source>blue</source>
+        <target>blau</target>
+      </trans-unit>
+      <trans-unit id="154">
+        <source>orange</source>
+        <target>orange</target>
+      </trans-unit>
+      <trans-unit id="155">
+        <source>purple</source>
+        <target>lila</target>
+      </trans-unit>
+      <trans-unit id="156">
+        <source>red</source>
+        <target>rot</target>
+      </trans-unit>
+      <trans-unit id="157">
+        <source>Account plan type</source>
+        <target>Account-Art</target>
+      </trans-unit>
+      <trans-unit id="158">
+        <source>Account valid until</source>
+        <target>Account gültig bis</target>
+      </trans-unit>
+
+      <trans-unit id="10000">
+        <source>credential.group.timetracking</source>
+        <target>Zeiterfassung</target>
+      </trans-unit>
+      <trans-unit id="10001">
+        <source>credential.group.report</source>
+        <target>Auswertungen</target>
+      </trans-unit>
+      <trans-unit id="10002">
+        <source>credential.timetracking.edit</source>
+        <target>Buchungen hinzufügen/editieren</target>
+      </trans-unit>
+      <trans-unit id="10003">
+        <source>credential.report.other</source>
+        <target>Anzeige Projektgesamtstunden anderer Benutzer</target>
+      </trans-unit>
+      <trans-unit id="10004">
+        <source>credential.report.last_bookings.self</source>
+        <target>Anzeige Buchungen (nur eigene)</target>
+      </trans-unit>
+      <trans-unit id="10005">
+        <source>credential.report.project_total.self</source>
+        <target>Anzeige Projektgesamtstunden (nur eigene)</target>
+      </trans-unit>
+       <trans-unit id="10007">
+        <source>account.unlimited</source>
+        <target>Unlimited</target>
+      </trans-unit>
+      <trans-unit id="10008">
+        <source>account.free</source>
+        <target>Free</target>
+      </trans-unit>
+      <trans-unit id="10009">
+        <source>account.small</source>
+        <target>Small Business</target>
+      </trans-unit>
+      <trans-unit id="10010">
+        <source>account.pro</source>
+        <target>Professional</target>
       </trans-unit>
     </body>
   </file>

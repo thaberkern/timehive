@@ -1,6 +1,6 @@
 <?php use_helper('Text', 'timeboxx');?>
 
-<?php $sf_response->setTitle('su::TimeBoxx - '.__('Dashboard'));?>
+<?php $sf_response->setTitle('TimeHive - '.__('Dashboard'));?>
 
 <div class="box box-50"><!-- box 50% width -->
     <div class="boxin">

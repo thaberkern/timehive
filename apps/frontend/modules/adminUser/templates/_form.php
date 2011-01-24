@@ -52,7 +52,7 @@
 
         <?php echo $form['settings']['reminder']->renderLabel() ?>
         <?php echo $form['settings']['reminder'] ?>
-        <small>Send reminder E-Mails once a day if the user has not entered time-data for the day</small>
+        <small><?php echo __('Send reminder E-Mails once a day if the user has not entered time-data for the day');?></small>
     </fieldset>
         <div class="sep">
             <input class="button" type="submit" value="<?php echo __('Save');?>" />

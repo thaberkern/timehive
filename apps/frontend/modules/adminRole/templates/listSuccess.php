@@ -38,8 +38,8 @@
                                 <td class="tc"><?php echo format_date($role->created_at, 'P');?></td>
                                 <td class="tc">
                                     <ul class="actions">
-                                        <li><a class="ico" href="<?php echo url_for('adminRole/edit?id='.$role->id);?>" title="edit"><img src="<?php echo image_path('edit');?>" alt="<?php echo __('edit');?>" /></a></li>
-                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminRole/delete?id='.$role->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'alt'=>'delete')) ?></li>
+                                        <li><a class="ico" href="<?php echo url_for('adminRole/edit?id='.$role->id);?>" title="<?php echo __('edit');?>"><img src="<?php echo image_path('edit');?>" alt="<?php echo __('edit');?>" /></a></li>
+                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminRole/delete?id='.$role->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'title'=>__('delete'))) ?></li>
                                     </ul>
                                 </td>
                             </tr>

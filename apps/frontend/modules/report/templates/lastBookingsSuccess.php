@@ -1,4 +1,4 @@
-<?php $sf_response->setTitle('su::TimeBoxx - Report');?>
+<?php $sf_response->setTitle('TimeHive - Report');?>
 
 <?php use_helper('Text');?>
 <?php use_javascript('jquery.min.js');?>

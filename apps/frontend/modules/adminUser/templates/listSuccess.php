@@ -60,15 +60,15 @@
                                 <td class="tc"><?php echo format_date($user->created_at, 'P');?></td>
                                 <td class="tc">
                                     <ul class="actions">
-                                        <li><a class="ico" href="<?php echo url_for('adminUser/edit?id='.$user->id);?>" title="edit"><img src="<?php echo image_path('edit');?>" alt="<?php echo __('edit');?>" /></a></li>
+                                        <li><a class="ico" href="<?php echo url_for('adminUser/edit?id='.$user->id);?>" title="<?php echo __('edit');?>"><img src="<?php echo image_path('edit');?>" alt="<?php echo __('edit');?>" /></a></li>
                                         <li>
                                         <?php if ($user->locked):?>
-                                            <?php echo link_to(image_tag('lock_delete', array('alt'=>'unlock')), 'adminUser/unlock?id='.$user->id, array('class'=>'ico', 'alt'=>'unlock')) ?>
+                                            <?php echo link_to(image_tag('lock_delete', array('alt'=>'unlock')), 'adminUser/unlock?id='.$user->id, array('class'=>'ico', 'title'=>__('unlock'))) ?>
                                         <?php else:?>
-                                            <?php echo link_to(image_tag('lock', array('alt'=>'lock')), 'adminUser/lock?id='.$user->id, array('class'=>'ico', 'alt'=>'lock')) ?>
+                                            <?php echo link_to(image_tag('lock', array('alt'=>'lock')), 'adminUser/lock?id='.$user->id, array('class'=>'ico', 'title'=>__('lock'))) ?>
                                         <?php endif; ?>
                                         </li>
-                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminUser/delete?id='.$user->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'alt'=>'delete')) ?></li>
+                                        <li><?php echo link_to(image_tag('delete', array('alt'=>'delete')), 'adminUser/delete?id='.$user->id, array('method' => 'delete', 'confirm' => 'Are you sure?', 'class'=>'ico', 'title'=>__('delete'))) ?></li>
                                     </ul>
                                 </td>
                             </tr>

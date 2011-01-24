@@ -31,7 +31,7 @@
  * @method Account             setTimeItemTypes() Sets the current record's "TimeItemTypes" collection
  * @method Account             setProjects()      Sets the current record's "Projects" collection
  * 
- * * @package    sutimeboxx
+ * @package    timehive
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
