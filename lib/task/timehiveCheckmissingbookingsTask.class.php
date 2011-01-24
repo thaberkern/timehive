@@ -45,11 +45,11 @@ EOF;
                     $mailserver = sfConfig::get('app_system_email');
                     $context = sfContext::createInstance($this->configuration);
                     $this->configuration->loadHelpers('Partial');
-                    
-                    $i18n = $context->getI18N();
-                    $subject = $i18n->__('TimeHive - Missing Bookings');
 
-                    $body = get_partial('global/missingBookings', array('user'=>$user));
+                    $i18n = $this->getI18N($user->Setting->culture);
+                    $subject = 'TimeHive - '.$i18n->__('Missing Booking');
+
+                    $body = get_partial('global/missingBookings', array('user'=>$user, 'i18n'=>$i18n));
 
                     $message = $mailer->compose($mailserver['from'],
                                                 $user->email,
@@ -63,4 +63,17 @@ EOF;
         }
     }
 
+    protected function getI18N($culture = 'en')
+    {
+        if (!$this->i18n) {
+            $config = sfFactoryConfigHandler::getConfiguration($this->configuration->getConfigPaths('config/factories.yml'));
+            $class = $config['i18n']['class'];
+            $this->i18n = new $class($this->configuration, null, $config['i18n']['param']);
+        }
+
+        $this->i18n->setCulture($culture);
+        return $this->i18n;
+    }
+
+    protected $i18n = null;
 }

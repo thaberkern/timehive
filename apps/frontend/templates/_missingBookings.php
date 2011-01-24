@@ -26,18 +26,18 @@ hr {
 </head>
 <body>
 
-    <h1>TimeHive - <?php echo __('Missing Booking');?></h1>
+    <h1>TimeHive - <?php echo $i18n->__('Missing Booking');?></h1>
     <p>
-        <?php echo __('Hello %1% %2%,',
+        <?php echo $i18n->__('Hello %1% %2%,',
                             array('%1%'=>$user->first_name,
                                   '%2%'=>$user->last_name));?>
         <br/><br/>
         <strong>
-            <?php echo __('you have not entered a time entry for the %1% so far.',
+            <?php echo $i18n->__('you have not entered a time entry for the %1% so far.',
                             array('%1%'=>format_date(time())));?>
         </strong>
         <br/><br/>
-        <?php echo __('You can enter your data under:');?>&nbsp;
+        <?php echo $i18n->__('You can enter your data under:');?>&nbsp;
         <a href="<?php echo sfConfig::get('app_frontend_url'); ?>/timesheet/index">TimeHive</a>
     </p>
     <hr/>
