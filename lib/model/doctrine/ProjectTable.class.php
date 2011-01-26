@@ -13,7 +13,8 @@ class ProjectTable extends Doctrine_Table
                     ->from('Project p')
                     ->where('p.account_id=?',
                                 array($account_id))
-                    ->andWhere('p.deleted_at IS NULL');
+                    ->andWhere('p.deleted_at IS NULL')
+                    ->orderBy('p.name ASC, p.number ASC');
 
         if ($show_deactivated == false) {
             $query->andWhere('deactivated=0');

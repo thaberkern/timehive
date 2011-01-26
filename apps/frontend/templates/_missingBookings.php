@@ -34,7 +34,7 @@ hr {
         <br/><br/>
         <strong>
             <?php echo $i18n->__('you have not entered a time entry for the %1% so far.',
-                            array('%1%'=>format_date(time())));?>
+                            array('%1%'=>format_date(time(), 'd', $i18n->getCulture())));?>
         </strong>
         <br/><br/>
         <?php echo $i18n->__('You can enter your data under:');?>&nbsp;

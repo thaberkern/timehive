@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminUser/actions/actions.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/form/doctrine/UserForm.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/form/doctrine/base/BaseUserForm.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/config/doctrine/schema.yml</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/config/app.yml</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/templates/layout.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/lib/myUser.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/README.md</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/task/timehiveCheckmissingbookingsTask.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/i18n/messages.de.xml</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/vendor/symfony/lib/i18n/sfI18N.class.php</file>
+    </open-files>
 </project-private>

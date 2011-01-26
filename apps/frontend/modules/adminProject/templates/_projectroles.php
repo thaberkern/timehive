@@ -31,35 +31,11 @@
             <?php endforeach;?>
         </fieldset>
         
-        <input type="submit" class="submit-add" value="<?php echo __('Save');?>"/>
+        <input type="button" class="submit-add" value="<?php echo __('Save');?>"/>
     </div>
 </div>
 
 <script type="text/javascript">
-    $(function() {
-        $(".submit-add").click(function() {
-            var params = 'id=<?php echo $project->id;?>';
-            params += '&uid='+$('#username').val();
-
-            $('input[id^=role][type=checkbox]:checked').each(function(){
-                params += '&'+this.id+"=1";
-            })
-            
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo url_for('adminProject/updateUserProjectRole');?>',
-                data: params,
-                success: function() {
-                    // reload grid
-                    $('#user-project-roles').flexOptions({newp: 1}).flexReload()
-                    $('#hidden-trigger-gun').qtip('hide');
-                }
-            });
-
-            return false;
-        });
-    });
-
     $("#user-project-roles").flexigrid ( {
         url: '<?php echo url_for('adminProject/userProjectRoles?id='.$project->id);?>',
         dataType: 'json',
@@ -163,6 +139,25 @@
            });
 
            $('#hidden-trigger-gun').qtip('show');
+           $(".submit-add").click(function() {
+                var params = 'id=<?php echo $project->id;?>';
+                params += '&uid='+$('#username').val();
+
+                $('input[id^=role][type=checkbox]:checked').each(function(){
+                    params += '&'+this.id+"=1";
+                })
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo url_for('adminProject/updateUserProjectRole');?>',
+                    data: params,
+                    success: function() {
+                        // reload grid
+                        $('#user-project-roles').flexOptions({newp: 1}).flexReload()
+                        $('#hidden-trigger-gun').qtip('hide');
+                    }
+                });
+            });
         }
     }
 </script>

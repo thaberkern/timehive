@@ -3,10 +3,15 @@
 
 prod:
   logger:
-    class:   sfNoLogger
+    class: sfAggregateLogger
     param:
-      level:   err
-      loggers: ~
+      level: err
+      loggers:
+        sf_file_debug:
+          class: sfFileLogger
+          param:
+            level: err
+            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
 
 test:
   storage:
@@ -34,6 +39,11 @@ all:
   mailer:
     class: DynamicConfigMailer
 
+  storage:
+    class: sfSessionStorage
+    param:
+      session_name: timehive
+
   routing:
     class: sfPatternRouting
     param:
@@ -53,4 +63,4 @@ all:
       debug:                false
       untranslated_prefix:  "[T]"
       untranslated_suffix:  "[/T]"
-    
+
