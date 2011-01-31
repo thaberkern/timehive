@@ -9,8 +9,42 @@ Server: Every webserver with PHP 5.2.x or higher should be capable to run TimeHi
 
 There will be a hosted version of TimeHive in the future.
 
+Language versions
+-------------------
+TimeHive is only available in english and german at the moment. Let me know if you want to help with translating to other languages.
 
 Installation
 ------------
+At the moment there is no installation automatic process to help you doing a proper installation of Timehive. For now you have to do the following steps manually
+
+1. Get your copy of TimeHive via GitHub (https://github.com/thaberkern/timehive)
+2. Copy the sourcecode to one of your Webservers.
+3. Create a virtual host with the web-directory as the root-folder
+4. Open the config/databases.yml file and change the database-settings under *prod:* to fit your needs
+5. Open the config/app.yml file an change the e-mail-settings (smtp)
+6. Fire up a console window to setup the database structure. For that run the following command
+
+    $> php symfony doctrine:migrate --env=prod
+
+7. Edit the following database tables
+    * tb_account:
+        * type: unlimited
+        * name: Your organisation name
+        * workdays: 31
+    * tb_user:
+        * first_name
+        * last_name
+        * email
+        * account_id: 1
+        * username
+        * password: MD5!
+        * administrator: 1
+
+8. If you want to use automatic reminder E-Mails you need to add the following command to a cronjob (Once a day, for example at 22:00 o'clock)
+
+    php symfony timehive:check-missing-bookings --env=prod --application=frontend
+
+9. You are done! Open your browser and log in :)
+
 
 

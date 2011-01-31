@@ -13,5 +13,13 @@
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/task/timehiveCheckmissingbookingsTask.class.php</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/i18n/messages.de.xml</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/vendor/symfony/lib/i18n/sfI18N.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/config/factories.yml</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/config/settings.yml</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/templates/_missingBookings.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/model/doctrine/TimeLogItemTable.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/model/doctrine/ProjectTable.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/editSuccess.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/_form.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/_projectroles.php</file>
     </open-files>
 </project-private>
