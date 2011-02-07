@@ -1,6 +1,4 @@
 all:
-  version: 1.0.2
-
   autologin_expiration: 84600
 
   notification:
@@ -11,12 +9,12 @@ all:
 
   system:
     email:
-      host: "servicemail.rotex.de"
+      host: "157.255.255.255"
       authentification: true
       port: 25
       username:
       password:
-      from: "timo.haberkern@rotex.de"
+      from: "timo.haberkern@test.de"
 
 dev:
   frontend_url: http://timeboxx_ng.local/frontend_dev.php

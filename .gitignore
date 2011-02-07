@@ -1,4 +1,6 @@
 cache/*
 log/*
+config/app.yml
+config/databases.yml
 nbproject
 web/web.config

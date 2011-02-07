@@ -20,8 +20,8 @@ At the moment there is no installation automatic process to help you doing a pro
 1. Get your copy of TimeHive via GitHub (https://github.com/thaberkern/timehive)
 2. Copy the sourcecode to one of your Webservers.
 3. Create a virtual host with the web-directory as the root-folder
-4. Open the config/databases.yml file and change the database-settings under *prod:* to fit your needs
-5. Open the config/app.yml file an change the e-mail-settings (smtp)
+4. Rename the config/databases.yml.dist to config/databases.yml. Open the file and change the database-settings under *prod:* to fit your needs
+5. Rename the config/app.yml.dist to config/app.yml. Open the file an change the e-mail-settings (smtp)
 6. Fire up a console window to setup the database structure. For that run the following command
 
     $> php symfony doctrine:migrate --env=prod
