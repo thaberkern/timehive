@@ -34,7 +34,7 @@ dev:
       delivery_strategy: realtime
   i18n:
     param:
-      debug:                true
+      debug:                false
 all:
   mailer:
     class: DynamicConfigMailer

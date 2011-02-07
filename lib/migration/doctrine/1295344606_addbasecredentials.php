@@ -5,44 +5,24 @@ class Addbasecredentials extends Doctrine_Migration_Base
 
     public function up()
     {
-        $credential = new Credential();
-        $credential->name = 'credential.timetracking.edit';
-        $credential->group_name = 'credential.group.timetracking';
-        $credential->sort_order = 1;
-        $credential->save();
+        $conn = Doctrine_Manager::connection();
 
-        $credential = new Credential();
-        $credential->name = 'credential.report.last_bookings.other';
-        $credential->group_name = 'credential.group.report';
-        $credential->sort_order = 3;
-        $credential->save();
-
-        $credential = new Credential();
-        $credential->name = 'credential.report.project_total.self';
-        $credential->group_name = 'credential.group.report';
-        $credential->sort_order = 4;
-        $credential->save();
-
-        $credential = new Credential();
-        $credential->name = 'credential.report.last_bookings.self';
-        $credential->group_name = 'credential.group.report';
-        $credential->sort_order = 2;
-        $credential->save();
-
-        $credential = new Credential();
-        $credential->name = 'credential.report.project_total.other';
-        $credential->group_name = 'credential.group.report';
-        $credential->sort_order = 5;
-        $credential->save();
+        $conn->exec("INSERT INTO ts_credential VALUES(NULL, 'credential.timetracking.edit', 'credential.group.timetracking', 1)");
+        $conn->exec("INSERT INTO ts_credential VALUES(NULL, 'credential.report.last_bookings.other', 'credential.group.report', 3)");
+        $conn->exec("INSERT INTO ts_credential VALUES(NULL, 'credential.report.project_total.self', 'credential.group.report', 4)");
+        $conn->exec("INSERT INTO ts_credential VALUES(NULL, 'credential.credential.report.last_bookings.self', 'credential.group.report', 2)");
+        $conn->exec("INSERT INTO ts_credential VALUES(NULL, 'credential.report.project_total.other', 'credential.group.report', 5)");
     }
 
     public function down()
     {
-        Doctrine_Query::create()->delete('Credential')->where('name=?', 'credential.timetracking.edit');
-        Doctrine_Query::create()->delete('Credential')->where('name=?', 'credential.report.last_bookings.other');
-        Doctrine_Query::create()->delete('Credential')->where('name=?', 'credential.report.project_total.self');
-        Doctrine_Query::create()->delete('Credential')->where('name=?', 'credential.report.last_bookings.self');
-        Doctrine_Query::create()->delete('Credential')->where('name=?', 'credential.report.project_total.other');
+        $conn = Doctrine_Manager::connection();
+
+        $conn->exec('DELETE FROM ts_credential WHERE name="credential.timetracking.edit"');
+        $conn->exec('DELETE FROM ts_credential WHERE name="credential.report.last_bookings.other"');
+        $conn->exec('DELETE FROM ts_credential WHERE name="credential.report.project_total.self"');
+        $conn->exec('DELETE FROM ts_credential WHERE name="credential.report.last_bookings.self"');
+        $conn->exec('DELETE FROM ts_credential WHERE name="credential.report.project_total.other"');
     }
 
 }

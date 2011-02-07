@@ -154,9 +154,9 @@ class accountActions extends sfActions
             $user->last_name = $user_values['last_name'];
             $user->email = $user_values['email'];
 
-            $org_password = $user['password'];
-            if (strlen($user['password']) != 32) {
-                $user->password = md5($user['password']);
+            $org_password = $user_values['password'];
+            if (strlen($user_values['password']) != 32) {
+                $user->password = md5($user_values['password']);
             }
 
             $user->Setting->theme = $user_values['settings']['theme'];
