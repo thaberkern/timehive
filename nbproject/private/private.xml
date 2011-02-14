@@ -6,7 +6,6 @@
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/form/doctrine/UserForm.class.php</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/form/doctrine/base/BaseUserForm.class.php</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/config/doctrine/schema.yml</file>
-        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/config/app.yml</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/templates/layout.php</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/lib/myUser.class.php</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/task/timehiveCheckmissingbookingsTask.class.php</file>
@@ -20,5 +19,15 @@
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/_form.php</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/_projectroles.php</file>
         <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/config/frontendConfiguration.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/account/actions/actions.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/config/app.yml</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/migration/doctrine/1295346578_renametstablenames.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/migration/doctrine/1295344606_addbasecredentials.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/migration/doctrine/1295344340_version27.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/migration/doctrine/1292424451_version26.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/migration/doctrine/1292424450_version25.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/migration/doctrine/1292421898_version24.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/config/app.yml.dist</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/config/databases.yml.dist</file>
     </open-files>
 </project-private>
