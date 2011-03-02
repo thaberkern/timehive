@@ -125,9 +125,11 @@ class TimeLogItemTable extends Doctrine_Table
                         ->delete()
                         ->from('MissingTimeItemEntry e')
                         ->where('e.day = ?', array(date('Y-m-d')))
+                        ->andWhere('e.user_id = ?', array($user->id))
                         ->execute();
 
-        if (count($user->getTimeEntriesByDay($day)) == 0) {
+        $item_count = count($user->getTimeEntriesByDay($day));
+        if ($item_count == 0) {
             $entry = new MissingTimeItemEntry();
             $entry->day = date('Y-m-d');
             $entry->user_id = $user->id;

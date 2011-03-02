@@ -77,6 +77,10 @@ class timesheetActions extends sfActions
         $this->time_values = $time_values;
 
         for ($i = 1; $i <= 7; $i++) {
+            if (!array_key_exists($i, $time_values)) {
+                continue;
+            }
+            
             $projects = $time_values[$i];
 
             foreach ($projects as $pid => $project) {

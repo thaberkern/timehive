@@ -37,7 +37,7 @@ EOF;
         $users = UserTable::getInstance()->findAllUnlocked();
 
         foreach($users as $user) {
-
+            
             if (false == TimeLogItemTable::getInstance()->updateMissedBookings(time(), $user)) {
                 if ($user->Setting->reminder == true) {
                     $mailer = $this->getMailer();
@@ -57,7 +57,12 @@ EOF;
 
                     $message->setBody($body, 'text/html');
 
-                    $mailer->send($message);
+                    try {
+                        $mailer->send($message);
+                    }
+                    catch (Exception $e) {
+                        $this->log($e->getMessage());
+                    }
                 }
             }            
         }
