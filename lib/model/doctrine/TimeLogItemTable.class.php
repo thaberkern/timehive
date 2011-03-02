@@ -65,6 +65,7 @@ class TimeLogItemTable extends Doctrine_Table
 
     public function prepareTotalReport($filter, Doctrine_Collection $projects, $user, $account_id)
     {
+        print_r($filter);
         $result = array();
 
         $query = Doctrine_Query::create()
@@ -90,7 +91,7 @@ class TimeLogItemTable extends Doctrine_Table
             if ($filter['user'] != -1) {
                 $query->andWhere('ti.user_id=?', array($filter['user']));
             }
-            else if ($user != null) {
+            else if (($user != null) && ($filter['user'] != -1)) {
                 $query->andWhere('ti.user_id=?', array($user->id));
             }
         }

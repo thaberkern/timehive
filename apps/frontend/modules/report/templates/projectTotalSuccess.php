@@ -57,6 +57,7 @@
                                 <td class="slim"><?php echo $user_infos['user']; ?></td>
                                 <td class="slim">
                                     <?php if ($sf_user->hasProjectCredential('credential.report.other', $project_infos['project']) || 
+                                             ($sf_user->getAttribute('overlord', 0) == 1) || 
                                               ($user_infos['user']->id == $sf_user->getId() && $sf_user->hasProjectCredential('credential.report.project_total.self', $project_infos['project']))):?>
                                         <table class="report" style="width: 100%">
                                             <tr>

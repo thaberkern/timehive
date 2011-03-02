@@ -22,7 +22,9 @@ class MissingTimeItemEntryTable extends Doctrine_Table
                     ->orderBy('e.day DESC');
 
         if (array_key_exists('user', $filter)) {
-            $query->andWhere('e.user_id=?', array($filter['user']));
+            if ($filter['user'] != -1) {
+                $query->andWhere('e.user_id=?', array($filter['user']));
+            }
         }
         else {
             if ($user_id != null) {
