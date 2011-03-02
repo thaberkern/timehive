@@ -30,7 +30,9 @@
     </label>
     <select style="width: 170px;" name="filter[user]" >
         <?php if ($sf_user->getAttribute('overlord', false)):;?>><option value="-1"><?php echo __('All');?></option><?php endif;?>
-        <?php echo objects_for_select($users, 'getId', '__toString', $sf_user->getAttribute('user', $sf_user->getAttribute('uid'), 'report_filter')!=-1 ? $sf_user->getAttribute('user', '', 'report_filter') : null); ?>
+        
+        <?php $current_user_id = $sf_user->getAttribute('uid'); ?>
+        <?php echo objects_for_select($users, 'getId', '__toString', $sf_user->getAttribute('user', $current_user_id, 'report_filter')!=-1 ? $sf_user->getAttribute('user', $current_user_id, 'report_filter') : null); ?>
     </select>
     &nbsp;&nbsp;
     <?php if ($show_project_select):?>

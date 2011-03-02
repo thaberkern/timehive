@@ -40,7 +40,7 @@
                         </tr>
                     <?php elseif ($last_bookings_pager->getResults()->count() == 0):?>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="6">
                                  <div class="msg msg-info"><p><?php echo __('There are no bookings for this filter settings');?></p></div>
                             </td>
                         </tr>
