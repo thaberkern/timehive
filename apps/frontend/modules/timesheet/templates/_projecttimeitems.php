@@ -11,7 +11,8 @@
                                             'project'=>$project,
                                             'time_item'=>$time_item,
                                             'item_types'=>$item_types,
-                                            'default_item_type'=>$default_item_type));?>
+                                            'default_item_type'=>$default_item_type,
+                                            'default_item_type_name'=>$default_item_type_name));?>
 
 <?php endforeach;?>
 </div>

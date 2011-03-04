@@ -33,6 +33,12 @@ class timesheetActions extends sfActions
                         ->findByAccountId($account_id);
 
         $this->default_item_type = TimeItemTypeTable::getInstance()->findDefaultForAccount($account_id);
+        if ($this->default_item_type) {
+            $this->default_item_type_name = $this->default_item_type->getName();
+        }
+        else {
+            $this->default_item_type_name = null;
+        }
 
         $items = Doctrine_Query::create()
                         ->from('TimeLogItem ti')
@@ -61,12 +67,21 @@ class timesheetActions extends sfActions
         $item_types = TimeItemTypeTable::getInstance()
                         ->findByAccountId($account_id);
 
+        $this->default_item_type = TimeItemTypeTable::getInstance()->findDefaultForAccount($account_id);
+        if ($this->default_item_type) {
+            $this->default_item_type_name = $this->default_item_type->getName();
+        }
+        else {
+            $this->default_item_type_name = null;
+        }
+        
         $this->setLayout(false);
         return $this->renderPartial('timeitem', array(
             'item_types' => $item_types,
             'weekstart' => $this->weekstart,
             'project' => $project,
-            'weekday' => $request->getParameter('weekday')
+            'weekday' => $request->getParameter('weekday'),
+            'default_item_type_name' => $this->default_item_type_name
         ));
     }
 

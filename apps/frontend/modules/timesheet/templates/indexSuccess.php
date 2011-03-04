@@ -147,7 +147,8 @@
                                                             'project'=>$project,
                                                             'time_items'=>$time_items,
                                                             'item_types'=>$item_types,
-                                                            'default_item_type'=>$default_item_type));?>
+                                                            'default_item_type'=>$default_item_type,
+                                                            'default_item_type_name'=>$default_item_type_name));?>
                                         </td>
                                     <?php endif;?>
                                 <?php endforeach;?>
