@@ -9,23 +9,37 @@ class ProjectUserTable extends Doctrine_Table
         return Doctrine_Core::getTable('ProjectUser');
     }
 
-    public function removeUserProjectRelations($user_id, $project_id)
+    /**
+     *
+     * @param array $users
+     * @param integer $project_id 
+     */
+    public function removeUserProjectRelations($users, $project_id)
     {
         Doctrine_Query::create()
                             ->delete('ProjectUser pu')
-                            ->where('pu.project_id=? AND pu.user_id=?',
-                                            array($project_id, $user_id))
+                            ->where('pu.project_id=?',
+                                            array($project_id))
+                            ->andWhereIn('pu.user_id', array_keys($users))
                             ->execute();
     }
 
-    public function addRoles($user_id, $project_id, $roles)
+    /**
+     *
+     * @param array $user
+     * @param integer $project_id
+     * @param array $roles 
+     */
+    public function addRoles($users, $project_id, $roles)
     {
-        foreach ($roles as $role_id=>$value) {
-            $item = new ProjectUser();
-            $item->user_id = $user_id;
-            $item->project_id = $project_id;
-            $item->role_id = $role_id;
-            $item->save();
+        foreach ($users as $user_id=>$value) {
+            foreach ($roles as $role_id=>$value) {
+                $item = new ProjectUser();
+                $item->user_id = $user_id;
+                $item->project_id = $project_id;
+                $item->role_id = $role_id;
+                $item->save();
+            }
         }
     }
 }

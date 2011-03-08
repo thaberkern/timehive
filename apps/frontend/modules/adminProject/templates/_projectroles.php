@@ -18,11 +18,13 @@
 
 <div id="add-relation-modal" style="display:none;">
     <div class="fields">
-        <label for="username"><?php echo __('User');?>:</label>
-        <select id="username" name="username">
-            <?php echo objects_for_select($users, 'getId', 'getUsername'); ?>
-        </select>
-        <br/><br/>
+        <fieldset>
+            <strong><legend><?php echo __('User');?></legend></strong>
+            
+            <?php foreach($users as $user):?>
+                <input type="checkbox" id="user[<?php echo $user->id;?>]"/><?php echo $user->username;?><br/>
+            <?php endforeach;?>
+        </fieldset>
         <fieldset>
             <strong><legend><?php echo __('Role(s)');?></legend></strong>
             
@@ -141,8 +143,11 @@
            $('#hidden-trigger-gun').qtip('show');
            $(".submit-add").click(function() {
                 var params = 'id=<?php echo $project->id;?>';
-                params += '&uid='+$('#username').val();
-
+                
+                $('input[id^=user][type=checkbox]:checked').each(function(){
+                    params += '&'+this.id+"=1";
+                })
+                
                 $('input[id^=role][type=checkbox]:checked').each(function(){
                     params += '&'+this.id+"=1";
                 })

@@ -192,15 +192,16 @@ class adminProjectActions extends sfActions
 
     public function executeUpdateUserProjectRole(sfWebRequest $request)
     {
-        $this->forward404Unless($user = Doctrine::getTable('User')->find(array($request->getParameter('uid'))), sprintf('Object user does not exist (%s).', $request->getParameter('uid')));
         $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', $request->getParameter('id')));
         $account_id = $this->getUser()->getAttribute('account_id');
-        if ($project->account_id != $account_id || $user->account_id != $account_id) {
+        if ($project->account_id != $account_id) {
             $this->redirect('default/secure');
         }
 
-        ProjectUserTable::getInstance()->removeUserProjectRelations($user->id, $project->id);
-        ProjectUserTable::getInstance()->addRoles($user->id, $project->id, $request->getParameter('role', array()));
+        ProjectUserTable::getInstance()->removeUserProjectRelations($request->getParameter('user', array()), $project->id);
+        ProjectUserTable::getInstance()->addRoles($request->getParameter('user', array()), 
+                                                    $project->id, 
+                                                    $request->getParameter('role', array()));
 
         return sfView::NONE;
     }

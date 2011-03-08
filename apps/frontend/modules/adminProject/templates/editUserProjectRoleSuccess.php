@@ -19,7 +19,7 @@
     $(function() {
         $(".submit-update").click(function() {
             var params = 'id=<?php echo $project->id;?>';
-            params += '&uid='+$('#username_update').val();
+            params += '&user['+$('#username_update').val()+"]=1";
 
             $('input[id^=role][class=update][type=checkbox]:checked').each(function(){
                 params += '&'+this.id+"=1";
