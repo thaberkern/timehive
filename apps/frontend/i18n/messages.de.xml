@@ -611,7 +611,14 @@
         <source>Account valid until</source>
         <target>Account gültig bis</target>
       </trans-unit>
-
+      <trans-unit id="159">
+        <source>Send e-mail with account information to the user</source>    
+        <target>Sende Account-Information per E-Mail an Benutzer</target>
+      </trans-unit>
+      <trans-unit id="160">
+        <source>Your TimeHive account activation</source>    
+        <target>Ihre TimeHive Account Informationen</target>
+      </trans-unit>      
       <trans-unit id="10000">
         <source>credential.group.timetracking</source>
         <target>Zeiterfassung</target>

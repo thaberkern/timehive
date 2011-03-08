@@ -24,7 +24,7 @@ At the moment there is no installation automatic process to help you doing a pro
 5. Rename the config/app.yml.dist to config/app.yml. Open the file an change the e-mail-settings (smtp)
 6. Fire up a console window to setup the database structure. For that run the following command
 
-    $> php symfony doctrine:migrate --env=prod
+    $> php symfony doctrine:build --all-classes --and-migrate --env=prod
 
 7. Edit the following database tables
     * tb_account:

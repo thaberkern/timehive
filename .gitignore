@@ -4,3 +4,6 @@ config/app.yml
 config/databases.yml
 nbproject
 web/web.config
+lib/filter/doctrine/base/*
+lib/model/doctrine/base/*
+lib/form/doctrine/base/*

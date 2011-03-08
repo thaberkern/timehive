@@ -54,9 +54,14 @@
         <?php echo $form['settings']['reminder'] ?>
         <small><?php echo __('Send reminder E-Mails once a day if the user has not entered time-data for the day');?></small>
     </fieldset>
-        <div class="sep">
-            <input class="button" type="submit" value="<?php echo __('Save');?>" />
-            <input class="button altbutton" type="button" onClick="location.href='<?php echo url_for('adminUser/list') ?>'" value="<?php echo __('Back to list');?>" />
-        </div>
+    <?php if ($form->isNew()):?>
+        <input id="send_information" type="checkbox" value="1" name="send_information" checked="checked"/>
+        <?php echo __('Send e-mail with account information to the user');?>
+    <?php endif;?>    
+        
+    <div class="sep">
+        <input class="button" type="submit" value="<?php echo __('Save');?>" />
+        <input class="button altbutton" type="button" onClick="location.href='<?php echo url_for('adminUser/list') ?>'" value="<?php echo __('Back to list');?>" />
+    </div>
     
 </form>

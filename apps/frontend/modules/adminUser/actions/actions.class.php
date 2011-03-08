@@ -160,9 +160,34 @@ class adminUserActions extends sfActions
 
             $user->account_id = $this->getUser()->getAttribute('account_id');
             $user->save();
-
+            
             $this->getUser()->setFlash('saved.success', 1);
-            //$this->redirect('adminUser/edit?id=' . $user->getId());
+            
+            if ($request->getParameter('send_information', 0) != 0) {
+                // generate welcome mail
+                $body = $this->getPartial('welcomeMail',
+                    array('user'=>$user,
+                    'password'=>$org_password));
+
+                $subject = sfContext::getInstance()->getI18N()
+                    -> __('Your TimeHive account activation');
+                
+                $mailserver = sfConfig::get('app_system_email');
+                
+                $mailer = $this->getMailer();                
+                $message = $mailer->compose($mailserver['from'], 
+                                            $user->email,
+                                            $subject);
+
+                $message->setBody($body, 'text/html');
+
+                try {
+                    $mailer->send($message);
+                }
+                catch (Exception $e) {
+                    $this->log($e->getMessage());
+                }
+            }
         }
     }
 }
