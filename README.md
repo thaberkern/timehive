@@ -3,6 +3,8 @@ TimeHive
 TimeHive is a open-source webbased timesheet/time tracking software developed with PHP (Symfony Framework).
 You can follow TimeHive on Twitter if you want to keep up to date: [TimeHive on Twitter](http://www.twitter.com/timehive)
 
+You can fin the Issue-Tracker on [Lighthouse](http://timehive.lighthouseapp.com/projects/71615-timehive)
+
 System requirements
 -------------------
 Client: The current development version of TimeHive is only tested with Firefox browsers. There is no guarantee that it work with other browsers at the moment.
