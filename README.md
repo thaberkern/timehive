@@ -3,7 +3,7 @@ TimeHive
 TimeHive is a open-source webbased timesheet/time tracking software developed with PHP (Symfony Framework).
 You can follow TimeHive on Twitter if you want to keep up to date: [TimeHive on Twitter](http://www.twitter.com/timehive)
 
-You can fin the Issue-Tracker on [Lighthouse](http://timehive.lighthouseapp.com/projects/71615-timehive)
+You can find the Issue-Tracker on [Lighthouse](http://timehive.lighthouseapp.com/projects/71615-timehive)
 
 System requirements
 -------------------
@@ -20,7 +20,7 @@ Installation
 ------------
 At the moment there is no installation automatic process to help you doing a proper installation of Timehive. For now you have to do the following steps manually
 
-1. Get your copy of TimeHive via [GitHub](https://github.com/thaberkern/timehive)
+1. Get your copy of TimeHive via [GitHub](https://github.com/thaberkern/timehive). 
 2. Copy the sourcecode to one of your Webservers.
 3. Create a virtual host with the web-directory as the root-folder
 4. Rename the config/databases.yml.dist to config/databases.yml. Open the file and change the database-settings under *prod:* to fit your needs
