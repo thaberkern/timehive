@@ -65,7 +65,6 @@ class TimeLogItemTable extends Doctrine_Table
 
     public function prepareTotalReport($filter, Doctrine_Collection $projects, $user, $account_id)
     {
-        print_r($filter);
         $result = array();
 
         $query = Doctrine_Query::create()

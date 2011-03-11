@@ -1,0 +1,267 @@
+Account:
+  Account_1:
+    type: unlimited
+    valid_until: null
+    name: 'Acme Ltd'
+    workingdays: '31'
+    created_at: '2011-03-11 16:46:12'
+    updated_at: '2011-03-11 16:54:49'
+Credential:
+  Credential_1:
+    name: credential.timetracking.edit
+    group_name: credential.group.timetracking
+    sort_order: '1'
+  Credential_2:
+    name: credential.report.other
+    group_name: credential.group.report
+    sort_order: '3'
+  Credential_3:
+    name: credential.report.project_total.self
+    group_name: credential.group.report
+    sort_order: '4'
+  Credential_4:
+    name: credential.report.last_bookings.self
+    group_name: credential.group.report
+    sort_order: '5'
+MissingTimeItemEntry:
+  MissingTimeItemEntry_1:
+    day: '2011-03-10'
+    User: User_2
+    ignored_at: null
+  MissingTimeItemEntry_2:
+    day: '2011-03-11'
+    User: User_2
+    ignored_at: null
+  MissingTimeItemEntry_3:
+    day: '2011-03-11'
+    User: User_3
+    ignored_at: null
+Project:
+  Project_1:
+    name: 'Project 1'
+    number: 125-23
+    deactivated: false
+    Owner: User_3
+    Account: Account_1
+    deleted_at: null
+    created_at: '2011-03-11 16:50:22'
+    updated_at: '2011-03-11 16:50:22'
+  Project_2:
+    name: 'Project 2'
+    number: 157-89
+    deactivated: false
+    Owner: User_3
+    Account: Account_1
+    deleted_at: null
+    created_at: '2011-03-11 16:51:07'
+    updated_at: '2011-03-11 16:51:07'
+ProjectUser:
+  ProjectUser_1:
+    Project: Project_1
+    user_id: '2'
+    Role: Role_2
+  ProjectUser_2:
+    Project: Project_1
+    user_id: '3'
+    Role: Role_1
+  ProjectUser_3:
+    Project: Project_1
+    user_id: '3'
+    Role: Role_2
+  ProjectUser_4:
+    Project: Project_2
+    user_id: '2'
+    Role: Role_2
+  ProjectUser_5:
+    Project: Project_2
+    user_id: '3'
+    Role: Role_1
+  ProjectUser_6:
+    Project: Project_2
+    user_id: '3'
+    Role: Role_2
+Role:
+  Role_1:
+    name: Controller
+    Account: Account_1
+    deleted_at: null
+    created_at: '2011-03-11 16:47:37'
+    updated_at: '2011-03-11 16:47:37'
+  Role_2:
+    name: Projectmember
+    Account: Account_1
+    deleted_at: null
+    created_at: '2011-03-11 16:48:31'
+    updated_at: '2011-03-11 16:48:31'
+RoleCredential:
+  RoleCredential_2_1:
+    Role: Role_2
+    Credential: Credential_1
+  RoleCredential_1_2:
+    Role: Role_1
+    Credential: Credential_2
+  RoleCredential_1_3:
+    Role: Role_1
+    Credential: Credential_3
+  RoleCredential_2_3:
+    Role: Role_2
+    Credential: Credential_3
+  RoleCredential_1_4:
+    Role: Role_1
+    Credential: Credential_4
+  RoleCredential_2_4:
+    Role: Role_2
+    Credential: Credential_4
+Setting:
+  Setting_1:
+    User: User_1
+    culture: null
+    reminder: null
+    theme: green
+  Setting_2:
+    User: User_2
+    culture: en
+    reminder: false
+    theme: green
+  Setting_3:
+    User: User_3
+    culture: en
+    reminder: false
+    theme: green
+TimeItemType:
+  TimeItemType_1:
+    name: DEV
+    default_item: null
+    Account: Account_1
+    deleted_at: null
+    created_at: '2011-03-11 16:46:12'
+    updated_at: '2011-03-11 16:46:12'
+  TimeItemType_2:
+    name: ADMIN
+    default_item: true
+    Account: Account_1
+    deleted_at: null
+    created_at: '2011-03-11 16:46:12'
+    updated_at: '2011-03-11 16:46:12'
+TimeLogItem:
+  TimeLogItem_1:
+    value: '10.00'
+    itemdate: '2011-03-07'
+    TimeItemType: TimeItemType_1
+    Project: Project_1
+    User: User_2
+    note: 'Developed feature 1'
+    created_at: '2011-03-11 16:52:41'
+    updated_at: '2011-03-11 16:52:41'
+  TimeLogItem_2:
+    value: '1.00'
+    itemdate: '2011-03-08'
+    TimeItemType: TimeItemType_2
+    Project: Project_1
+    User: User_2
+    note: 'Server was down'
+    created_at: '2011-03-11 16:52:41'
+    updated_at: '2011-03-11 16:52:41'
+  TimeLogItem_3:
+    value: '5.00'
+    itemdate: '2011-03-08'
+    TimeItemType: TimeItemType_1
+    Project: Project_2
+    User: User_2
+    note: 'Feature #89'
+    created_at: '2011-03-11 16:52:41'
+    updated_at: '2011-03-11 16:52:41'
+  TimeLogItem_4:
+    value: '12.00'
+    itemdate: '2011-03-09'
+    TimeItemType: TimeItemType_1
+    Project: Project_1
+    User: User_2
+    note: ''
+    created_at: '2011-03-11 16:52:41'
+    updated_at: '2011-03-11 16:52:41'
+  TimeLogItem_5:
+    value: '1.00'
+    itemdate: '2011-03-07'
+    TimeItemType: TimeItemType_1
+    Project: Project_1
+    User: User_3
+    note: ''
+    created_at: '2011-03-11 16:53:34'
+    updated_at: '2011-03-11 16:53:34'
+  TimeLogItem_6:
+    value: '2.00'
+    itemdate: '2011-03-07'
+    TimeItemType: TimeItemType_2
+    Project: Project_2
+    User: User_3
+    note: ''
+    created_at: '2011-03-11 16:53:34'
+    updated_at: '2011-03-11 16:53:34'
+  TimeLogItem_7:
+    value: '7.00'
+    itemdate: '2011-03-08'
+    TimeItemType: TimeItemType_2
+    Project: Project_2
+    User: User_3
+    note: ''
+    created_at: '2011-03-11 16:53:34'
+    updated_at: '2011-03-11 16:53:34'
+  TimeLogItem_8:
+    value: '2.00'
+    itemdate: '2011-03-09'
+    TimeItemType: TimeItemType_2
+    Project: Project_1
+    User: User_3
+    note: ''
+    created_at: '2011-03-11 16:53:34'
+    updated_at: '2011-03-11 16:53:34'
+  TimeLogItem_9:
+    value: '3.00'
+    itemdate: '2011-03-10'
+    TimeItemType: TimeItemType_1
+    Project: Project_1
+    User: User_3
+    note: ''
+    created_at: '2011-03-11 16:53:34'
+    updated_at: '2011-03-11 16:53:34'
+User:
+  User_1:
+    first_name: null
+    last_name: null
+    email: null
+    Account: Account_1
+    username: admin
+    password: 21232f297a57a5a743894a0e4a801fc3
+    administrator: true
+    boss_mode: null
+    locked: null
+    deleted_at: null
+    created_at: '2011-03-11 16:46:12'
+    updated_at: '2011-03-11 16:46:12'
+  User_2:
+    first_name: John
+    last_name: Doe
+    email: member@xyz.com
+    Account: Account_1
+    username: member
+    password: aa08769cdcb26674c6706093503ff0a3
+    administrator: false
+    boss_mode: false
+    locked: false
+    deleted_at: null
+    created_at: '2011-03-11 16:49:25'
+    updated_at: '2011-03-11 16:49:25'
+  User_3:
+    first_name: Paul
+    last_name: Important
+    email: p.important@xyz.com
+    Account: Account_1
+    username: manager
+    password: 1d0258c2440a8d19e716292b231e3190
+    administrator: false
+    boss_mode: true
+    locked: false
+    deleted_at: null
+    created_at: '2011-03-11 16:50:02'
+    updated_at: '2011-03-11 16:50:02'

@@ -1,2 +1,5 @@
 all:
   version: 1.2.0-dev
+  
+  user:
+    cultures: [de,en]

@@ -4,20 +4,13 @@ all:
   notification:
     missing_bookings: true
 
-  user:
-    cultures: [de,en]
-
   system:
     email:
-      host: "157.255.255.255"
+      host: "##EMAIL_HOST##"
       authentification: true
-      port: 25
-      username:
-      password:
-      from: "timo.haberkern@test.de"
+      port: ##EMAIL_PORT##
+      username: "##EMAIL_USER##"
+      password: "##EMAIL_PWD##"
+      from: "##EMAIL_FROM##"
 
-dev:
-  frontend_url: http://timeboxx_ng.local/frontend_dev.php
-
-prod:
-  frontend_url: http://timeboxx_ng.local
+  frontend_url: ##URL##

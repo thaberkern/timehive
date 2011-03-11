@@ -8,7 +8,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 
     public function setup()
     {
-        $this->setWebDir($this->getRootDir().DIRECTORY_SEPARATOR.'web');
+        $this->setWebDir($this->getRootDir().DIRECTORY_SEPARATOR.'##WEBDIR##');
         $this->enablePlugins('sfDoctrinePlugin', 'thGravatarPlugin');
     }
 
