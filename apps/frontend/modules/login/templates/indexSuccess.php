@@ -15,6 +15,8 @@
             $('#login').find('#' + $(this).attr('rel')).show(); // and show content related to clicked tab
             return false;
         });
+        
+        $('#username').focus();
     });
 </script>
 

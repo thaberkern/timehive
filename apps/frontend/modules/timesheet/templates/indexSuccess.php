@@ -1,33 +1,93 @@
 <?php use_javascript('jquery.min.js');?>
 <?php use_javascript('jquery-ui.min.js');?>
-<?php use_javascript('jquery.qtip.min.js');?>
+<?php use_javascript('jquery.form.js');?>
+<?php use_javascript('jquery.validate.js');?>
+<?php use_javascript('additional-methods.js');?>
 <?php use_javascript('jquery.tools.min.js');?>
 <?php use_javascript('jquery.number_format.js');?>
-<?php use_javascript('jquery.validationEngine-en.js');?>
-<?php use_javascript('jquery.validationEngine.js');?>
-
 
 <?php use_javascript('tb_timesheet.js');?>
-<?php use_stylesheet('jquery.qtip.css');?>
+<?php use_stylesheet('ui-lightness/jquery-ui.custom.css');?>
 
 <?php $sf_response->setTitle('TimeHive - Timesheet');?>
 
 <script type="text/javascript">
+    var currentUniqueId = null;
+    var currentWeekday = 0;
+    
     $(document).ready(function() {
+        
         for (wd=1; wd <=7; wd++) {
             recalcTotalHours(0, null, wd);
         }
+        
+        var editForm = $("#edit-form").validate({
+	    errorContainer: "#errorblock-div1, #errorblock-div2",
+	    errorLabelContainer: "#errorblock-div2 ul",
+	    wrapper: "li",
+	    
+            // rules/messages are for the validation
+            rules: {
+	        'form-amount': {
+	            required: true,
+                    number: true,
+                    max: 24
+                }
+	    },
+	    messages: {
+	        'form-amount': {
+	            required: "<?php echo __('Please enter an amount of time');?>",
+                    number: "<?php echo __('Please enter a valid number');?>",
+                    max: "<?php echo __('The maximum value is 24 hours');?>"
+                }
+	    },
+            
+            submitHandler: function(form) {
+	        // dont send the form, update the field instead
+                $('#time_hidden_'+currentUniqueId).val($('#form-amount').val());
+                $('#type_hidden_'+currentUniqueId).val($('#form-type :selected').text());
+                $('#comment_hidden_'+currentUniqueId).val($('#form-comment').val());
+                
+                $('#container_'+currentUniqueId).html($().number_format($('#form-amount').val(), {numberOfDecimals: 2, decimalSeparator: '.', thousandsSeparator: ','}));
+                recalcTotalHours(currentUniqueId, $('#time_hidden_'+currentUniqueId), currentWeekday);
+        
+                $("#edit-modal-form").dialog('close'); 
+                editForm.resetForm(); 
+            }
+	}); 
+        
+        var modalEditWindow = $("#edit-modal-form").dialog({
+	   autoOpen: false,
+	   height: 300,
+	   width: 300,
+	   modal: true,
+           resizable: false,
+	   buttons: {
+	      '<?php echo __('Save');?>': function() 
+		  { 
+                    $("#edit-form").submit(); 
+		  },
+	      Cancel: function() 
+		  { 
+		    $(this).dialog('close'); 
+                    editForm.resetForm(); 
+		  }
+	   }
+	});
     });
-
-    function validate(unique_id, field, weekday) {
-        var time = jQuery.trim(""+field.value);
-        if (time.match(/^[0-9]+(\.[0-9][0-9]?)?$/)) {
-            $('#validation_error_'+unique_id).hide();
-        }
-        else {
-            field.value = 0;
-            $('#validation_error_'+unique_id).show();
-        }
+    
+    function editTimeItem(unique_id, weekday) {
+        currentUniqueId = unique_id;
+        currentWeekday = weekday;
+        
+        // getting the value of the field and add it to the form
+        $('#form-amount').val($('#time_hidden_'+currentUniqueId).val());
+        $('#form-type').val($('#type_hidden_'+currentUniqueId).val());
+        $('#form-comment').val($('#comment_hidden_'+currentUniqueId).val());
+        
+        // open the form
+        $("#edit-modal-form").dialog('open');
+        
     }
 
     function addTimeEntry(weekday, project_id) {
@@ -42,7 +102,7 @@
     }
 </script>
 
-<form id="timetrack" class="simple" action="<?php echo url_for('timesheet/update');?>" method="POST">
+<form id="timetrack" class="simple" onSubmit="return hasNoTotalOverMaxErrors();" action="<?php echo url_for('timesheet/update');?>" method="POST">
     <div class="box box-100">
         <div class="boxin">
             <div class="header">
@@ -54,6 +114,9 @@
                         <p><?php echo __('Saved element(s) successfully');?>!</p>
                     </div>
                 <?php endif;?>
+                <div id="warn-total-over-max" class="msg msg-error" style="display: none;">
+                    <p><?php echo __('You have days with more than 24 hours worktime! You can not save this timesheet until this problem is resolved');?>!</p>
+                </div>
                 <table class="calendar" cellspacing="0">
                     <thead>
                         <tr>
@@ -128,7 +191,7 @@
                         </tr>
                         <tr>
                             <td colspan="8">
-                                <input class="button altbutton" type="submit" value="<?php echo __('Save');?>" />
+                                <input class="button altbutton" id ="form-submit-btn" type="submit" value="<?php echo __('Save');?>" />
                             </td>
                         </tr>
                     </tfoot>
@@ -165,3 +228,45 @@
     <input type="hidden" name="year" value="<?php echo $year;?>" />
     <input type="hidden" name="week" value="<?php echo $week;?>" />
 </form>
+
+<div id="edit-modal-form" title="<?php echo __('Edit time entry');?>">
+    <div class="ui-widget ui-helper-hidden" id="errorblock-div1">
+        <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;" id="errorblock-div2" style="display:none;"> 
+            <p>
+                <span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em;"></span> 
+                <?php echo __('Errors detected!');?>
+            </p>
+            <ul></ul>
+        </div>
+    </div>
+    <form action="#" name="edit-form" id="edit-form" method="POST">
+        <table class="timelog-edit">
+            <tbody>
+                <tr>
+                    <th>
+                        <label for="timeitem"><?php echo __('Amount'); ?></label>
+                    </th>
+                    <td>
+                        <input type="text" name="form-amount" id="form-amount" class="text ui-widget-content ui-corner-all" />&nbsp;<?php echo __('hour(s)');?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="type"><?php echo __('Type'); ?></label>
+                    </th>
+                    <td>
+                        <select name="form-type" id="form-type" class="ui-widget-content">
+                            <?php echo objects_for_select($item_types, 'getName', null, $default_item_type_name); ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th nowrap><label for="form-comment"><?php echo __('Comment'); ?></label></th>
+                    <td colspan="3">
+                        <textarea id="form-comment" class="text ui-widget-content ui-corner-all"></textarea>
+                    </td>
+                </tr>   
+            </tbody>
+        </table>
+    </form>    
+</div>

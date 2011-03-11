@@ -27,7 +27,7 @@
 <body id="login">
     <?php echo $sf_data->getRaw('sf_content') ?>
     <div id="footer">
-         Powered by <a href="htpp://www.timehive.com" target="_blank">TimeHive</a> V.<?php echo sfConfig::get('app_version');?>
+         Powered by <a href="htpp://www.timehive.net" target="_blank">TimeHive</a> V.<?php echo sfConfig::get('app_version');?>
     </div>
 </body>
 </html>

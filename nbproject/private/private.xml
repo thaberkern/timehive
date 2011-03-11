@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminUser/actions/actions.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/task/timehiveCheckmissingbookingsTask.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminUser/templates/_form.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/i18n/messages.de.xml</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/README.md</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/editUserProjectRoleSuccess.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/editSuccess.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/_form.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/templates/_projectroles.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/apps/frontend/modules/adminProject/actions/actions.class.php</file>
+        <file>file:/D:/www/opensource/timeboxx_reloaded_sf/lib/model/doctrine/ProjectUserTable.class.php</file>
+    </open-files>
 </project-private>

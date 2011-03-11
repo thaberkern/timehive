@@ -121,7 +121,7 @@ Setting:
     user_id: { type: integer(20) }
     culture: { type: string(10) }
     reminder: { type: boolean }
-    theme: { type: string(255), default: 'default' }
+    theme: { type: string(255), default: 'green' }
   relations:
     User: { class: User, local: user_id, foreignType: one }
 

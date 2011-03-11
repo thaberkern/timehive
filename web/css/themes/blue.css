@@ -365,14 +365,30 @@ ul.actions li {display: inline; margin-right: 5px;}
 #login input.txt {width: 260px;}
 
 .timeitem { width: 50px; }
-.timeitem p { border: 1px solid #999; background-color: #FDFDFD; width: 50px; height: 18px; float: left}
-
-.timelog-edit tr { height: 26px; }
-.timelog-edit td { vertical-align: top; }
-.timelog-edit th { padding-right: 10px; font-weight: bold; }
+.timeitem p { border: 1px solid #999; background-color: #FDFDFD; width: 50px; height: 18px; text-align: right; padding-right: 4px;}
 
 form.simple { padding: 0; margin: 0; }
+
 div.fields fieldset {
 	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;
 	border: 1px solid #ccc; margin-bottom: 15px; padding: 10px 15px 15px 15px;
 }
+
+td.itemtype {
+    width: 80px; 
+    padding: 2px 4px 2px 2px !important;
+}
+
+td.slim {
+    padding: 2px 4px 2px 2px !important;
+}
+
+.timelog-edit tr { height: 26px; }
+.timelog-edit td { vertical-align: top; }
+.timelog-edit th { padding-right: 10px; font-weight: bold; }
+.timelog-edit { margin-top: 10px; }
+
+#edit-modal-form fieldset { padding:0; border:0; }
+#edit-modal-form form { padding: 0;}
+#edit-modal-form #form-amount { width: 70px }
+#edit-modal-form #form-type { width: 180px }
