@@ -21,6 +21,7 @@ Installation
 At the moment there is no installation automatic process to help you doing a proper installation of Timehive. For now you have to do the following steps manually
 
 1. Get your copy of TimeHive via [GitHub](https://github.com/thaberkern/timehive). 
+  * Please use the official download-package for this. Only these package including the needed Symfony-Libraries! The current release package is [V.1.1.0](https://github.com/downloads/thaberkern/timehive/timehive_1.1.0.zip)
 2. Copy the sourcecode to one of your Webservers.
 3. Create a virtual host with the web-directory as the root-folder
 4. Rename the config/databases.yml.dist to config/databases.yml. Open the file and change the database-settings under *prod:* to fit your needs
