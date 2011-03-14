@@ -1,6 +1,5 @@
 <?php
 
-
 class TimeLogItemTable extends Doctrine_Table
 {
     

@@ -1,5 +1,3 @@
-<?php use_helper('Form', 'Object'); ?>
-
 <?php if(!isset($time_item)) $time_item = null;?>
 
 <?php $unique_id = uniqid();?>

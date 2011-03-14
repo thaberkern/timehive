@@ -1,3 +1,5 @@
+<?php use_helper('Form', 'Object'); ?>
+
 <?php use_javascript('jquery.min.js');?>
 <?php use_javascript('jquery-ui.min.js');?>
 <?php use_javascript('jquery.form.js');?>
@@ -14,6 +16,8 @@
 <script type="text/javascript">
     var currentUniqueId = null;
     var currentWeekday = 0;
+    
+    var valuesChanged = false;
     
     $(document).ready(function() {
         
@@ -53,6 +57,8 @@
         
                 $("#edit-modal-form").dialog('close'); 
                 editForm.resetForm(); 
+                
+                valuesChanged = true;
             }
 	}); 
         
@@ -89,6 +95,25 @@
         $("#edit-modal-form").dialog('open');
         
     }
+    
+    function jumpTo(url) {
+        if (valuesChanged) {
+            $( "#dialog-confirm" ).dialog({
+                resizable: false,
+                height:140,
+                modal: true,
+                buttons: {
+                        "Delete all items": function() {
+                                $( this ).dialog( "close" );
+                        },
+                        Cancel: function() {
+                                $( this ).dialog( "close" );
+                        }
+                }
+            });
+
+        }
+    }
 
     function addTimeEntry(weekday, project_id) {
         new $.ajax(
@@ -123,13 +148,13 @@
                             <th class="tc month" colspan="8">
                                 <?php $prev_week = date('W', $weekstart - (7 * 24 * 60 * 60)); ?>
                                 <?php $prev_year = date('Y', $weekstart - (7 * 24 * 60 * 60)); ?>
-                                <a href="<?php echo url_for('timesheet/index?week='.$prev_week.'&year='.$prev_year);?>"><?php echo image_tag('cal-left.png'); ?></a>
+                                <a onclick="javascript: jumpTo('<?php echo url_for('timesheet/index?week='.$prev_week.'&year='.$prev_year);?>')" href="#"><?php echo image_tag('cal-left.png'); ?></a>
                                 <?php echo __('%1 to %2', array('%1'=>format_date($weekstart, 'p'),
                                                                 '%2'=>format_date($weekstart + (6 * 24 * 60 * 60), 'p')));?>
 
                                 <?php $next_week = date('W', $weekstart + (7 * 24 * 60 * 60)); ?>
                                 <?php $next_year = date('Y', $weekstart + (7 * 24 * 60 * 60)); ?>
-                                <a href="<?php echo url_for('timesheet/index?week='.$next_week.'&year='.$next_year);?>"><?php echo image_tag('cal-right.png'); ?></a>
+                                <a onclick="javascript: jumpTo('<?php echo url_for('timesheet/index?week='.$next_week.'&year='.$next_year);?>')" href="#"><?php echo image_tag('cal-right.png'); ?></a>
                             </th>
                         </tr>
                         <tr>
