@@ -21,34 +21,20 @@ Installation
 At the moment there is no installation automatic process to help you doing a proper installation of Timehive. For now you have to do the following steps manually
 
 1. Get your copy of TimeHive via [GitHub](https://github.com/thaberkern/timehive). 
-  * Please use the official download-package for this. Only these package including the needed Symfony-Libraries! The current release package is [V.1.1.0](https://github.com/downloads/thaberkern/timehive/timehive_1.1.0.zip)
+  
+  * Please use the official download-package for this. Only these package including the needed Symfony-Libraries! The current release package is [V.1.2.0](https://github.com/downloads/thaberkern/timehive/timehive-1.2.0.zip)
+
 2. Copy the sourcecode to one of your Webservers.
-3. Create a virtual host with the web-directory as the root-folder
-4. Rename the config/databases.yml.dist to config/databases.yml. Open the file and change the database-settings under *prod:* to fit your needs
-5. Rename the config/app.yml.dist to config/app.yml. Open the file an change the e-mail-settings (smtp)
-6. Fire up a console window to setup the database structure. For that run the following command
+3. Create a virtual host with the web-directory as the root-folder. If you have an existing Webserver with a given file structure rename the webfolder with the root folder of your webserver. Do not (!!) copy the entire timehive folder to the root folder!
+4. Start running the commanline-installer with the following command. This installer will guide you through some questions to complete you installation
 
-    $> php symfony doctrine:build --all-classes --and-migrate --env=prod
+    php symfony timehive:install --env=prod
 
-7. Edit the following database tables
-    * tb_account:
-        * type: unlimited
-        * name: Your organisation name
-        * workdays: 31
-    * tb_user:
-        * first_name
-        * last_name
-        * email
-        * account_id: 1
-        * username
-        * password: MD5!
-        * administrator: 1
-
-8. If you want to use automatic reminder E-Mails you need to add the following command to a cronjob (Once a day, for example at 22:00 o'clock)
+5. If you want to use automatic reminder E-Mails you need to add the following command to a cronjob (Once a day, for example at 22:00 o'clock)
 
     php symfony timehive:check-missing-bookings --env=prod --application=frontend
 
-9. You are done! Open your browser and log in :)
+6. You are done! Open your browser and log in :)
 
 
 
