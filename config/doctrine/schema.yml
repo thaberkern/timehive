@@ -6,6 +6,8 @@ Account:
     valid_until: { type: date }
     name: { type: string(100) }
     workingdays: { type: integer(20) }
+    max_hours_per_day: { type: double }
+    default_working_time: { type: double }
   actAs:
     Timestampable: ~
     

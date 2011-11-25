@@ -56,6 +56,7 @@
                                     <?php if ($user->locked):?>
                                         <?php echo image_tag('lock', array('title'=>__('Locked'), 'alt'=>'Locked'));?>
                                     <?php endif;?>
+                                    &nbsp;
                                 </td>
                                 <td class="tc"><?php echo format_date($user->created_at, 'P');?></td>
                                 <td class="tc">

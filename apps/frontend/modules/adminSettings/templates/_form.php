@@ -30,6 +30,16 @@
         <label><strong><?php echo __('Account plan type');?></strong></label>
         <?php echo __('account.'.$form->getObject()->type); ?>
     </fieldset>
+    
+    <fieldset>
+        <legend><strong><?php echo __('Workingday');?></strong></legend>
+        <strong><?php echo $form['max_hours_per_day']->renderLabel() ?></strong>
+        <?php echo $form['max_hours_per_day'] ?>
+        <small><?php echo 'Workingtime + overtime';?></small>
+        <strong><?php echo $form['default_working_time']->renderLabel() ?></strong>
+        <?php echo $form['default_working_time'] ?>
+        <small><?php echo 'Default value for users without own workingtime settings';?></small>
+    </fieldset>
 
     <?php $workingdays = $form->getObject()->workingdays;?>
     <fieldset>

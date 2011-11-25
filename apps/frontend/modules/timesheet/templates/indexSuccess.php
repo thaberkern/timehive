@@ -19,6 +19,8 @@
     
     var valuesChanged = false;
     
+    var MAX_HOURS_PER_DAY = <?php echo $account->max_hours_per_day;?>;
+    
     $(document).ready(function() {
         
         for (wd=1; wd <=7; wd++) {
@@ -69,7 +71,7 @@
 	   modal: true,
            resizable: false,
 	   buttons: {
-	      '<?php echo __('Save');?>': function() 
+	      '<?php echo __('Apply');?>': function() 
 		  { 
                     $("#edit-form").submit(); 
 		  },
@@ -80,6 +82,7 @@
 		  }
 	   }
 	});
+        
     });
     
     function editTimeItem(unique_id, weekday) {
@@ -100,18 +103,28 @@
         if (valuesChanged) {
             $( "#dialog-confirm" ).dialog({
                 resizable: false,
-                height:140,
+                height: 180,
+                width: 400,
                 modal: true,
+                resizable: false,
+                autoOpen: true,
                 buttons: {
-                        "Delete all items": function() {
-                                $( this ).dialog( "close" );
-                        },
-                        Cancel: function() {
-                                $( this ).dialog( "close" );
-                        }
+                    "Save changes": function() {
+                        $( this ).dialog( "close" );
+                        $('#timetrack').submit();
+                    },
+                    "Discard changes": function() {
+                        $( this ).dialog( "close" );
+                        location.href = url;
+                    },
+                    Cancel: function() {
+                        $( this ).dialog( "close" );
+                    }
                 }
             });
-
+        }
+        else {
+            location.href = url;
         }
     }
 
@@ -140,7 +153,7 @@
                     </div>
                 <?php endif;?>
                 <div id="warn-total-over-max" class="msg msg-error" style="display: none;">
-                    <p><?php echo __('You have days with more than 24 hours worktime! You can not save this timesheet until this problem is resolved');?>!</p>
+                    <p><?php echo __('You have days with more than %max_worktime% hours worktime! You can not save this timesheet until this problem is resolved', array('%max_worktime%'=>$account->max_hours_per_day));?>!</p>
                 </div>
                 <table class="calendar" cellspacing="0">
                     <thead>
@@ -294,4 +307,8 @@
             </tbody>
         </table>
     </form>    
+</div>
+
+<div id="dialog-confirm" style="display: none;" title="Unsaved items">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span><?php echo __('You have modified timesheet entries, but did not save them. Do you want to save modifications before leaving this page?');?></p>
 </div>

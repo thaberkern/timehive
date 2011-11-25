@@ -38,6 +38,7 @@ class UserTable extends Doctrine_Table
         return Doctrine_Query::create()
                             ->from('User u')
                             ->where('u.locked <> ?', true)
+                            ->andWhere('u.deleted_at IS NULL')
                             ->execute();
     }
 

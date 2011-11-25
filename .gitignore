@@ -7,3 +7,5 @@ web/web.config
 lib/filter/doctrine/base/*
 lib/model/doctrine/base/*
 lib/form/doctrine/base/*
+.idea
+*.iml

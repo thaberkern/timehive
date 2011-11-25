@@ -19,7 +19,7 @@ function recalcTotalHours(unique_id, field, weekday) {
         }
     }
     
-    if (total > 24.0) {
+    if (total > MAX_HOURS_PER_DAY) {
         totalErrors[weekday] = true;
     }
     else {

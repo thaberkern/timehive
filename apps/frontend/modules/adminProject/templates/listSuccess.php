@@ -50,6 +50,8 @@
                                 <td class="tc">
                                     <?php if ($project->deactivated):?>
                                         <?php echo image_tag('lock', array('alt'=>__('Locked')));?>
+                                    <?php else: ?>
+                                        &nbsp;
                                     <?php endif;?>
                                 </td>
                                 <td class="tc">

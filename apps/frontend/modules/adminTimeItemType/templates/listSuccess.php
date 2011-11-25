@@ -40,6 +40,8 @@
                                 <td class="tc">
                                     <?php if ($type->default_item):?>
                                         <img src="<?php echo image_path('tick');?>" alt="<?php echo __('default');?>" />
+                                    <?php else: ?>
+                                        &nbsp;
                                     <?php endif;?>
                                 </td>
                                 <td class="tc">
