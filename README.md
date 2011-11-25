@@ -22,7 +22,7 @@ At the moment there is no installation automatic process to help you doing a pro
 
 1. Get your copy of TimeHive via [GitHub](https://github.com/thaberkern/timehive). 
   
-  * Please use the official download-package for this. Only these package including the needed Symfony-Libraries! The current release package is [V.1.2.0](https://github.com/downloads/thaberkern/timehive/timehive-1.2.0.zip)
+  * Please use the official download-package for this. Only these package including the needed Symfony-Libraries! The current release package is [V.1.3.0](https://github.com/downloads/thaberkern/timehive/timehive-1.3.0.zip)
 
 2. Copy the sourcecode to one of your Webservers.
 3. Create a virtual host with the web-directory as the root-folder. If you have an existing Webserver with a given file structure rename the webfolder with the root folder of your webserver. Do not (!!) copy the entire timehive folder to the root folder!
