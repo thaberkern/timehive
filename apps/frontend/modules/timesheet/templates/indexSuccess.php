@@ -19,7 +19,7 @@
     
     var valuesChanged = false;
     
-    var MAX_HOURS_PER_DAY = <?php echo $account->max_hours_per_day;?>;
+    var MAX_HOURS_PER_DAY = <?php echo $account->max_hours_per_day != "" ? $account->max_hours_per_day : 8;?>;
     
     $(document).ready(function() {
         
