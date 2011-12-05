@@ -34,7 +34,7 @@
                                         <option value="delete"><?php echo __('delete');?></option>
                                     </select>
                                 </label>
-                                <input class="button altbutton" type="submit" value="<?php echo __('OK');?>" />
+                                <input class="button altbutton" onclick="return window.confirm('Are you sure?');" type="submit" value="<?php echo __('OK');?>" />
                             </td>
                         </tr>
                     </tfoot>

@@ -75,6 +75,7 @@ class adminProjectActions extends sfActions
         }
 
         $query->whereIn('p.id', $ids);
+        $query->andWhere('p.account_id=?', $this->getUser()->getAttribute('account_id'));
         $query->execute();
 
         $this->redirect('adminProject/list');

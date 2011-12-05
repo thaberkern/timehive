@@ -39,7 +39,7 @@ EOF;
         foreach($users as $user) {
             
             if (false == TimeLogItemTable::getInstance()->updateMissedBookings(time(), $user)) {
-                if ($user->Setting->reminder == true) {
+                if ($user->Setting->reminder == true && $user->Account->workingdays & date('N') == date('N')) {
                     $mailer = $this->getMailer();
 
                     $mailserver = sfConfig::get('app_system_email');
