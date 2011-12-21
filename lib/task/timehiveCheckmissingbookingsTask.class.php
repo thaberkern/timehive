@@ -39,7 +39,7 @@ EOF;
         foreach($users as $user) {
             
             if (false == TimeLogItemTable::getInstance()->updateMissedBookings(time(), $user)) {
-                if ($user->Setting->reminder == true && $user->Account->workingdays & date('N') == date('N')) {
+                if ($user->Setting->reminder == true && $this->isWorkingDay(date('N'), $user)) {
                     $mailer = $this->getMailer();
 
                     $mailserver = sfConfig::get('app_system_email');
@@ -66,6 +66,22 @@ EOF;
                 }
             }            
         }
+    }
+
+    protected function isWorkingDay($weekday, $user) {
+        $daycode = 0;
+
+        switch ($weekday) {
+            case 1: $daycode = 1; break;
+            case 2: $daycode = 2; break;
+            case 3: $daycode = 4; break;
+            case 4: $daycode = 8; break;
+            case 5: $daycode = 16; break;
+            case 6: $daycode = 32; break;
+            case 7: $daycode = 64; break;
+        }
+
+        return ($user->Account->workdays & $daycode) == $daycode;
     }
 
     protected function getI18N($culture = 'en')
