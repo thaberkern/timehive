@@ -81,7 +81,7 @@ EOF;
             case 7: $daycode = 64; break;
         }
 
-        return ($user->Account->workdays & $daycode) == $daycode;
+        return ($user->Account->workingdays & $daycode) == $daycode;
     }
 
     protected function getI18N($culture = 'en')
