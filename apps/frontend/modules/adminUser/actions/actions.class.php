@@ -80,6 +80,7 @@ class adminUserActions extends sfActions
         }
 
         $query->whereIn('u.id', $ids);
+        $query->andWhere('it.account_id = ?', $this->getUser()->getAttribute('account_id'));
         $query->execute();
 
         $this->redirect('adminUser/list');

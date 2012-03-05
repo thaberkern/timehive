@@ -29,7 +29,9 @@ class reportActions extends sfActions
         $pagesize = $request->getParameter('pagesize', 20);
         $this->last_bookings_pager = new sfDoctrinePager('TimeLogItem', $pagesize);
         $this->last_bookings_pager->setQuery(TimeLogItemTable::getInstance()
-                                            ->getFilterQuery($filter, $this->getUser()->getAttribute('uid')));
+                                            ->getFilterQuery($filter,
+                                                                $this->getUser()->getAttribute('uid'),
+                                                                $account_id));
         $this->last_bookings_pager->setPage($request->getParameter('page', 1));
         $this->last_bookings_pager->init();
 
@@ -43,10 +45,14 @@ class reportActions extends sfActions
     {
         $filter = $this->checkFilter($request);
 
+        $account_id = $this->getUser()->getAttribute('account_id');
+
         $pagesize = $request->getParameter('pagesize', 20);
         $this->no_bookings_pager = new sfDoctrinePager('MissingTimeItemEntry', $pagesize);
         $this->no_bookings_pager->setQuery(MissingTimeItemEntryTable::getInstance()
-                                            ->getFilterQuery($filter, $this->getUser()->getAttribute('uid')));
+                                            ->getFilterQuery($filter,
+                                                             $this->getUser()->getAttribute('uid'),
+                                                             $account_id));
         $this->no_bookings_pager->setPage($request->getParameter('page', 1));
         $this->no_bookings_pager->init();
 

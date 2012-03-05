@@ -11,7 +11,9 @@
             </div>
         <?php endif; ?>
         <div id="box1-tabular" class="content">
-            <form class="plain" action="<?php echo url_for('adminUser/bulk');?>" method="post">
+            <form class="plain" action="<?php echo url_for('adminUser/bulk');?>"
+                  onsubmit="return confirm('<?php echo __('Do you really want to execute this bulk operation?');?>')"
+                  method="post">
                 <table cellspacing="0">
                     <thead>
                         <tr>

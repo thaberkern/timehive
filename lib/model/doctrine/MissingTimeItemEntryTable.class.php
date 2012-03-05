@@ -15,10 +15,11 @@ class MissingTimeItemEntryTable extends Doctrine_Table
                         ->orderBy('e.day DESC');
     }
 
-    public function getFilterQuery($filter, $user_id = null)
+    public function getFilterQuery($filter, $user_id = null, $account_id)
     {
         $query = Doctrine_Query::create()
                     ->from('MissingTimeItemEntry e')
+                    ->innerJoin('e.User u')
                     ->orderBy('e.day DESC');
 
         if (array_key_exists('user', $filter)) {
@@ -38,6 +39,8 @@ class MissingTimeItemEntryTable extends Doctrine_Table
         if (array_key_exists('dateTo', $filter)) {
             $query->andWhere('e.day<=?', array($filter['dateTo']));
         }
+
+        $query->andWhere('u.account_id = ?', $account_id);
 
         return $query;
     }

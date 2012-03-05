@@ -96,6 +96,7 @@ class adminTimeItemTypeActions extends sfActions
         $query->update('TimeItemType it')
               ->set('deleted_at', '?', date('Y-m-d H:i:s'))
               ->whereIn('it.id', $ids)
+              ->andWhere('it.account_id = ?', $this->getUser()->getAttribute('account_id'))
               ->execute();
 
         $this->redirect('adminTimeItemType/list');

@@ -91,6 +91,7 @@ class adminRoleActions extends sfActions
         $query->update('Role r')
               ->set('deleted_at', '?', date('Y-m-d H:i:s'))
               ->whereIn('r.id', $ids)
+              ->andWhere('it.account_id = ?', $this->getUser()->getAttribute('account_id'))
               ->execute();
 
         $this->redirect('adminRole/list');

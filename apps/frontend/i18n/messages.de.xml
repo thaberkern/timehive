@@ -618,7 +618,11 @@
       <trans-unit id="160">
         <source>Your TimeHive account activation</source>    
         <target>Ihre TimeHive Account Informationen</target>
-      </trans-unit>      
+      </trans-unit>
+      <trans-unit id="161">
+          <source>Do you really want to execute this bulk operation?</source>
+          <target>Wollen Sie diese Sammelaktion wirklich ausführen?</target>
+      </trans-unit>
       <trans-unit id="10000">
         <source>credential.group.timetracking</source>
         <target>Zeiterfassung</target>

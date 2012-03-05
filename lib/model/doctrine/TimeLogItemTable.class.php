@@ -29,10 +29,11 @@ class TimeLogItemTable extends Doctrine_Table
         }
     }
 
-    public function getFilterQuery($filter, $user_id = null)
+    public function getFilterQuery($filter, $user_id = null, $account_id)
     {
         $query = Doctrine_Query::create()
                     ->from('TimeLogItem e')
+                    ->innerJoin('e.User u')
                     ->orderBy('e.itemdate DESC');
 
         if (array_key_exists('user', $filter)) {
@@ -58,6 +59,8 @@ class TimeLogItemTable extends Doctrine_Table
         if (array_key_exists('dateTo', $filter)) {
             $query->andWhere('e.itemdate<=?', array($filter['dateTo']));
         }
+
+        $query->andWhere('u.account_id = ?', $account_id);
 
         return $query;
     }
