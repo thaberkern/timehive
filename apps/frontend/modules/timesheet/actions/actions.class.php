@@ -25,12 +25,12 @@ class timesheetActions extends sfActions
 
         $account_id = $this->getUser()->getAttribute('account_id');
         $this->projects = ProjectTable::getInstance()
-                        ->findByAccountId($account_id);
+            ->findByAccountId($account_id);
 
         $this->user = UserTable::getInstance()->find($this->getUser()->getAttribute('uid'));
 
         $this->item_types = TimeItemTypeTable::getInstance()
-                        ->findByAccountId($account_id);
+            ->findByAccountId($account_id);
 
         $this->default_item_type = TimeItemTypeTable::getInstance()->findDefaultForAccount($account_id);
         if ($this->default_item_type) {
@@ -41,14 +41,14 @@ class timesheetActions extends sfActions
         }
 
         $items = Doctrine_Query::create()
-                        ->from('TimeLogItem ti')
-                        ->where('ti.itemdate >= ? and itemdate <= ? and ti.user_id = ?',
-                                array(date('Y-m-d', $days[1]),
-                                    date('Y-m-d', $days[1] + (5 * 24 * 60 * 60)),
-                                    $this->getUser()->getAttribute('uid')
-                                )
-                        )
-                        ->execute();
+            ->from('TimeLogItem ti')
+            ->where('ti.itemdate >= ? and itemdate <= ? and ti.user_id = ?',
+            array(date('Y-m-d', $days[1]),
+                date('Y-m-d', $days[1] + (5 * 24 * 60 * 60)),
+                $this->getUser()->getAttribute('uid')
+            )
+        )
+            ->execute();
 
         $this->time_items = new TimeItemSelector($items);
         $this->account = AccountTable::getInstance()->find($account_id);
@@ -57,15 +57,15 @@ class timesheetActions extends sfActions
     public function executeField(sfWebRequest $request)
     {
         $this->weekstart = $request->getParameter('weekstart');
-        
+
         $account_id = $this->getUser()->getAttribute('account_id');
 
         $query = new Doctrine_Query();
         $project = ProjectTable::getInstance()
-                        ->find($request->getParameter('project_id'));
+            ->find($request->getParameter('project_id'));
 
         $item_types = TimeItemTypeTable::getInstance()
-                        ->findByAccountId($account_id);
+            ->findByAccountId($account_id);
 
         $this->default_item_type = TimeItemTypeTable::getInstance()->findDefaultForAccount($account_id);
         if ($this->default_item_type) {
@@ -74,7 +74,7 @@ class timesheetActions extends sfActions
         else {
             $this->default_item_type_name = null;
         }
-        
+
         $this->setLayout(false);
         return $this->renderPartial('timeitem', array(
             'item_types' => $item_types,
@@ -88,7 +88,7 @@ class timesheetActions extends sfActions
     public function executeUpdate($request)
     {
         $time_values = $request->getParameter('time', array());
-        
+
         $user = UserTable::getInstance()->find($this->getUser()->getAttribute('uid'));
 
         $this->time_values = $time_values;
@@ -97,7 +97,7 @@ class timesheetActions extends sfActions
             if (!array_key_exists($i, $time_values)) {
                 continue;
             }
-            
+
             $projects = $time_values[$i];
 
             $booking_timestamp = $request->getParameter('weekstart') + ($i - 1) * 24 * 60 * 60;
@@ -107,10 +107,10 @@ class timesheetActions extends sfActions
                 foreach ($projects as $pid => $project) {
                     $query = new Doctrine_Query();
                     $query->delete('TimeLogItem ti')->where('ti.user_id=? AND ti.project_id=? AND ti.itemdate=?',
-                                    array($this->getUser()->getAttribute('uid'),
-                                        $pid,
-                                        $booking_date))
-                            ->execute();
+                        array($this->getUser()->getAttribute('uid'),
+                            $pid,
+                            $booking_date))
+                        ->execute();
 
                     for ($time_index = 0; $time_index < count($project['time']); $time_index++) {
                         $time_value = $project['time'][$time_index];
@@ -120,8 +120,8 @@ class timesheetActions extends sfActions
                         if (($time_value != "") && ($time_value != 0)) {
                             $type_query = new Doctrine_Query();
                             $type = $type_query->from('TimeItemType tit')
-                                            ->where('tit.name=?', array($time_type))
-                                            ->fetchOne();
+                                ->where('tit.name=? and tit.account_id=?', array($time_type, $this->getUser()->getAttribute('account_id')))
+                                ->fetchOne();
 
                             $current_value = new TimeLogItem();
 
@@ -136,8 +136,8 @@ class timesheetActions extends sfActions
                     }
                 }
 
-                TimeLogItemTable::getInstance()->updateMissedBookings($booking_timestamp, 
-                                                                        $user);
+                TimeLogItemTable::getInstance()->updateMissedBookings($booking_timestamp,
+                    $user);
             }
         }
 

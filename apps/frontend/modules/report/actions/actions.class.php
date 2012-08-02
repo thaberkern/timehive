@@ -94,7 +94,6 @@ class reportActions extends sfActions
                                                              $this->projects,
                                                              $this->user,
                                                              $account_id);
-
     }
 
     public function executeClearFilter(sfWebRequest $request)
