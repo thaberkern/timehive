@@ -110,7 +110,7 @@ class TimeLogItemTable extends Doctrine_Table
                                     ->execute();
 
         $project_totals = array();
-	foreach ($result as $project) {
+	    foreach ($result as $project) {
             $project_totals[$project->id]['project'] = $project;
             foreach ($project->TimeLogItems as $time_item) {
                 $project_totals[$project->id]['items'][$time_item->user_id]['user'] = $time_item->User;
@@ -123,21 +123,31 @@ class TimeLogItemTable extends Doctrine_Table
 
     public function updateMissedBookings($day, $user)
     {
-        Doctrine_Query::create()
-                        ->delete()
-                        ->from('MissingTimeItemEntry e')
-                        ->where('e.day = ?', array(date('Y-m-d', $day)))
-                        ->andWhere('e.user_id = ?', array($user->id))
-                        ->execute();
+        $entry = Doctrine_Query::create()
+                    ->from('MissingTimeItemEntry e')
+                    ->where('e.day = ?', array(date('Y-m-d', $day)))
+                    ->andWhere('e.user_id = ?', array($user->id))
+                    ->fetchOne();
 
         $item_count = count($user->getTimeEntriesByDay($day));
         if ($item_count == 0) {
-            $entry = new MissingTimeItemEntry();
-            $entry->day = date('Y-m-d', $day);
-            $entry->user_id = $user->id;
-            $entry->save();
-
+            if (!$entry) {
+                $entry = new MissingTimeItemEntry();
+                $entry->day = date('Y-m-d', $day);
+                $entry->user_id = $user->id;
+                $entry->save();
+            }
             return false;
+        }
+        else {
+            if ($entry) {
+                Doctrine_Query::create()
+                    ->delete()
+                    ->from('MissingTimeItemEntry e')
+                    ->where('e.day = ?', array(date('Y-m-d', $day)))
+                    ->andWhere('e.user_id = ?', array($user->id))
+                    ->execute();
+            }
         }
 
         return true;
