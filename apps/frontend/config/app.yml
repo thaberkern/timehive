@@ -1,5 +1,5 @@
 all:
-  version: 1.3.6
+  version: 1.3.7
   
   user:
     cultures: [de,en]

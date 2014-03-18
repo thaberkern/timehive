@@ -122,6 +122,12 @@ class timesheetActions extends sfActions
                             $type = $type_query->from('TimeItemType tit')
                                 ->where('tit.name=? and tit.account_id=?', array($time_type, $this->getUser()->getAttribute('account_id')))
                                 ->fetchOne();
+							
+							if (!$type) {
+	                            $type = $type_query->from('TimeItemType tit')
+	                                ->where('tit.default_item=1 and tit.account_id=?', array($time_type, $this->getUser()->getAttribute('account_id')))
+	                                ->fetchOne();
+							}
 
                             $current_value = new TimeLogItem();
 
